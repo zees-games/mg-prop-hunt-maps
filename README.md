@@ -1,4 +1,4 @@
-The maps for [**mg-prop-hunt**](https://github.com/gamemann/mg-prop-hunt): a whole primary school with its grounds, a family house with a garden and a pool, an office floor, and a clearing in the woods at golden hour. Four maps to start with, plus the practice house built into the game.
+The maps for [**mg-prop-hunt**](https://github.com/zees-games/mg-prop-hunt): a whole primary school with its grounds, a family house with a garden and a pool, an office floor, and a clearing in the woods at golden hour. Four maps to start with, plus the practice house built into the game.
 
 Every map is a **JSON document**, not a scene. A server reads the documents in its map directory and sends the one it is playing to every client when the map changes, so players need no map files at all and a new map is one file dropped into a directory. [`maps/README.md`](maps/README.md) is the format.
 
