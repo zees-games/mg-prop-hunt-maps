@@ -6,7 +6,7 @@ The maps mg-prop-hunt plays, as JSON documents. Read `../../CLAUDE.md` and `../m
 
 **`tools/build_maps.py` writes every document, and the JSON is committed.** Edit the builder, run it, commit both. `--check` (CI) fails when a committed file differs from what the builder writes. The builder exists because a building is hundreds of boxes that have to meet: a wall with a door in it is five boxes whose edges are the door's, and a classroom is thirty desks and chairs in rows.
 
-**Prop sizes are a snapshot** (`tools/prop_sizes.json`), copied from mg-prop-hunt's `props/catalogue.json` by `--sync-sizes`, so the builder (and CI) runs without the game checked out. The builder needs a prop's size to stand it against a wall, on a table, or to keep a spawn clear of it; a prop it does not know stops the build.
+**Prop sizes are a snapshot** (`tools/prop_sizes.json`), copied from mg-prop-hunt's `props/catalogue.json` by `--sync-sizes`, so the builder (and CI) runs without the game checked out. The builder needs a prop's size to stand it against a wall, on a table, or to keep a spawn clear of it; a prop it does not know stops the build. **`on()` rests a prop on what is under its footprint**, from the support's `tops` grid (copied from the game's `props/pieces.json`, its part-shaped collision): a bed's mattress, not its headboard's height; a corner desk's notch is floor, so put things on its arms. Re-run `--sync-sizes` after the game re-measures its props.
 
 ## Things the builder decides for you
 
