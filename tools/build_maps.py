@@ -1327,7 +1327,9 @@ def woods():
     m.prop("survival_barrel", 9.0, 6.0)
     m.prop("survival_chest", -3.6, -9.4, 70.0)
     for i in range(9):
-        m.prop("nature_crop_pumpkin" if i % 3 else "nature_crop_melon", 16.0 + (i % 3) * 1.8, -10.0 + (i // 3) * 1.8, i * 40.0)
+        # 2.2 m apart: a crop is 1.1 m across, and at 1.8 m the paths between them were too
+        # narrow to walk, so nobody could get in among them (mg-prop-hunt's headless_bots).
+        m.prop("nature_crop_pumpkin" if i % 3 else "nature_crop_melon", 15.6 + (i % 3) * 2.2, -10.0 + (i // 3) * 2.2, i * 40.0)
     # The gate on the east side, clear of the crops and the pines west of the patch (the west
     # gate opened onto a row of melons).
     fence(m, 14.5, -11.5, 22.0, -4.0, height=1.0, gaps=(("e", 3.0, 4.6),))
