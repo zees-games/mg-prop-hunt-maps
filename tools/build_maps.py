@@ -1354,7 +1354,10 @@ def woods():
                 continue
             if C0 - 3 < x < C1 + 3 and D0 - 4 < z < D1 + 3:
                 continue
-            m.prop(kinds[i % len(kinds)], x, z, (i * 53) % 360)
+            # Two of the nearest ring are made to be climbed (mg-prop-hunt's climbing trees): a
+            # limb up there is somewhere a prop is never looked for.
+            kind = "nature_climbtree_oak" if ring == 0 and k in (2, 7) else kinds[i % len(kinds)]
+            m.prop(kind, x, z, (i * 53) % 360)
             i += 1
             if k % 3 == 0 and not (-31.5 < x + 2.2 < -16.5 and 14.5 < z - 1.4 < 29.5):
                 small = ["nature_plant_bush", "nature_rock_small_a", "nature_stump_round", "nature_plant_bush_detailed",
@@ -1363,7 +1366,7 @@ def woods():
                 m.prop(small, x + 2.2, z - 1.4, (i * 71) % 360)
     for x, z in ((-12.0, 4.0), (9.0, -6.0), (-15.0, -8.0), (6.0, 26.0), (-12.0, 25.0), (20.0, 12.0)):
         m.prop("nature_rock_tall_a", x, z, (x * 13) % 360)
-    m.prop("nature_tree_pine_round_a", 22.0, -14.0)
+    m.prop("nature_climbtree_fork", 22.0, -14.0)
     # The edge of the world: a ring of rock, so nobody walks off.
     for x0, x1, z0, z1 in ((-S, S, -S - 1, -S), (-S, S, S, S + 1), (-S - 1, -S, -S, S), (S, S + 1, -S, S)):
         m.span(x0, x1, 0.0, 4.0, z0, z1, "stone", (0.55, 0.55, 0.5))

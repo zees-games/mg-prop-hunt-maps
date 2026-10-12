@@ -1559,7 +1559,7 @@
    "yaw": 355
   },
   {
-   "id": "nature_tree_oak_fall",
+   "id": "nature_climbtree_oak",
    "at": [
     -7.362,
     0.0,
@@ -2360,7 +2360,7 @@
    "yaw": 260.0
   },
   {
-   "id": "nature_tree_pine_round_a",
+   "id": "nature_climbtree_fork",
    "at": [
     22.0,
     0.0,
