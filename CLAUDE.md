@@ -23,4 +23,6 @@ Outdoor maps are lit by the sun and the ambient colour in the document's `enviro
 
 **This repository is a pack of its own, mounted on the server alone.** mg-prop-hunt's `game.yml` names it under `server_dependencies`; a server mounts it and the game adds that mount's `maps/` to its catalogue (`PhModule._add_delivered_maps`). It is never in a client's content sync: a client is sent the one document being played. `.github/workflows/release.yml` runs `build_maps.py --check` and then dot-ci's release with `pack: true` (and `server-compat: false`, because there is no code in it to check). dot-server-deploy's `content/prophunt_maps/` and `examples/prophunt_client` (22 checks) prove the delivered pair works over a real socket.
 
+`project.godot` exists only so dot-ci's release can import this repository and attach the `-pack.zip`; it carries the editor's own header and no comments, because the editor rewrites the file on its first save and a checkout would show it modified.
+
 **Not yet on GitHub** (2026-10-09): the remote is set, the repository is the owner's to create, and nothing is pushed or published.
