@@ -32,6 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SIZES_FILE = os.path.join(HERE, "prop_sizes.json")
 GAME_CATALOGUE = os.path.join(ROOT, "..", "mg-prop-hunt", "props", "catalogue.json")
+GAME_PIECES = os.path.join(ROOT, "..", "mg-prop-hunt", "props", "pieces.json")
 
 WALL = 0.2          # an interior wall
 OUTER = 0.3         # an exterior wall, brick outside and paint inside
@@ -62,6 +63,41 @@ def size_of(pid):
     if s is None:
         raise SystemExit("unknown prop %s (run --sync-sizes?)" % pid)
     return s["size"]
+
+
+def rest_on(under, dx, dz, pid, yaw):
+    """How high above `under`'s base a prop `pid` set down at (dx, dz) from its middle comes to
+    rest: the highest of the support's `tops` (the game's collision, sampled on a grid by its
+    tools/measure_props.gd) under the prop's footprint, or the support's box top when it collides
+    as its box."""
+    s = SIZES[under["id"]]
+    tops = s.get("tops")
+    sx, sy, sz = s["size"]
+    if not tops:
+        return sy
+    n = int(round(len(tops) ** 0.5))
+    # Into the support's own frame: the map turns it by its yaw about +y (multiples of 90 here),
+    # world = (x cos + z sin, -x sin + z cos), so local = (wx cos - wz sin, wx sin + wz cos).
+    turn = int(round(under.get("yaw", 0.0))) % 360
+    lx, lz = {0: (dx, dz), 90: (-dz, dx), 180: (-dx, -dz), 270: (dz, -dx)}.get(turn, (dx, dz))
+    w, d = footprint(pid, (yaw - under.get("yaw", 0.0)))
+    best = None
+    nearest = None
+    for k in range(n):
+        for i in range(n):
+            h = tops[k * n + i]
+            if h is None:
+                continue
+            x = -sx / 2 + (i + 0.5) * sx / n
+            z = -sz / 2 + (k + 0.5) * sz / n
+            gap = max(abs(x - lx) - w / 2, abs(z - lz) - d / 2, 0.0)
+            if gap <= 0.0 and (best is None or h > best):
+                best = h
+            if nearest is None or gap < nearest[0]:
+                nearest = (gap, h)
+    if best is None:
+        best = nearest[1] if nearest else sy
+    return best
 
 
 def footprint(pid, yaw):
@@ -188,8 +224,10 @@ class Map:
         return p
 
     def on(self, pid, under, dx=0.0, dz=0.0, yaw=0.0):
-        """A prop standing on top of another one, `under` a prop dict this built."""
-        top = under["at"][1] + size_of(under["id"])[1]
+        """A prop standing on top of another one, `under` a prop dict this built, resting on what
+        is under its footprint there (`rest_on`): a pillow on a bed's mattress, not at the height
+        of its headboard, which is what the bed's box top was."""
+        top = under["at"][1] + rest_on(under, dx, dz, pid, yaw)
         return self.prop(pid, under["at"][0] + dx, under["at"][2] + dz, yaw, y=top)
 
     def against(self, pid, side, wall_at, along, gap=0.04, y=0.0):
@@ -712,7 +750,8 @@ def school():
     pdesk = m.prop("furniture_desk_corner", 9.0, -13.5)
     m.prop("furniture_chair_desk", 9.6, -14.7, 0.0)
     m.on("furniture_computer_screen", pdesk, dx=0.2, dz=0.2, yaw=180.0)
-    m.on("furniture_lamp_square_table", pdesk, dx=-0.8)
+    # On the desk's back arm: the corner desk is an L, and its notch is floor.
+    m.on("furniture_lamp_square_table", pdesk, dx=-0.8, dz=-0.7)
     m.against("furniture_bookcase_closed", "e", 12.0 - 0.1, -6.0)
     m.against("furniture_bookcase_closed_wide", "w", 4.0 + 0.1, -8.0)
     m.prop("furniture_lounge_chair", 6.5, -5.0, 135.0)
@@ -850,7 +889,7 @@ def house():
     m.prop("furniture_lamp_round_table", -11.6, 4.5, y=0.6)
     m.against("furniture_bookcase_closed_wide", "s", 6.0 - 0.15, -8.0)
     m.prop("furniture_rug_rounded", -7.5, 2.0)
-    m.prop("furniture_pillow", -11.3, 2.6, 90.0, y=0.86)
+    m.on("furniture_pillow", bed, dx=-11.3 - bed["at"][0], dz=2.6 - bed["at"][2], yaw=90.0)
     m.against("furniture_desk", "e", -4.0 - 0.1, 0.5)
     m.prop("furniture_chair_modern_cushion", -5.6, 0.5, 90.0)
     _ = bed
@@ -1011,7 +1050,8 @@ def office():
     m.wall((12.0, 8.0), (24.0, 8.0), "x", "glass", None, height=H, thick=0.06, glass=False, holes=[(1.0, 2.4, 0.0, DOOR_H)])
     md = m.prop("furniture_desk_corner", 21.0, 13.5, 180.0)
     m.prop("furniture_chair_desk", 21.5, 14.5, 180.0)
-    m.on("furniture_computer_screen", md, dx=0.3, yaw=0.0)
+    # On the desk's long arm, not over the L's notch (which is floor).
+    m.on("furniture_computer_screen", md, dx=0.3, dz=0.7, yaw=0.0)
     m.against("furniture_bookcase_closed_wide", "e", 24.0 - 0.2, 10.5)
     m.prop("furniture_lounge_chair", 15.0, 10.0, 45.0)
     m.prop("furniture_lounge_chair", 16.6, 10.0, -45.0)
@@ -1221,8 +1261,15 @@ def sync_sizes():
     with open(GAME_CATALOGUE) as f:
         cat = json.load(f)
     sizes = {p["id"]: {"size": p["size"], "disguise": p["disguise"]} for p in cat["props"]}
+    # Where a thing set down on a prop rests, from the game's part-shaped collision.
+    if os.path.exists(GAME_PIECES):
+        with open(GAME_PIECES) as f:
+            tops = json.load(f).get("tops", {})
+        for pid, grid in tops.items():
+            if pid in sizes:
+                sizes[pid]["tops"] = grid
     with open(SIZES_FILE, "w") as f:
-        json.dump({"comment": "Prop sizes from mg-prop-hunt's props/catalogue.json, copied by tools/build_maps.py --sync-sizes. The builder stacks props on each other with these; the game measures the models, this is a copy.", "props": sizes}, f, indent=1, sort_keys=True)
+        json.dump({"comment": "Prop sizes from mg-prop-hunt's props/catalogue.json, and where a thing set down on a prop rests (tops, from its props/pieces.json), copied by tools/build_maps.py --sync-sizes. The builder stacks props on each other with these; the game measures the models, this is a copy.", "props": sizes}, f, indent=1, sort_keys=True)
         f.write("\n")
     print("copied %d prop sizes" % len(sizes))
 
