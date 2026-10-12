@@ -122,6 +122,9 @@ class Map:
         self.props = []
         self.lights = []
         self.spawns = {"props": [], "hunters": []}
+        # Doorways (cut by wall()) and hallways (room(..., hall=True)), for _check_layout.
+        self.doors = []
+        self.halls = []
 
     # --- Boxes -------------------------------------------------------------
 
@@ -196,6 +199,12 @@ class Map:
                 pos = h1
             self._wall_piece(along, start + pos, start + length, fixed + shift, y0, y0 + height, lthick, lmat, ltint)
 
+        # A hole down to the floor is a doorway: remembered, so nothing is put in it. One wider
+        # than 4 m is an open side (a fence left out along a house), not a doorway.
+        for h0, h1, hb, ht in cuts:
+            if hb <= 0.0 and y0 <= 0.05 and h1 - h0 <= 4.0:
+                self.doors.append({"along": along, "fixed": fixed, "from": start + h0, "to": start + h1})
+
         if glass:
             for h0, h1, hb, ht in cuts:
                 if hb > 0.0:
@@ -256,12 +265,14 @@ class Map:
     # --- Rooms ----------------------------------------------------------------
 
     def room(self, x0, z0, x1, z1, floor_mat, floor_tint=None, height=3.2, ceiling="ceiling", roof="roof",
-             lights=1, energy=1.1, roof_tint=None, eave=0.3):
+             lights=1, energy=1.1, roof_tint=None, eave=0.3, hall=False):
         """A floor, a ceiling over it with a roof above, and its lamps. Walls are separate.
 
         `eave` is how far the roof reaches past the room: over the walls, and out past the
         building. A room beside a taller one wants less, or its roof shows inside the other."""
         self.floor(x0, z0, x1, z1, floor_mat, floor_tint)
+        if hall:
+            self.halls.append((x0, z0, x1, z1))
         if ceiling:
             self.ceiling(x0, z0, x1, z1, height, ceiling, None, roof, roof_tint, eave)
         cols = max(1, int(round((x1 - x0) / 8.0)))
@@ -363,7 +374,65 @@ class Map:
                 if abs(dx) + abs(dz) > 0.01:
                     s["yaw"] = r(math.degrees(math.atan2(-dx, -dz)))
 
+    DOOR_CLEAR = 1.0    # metres kept free in front of and behind a doorway
+    HALL_EDGE = 0.9     # a prop in a hallway stands within this of one of its walls
+
+    def _footprint_box(self, p):
+        """A prop's turned footprint as an axis-aligned rectangle (x0, z0, x1, z1)."""
+        sx, sy, sz = size_of(p["id"])
+        yaw = math.radians(p.get("yaw", 0.0))
+        w = abs(sx * math.cos(yaw)) + abs(sz * math.sin(yaw))
+        d = abs(sx * math.sin(yaw)) + abs(sz * math.cos(yaw))
+        x, _, z = p["at"]
+        return (x - w / 2, z - d / 2, x + w / 2, z + d / 2)
+
+    def _check_layout(self):
+        """Stops the build on furniture in a doorway or out in the middle of a hallway.
+
+        Christian's first play test (2026-10-11) found a sink standing in the school's hallway
+        and furniture blocking rooms. A doorway keeps DOOR_CLEAR either side of its wall free of
+        anything standing on the floor, and a hallway (room(..., hall=True)) has its furniture
+        along its walls, never across the middle where people walk."""
+        problems = []
+        for p in self.props:
+            if p["at"][1] > 0.3 or size_of(p["id"])[1] < 0.1:
+                continue        # on a table or a shelf, or a rug: not in the way
+            fx0, fz0, fx1, fz1 = self._footprint_box(p)
+            for d in self.doors:
+                if d["along"] == "x":
+                    rx0, rx1, rz0, rz1 = d["from"], d["to"], d["fixed"] - self.DOOR_CLEAR, d["fixed"] + self.DOOR_CLEAR
+                else:
+                    rz0, rz1, rx0, rx1 = d["from"], d["to"], d["fixed"] - self.DOOR_CLEAR, d["fixed"] + self.DOOR_CLEAR
+                if fx0 < rx1 and fx1 > rx0 and fz0 < rz1 and fz1 > rz0:
+                    problems.append("%s at %s stands in a doorway (%s wall at %.2f, %.2f..%.2f)" % (p["id"], p["at"], d["along"], d["fixed"], d["from"], d["to"]))
+                    break
+            for hx0, hz0, hx1, hz1 in self.halls:
+                cx, cz = p["at"][0], p["at"][2]
+                if not (hx0 < cx < hx1 and hz0 < cz < hz1):
+                    continue
+                if min(fx0 - hx0, hx1 - fx1, fz0 - hz0, hz1 - fz1) > self.HALL_EDGE:
+                    problems.append("%s at %s stands out in a hallway, away from its walls" % (p["id"], p["at"]))
+        # Solid boxes across a doorway below head height: the school's classroom boards once ran
+        # over the hallway doors at chest height, and two classrooms could not be walked into.
+        for b in self.boxes:
+            if b.get("solid", True) is False:
+                continue
+            (bx, by, bz), (sx, sy, sz) = b["at"], b["size"]
+            if by + sy / 2 < 0.3 or by - sy / 2 > 2.0:
+                continue
+            for d in self.doors:
+                if d["along"] == "x":
+                    rx0, rx1, rz0, rz1 = d["from"], d["to"], d["fixed"] - 0.5, d["fixed"] + 0.5
+                else:
+                    rz0, rz1, rx0, rx1 = d["from"], d["to"], d["fixed"] - 0.5, d["fixed"] + 0.5
+                if bx - sx / 2 < rx1 - 0.01 and bx + sx / 2 > rx0 + 0.01 and bz - sz / 2 < rz1 - 0.01 and bz + sz / 2 > rz0 + 0.01:
+                    problems.append("a %s box at %s blocks a doorway (%s wall at %.2f, %.2f..%.2f)" % (b["mat"], b["at"], d["along"], d["fixed"], d["from"], d["to"]))
+                    break
+        if problems:
+            raise SystemExit("%s:\n  %s" % (self.doc["id"], "\n  ".join(problems)))
+
     def build(self):
+        self._check_layout()
         self._settle_spawns()
         self._face_spawns()
         self.doc["boxes"] = self.boxes
@@ -376,38 +445,59 @@ class Map:
 # --- Furnishing ------------------------------------------------------------------
 
 def classroom(m, x0, z0, x1, z1, board_side="n", tint=(0.92, 0.95, 1.0)):
-    """Rows of desks facing a board, a teacher's desk, bookcases at the back."""
-    # The board on the front wall, as a box on it.
-    if board_side == "n":
-        m.span((x0 + x1) / 2 - 2.6, (x0 + x1) / 2 + 2.6, 0.9, 2.2, z0, z0 + 0.06, "chalkboard")
-        teacher = m.against("furniture_desk", "n", z0 + 1.3, (x0 + x1) / 2 + 2.0)
-        m.prop("furniture_chair_desk", (x0 + x1) / 2 + 2.0, z0 + 0.7, 180.0)
-        m.on("furniture_computer_screen", teacher, dx=-0.3, yaw=0.0)
-        m.on("furniture_books", teacher, dx=0.5)
-        cols = 4
-        rows = 4
-        width = (x1 - x0) - 3.0
-        for i in range(cols):
-            for j in range(rows):
-                cx = x0 + 1.5 + (i + 0.5) * width / cols
-                cz = z0 + 3.6 + j * 2.0
-                if cz > z1 - 2.6:
-                    continue
-                desk = m.prop("furniture_side_table", cx, cz, 180.0)
-                m.prop("furniture_chair", cx, cz + 0.8, 180.0)
-                if (i + j) % 3 == 0:
-                    m.on("furniture_books", desk, dx=-0.3)
-                elif (i * 7 + j) % 5 == 0:
-                    m.on("furniture_laptop", desk, dx=0.2)
-        # The back: bookcases, a plant, a bin, boxes.
-        m.against("furniture_bookcase_open", "s", z1, x0 + 1.2)
-        m.against("furniture_bookcase_closed_doors", "s", z1, x0 + 2.3)
-        m.against("furniture_bookcase_open_low", "s", z1, x1 - 2.0)
-        m.against("furniture_potted_plant", "s", z1, x1 - 0.6)
-        m.prop("furniture_trashcan", x0 + 0.5, z0 + 0.6)
-        m.prop("furniture_cardboard_box_closed", x1 - 0.5, z0 + 0.6, 15.0)
-        m.prop("furniture_coat_rack_standing", x0 + 0.5, z1 - 3.5)
-        m.prop("furniture_speaker_small", x1 - 0.4, z0 + 1.6, -90.0)
+    """Rows of desks facing a board, a teacher's desk, bookcases at the back.
+
+    board_side is the wall the board is on: "n" (z0) or "s" (z1). Put it on the wall away from
+    the door: the north classrooms once had theirs on the hallway wall, across the doorway at
+    chest height, and nobody could walk in. The "s" room is the "n" room mirrored in z."""
+    flip = board_side == "s"
+
+    def Z(z):
+        return z0 + z1 - z if flip else z
+
+    def Y(yaw):
+        return (360.0 - yaw) % 360.0 - 180.0 if flip else yaw
+
+    def put(pid, x, z, yaw=0.0):
+        return m.prop(pid, x, Z(z), Y(yaw))
+
+    def back(pid, along):
+        return m.against(pid, "n" if flip else "s", z0 if flip else z1, along)
+
+    cx = (x0 + x1) / 2
+    if flip:
+        m.span(cx - 2.6, cx + 2.6, 0.9, 2.2, z1 - 0.06, z1, "chalkboard")
+        teacher = m.against("furniture_desk", "s", z1 - 1.3, cx + 2.0)
+    else:
+        m.span(cx - 2.6, cx + 2.6, 0.9, 2.2, z0, z0 + 0.06, "chalkboard")
+        teacher = m.against("furniture_desk", "n", z0 + 1.3, cx + 2.0)
+    put("furniture_chair_desk", cx + 2.0, z0 + 0.7, 180.0)
+    m.on("furniture_computer_screen", teacher, dx=-0.3, yaw=Y(0.0))
+    m.on("furniture_books", teacher, dx=0.5)
+    cols = 4
+    rows = 4
+    width = (x1 - x0) - 3.0
+    for i in range(cols):
+        for j in range(rows):
+            dx = x0 + 1.5 + (i + 0.5) * width / cols
+            dz = z0 + 3.6 + j * 2.0
+            if dz > z1 - 2.6:
+                continue
+            desk = put("furniture_side_table", dx, dz, 180.0)
+            put("furniture_chair", dx, dz + 0.8, 180.0)
+            if (i + j) % 3 == 0:
+                m.on("furniture_books", desk, dx=-0.3)
+            elif (i * 7 + j) % 5 == 0:
+                m.on("furniture_laptop", desk, dx=0.2)
+    # The back: bookcases, a plant, a bin, boxes.
+    back("furniture_bookcase_open", x0 + 1.2)
+    back("furniture_bookcase_closed_doors", x0 + 2.3)
+    back("furniture_bookcase_open_low", x1 - 2.0)
+    back("furniture_potted_plant", x1 - 0.6)
+    put("furniture_trashcan", x0 + 0.5, z0 + 0.6)
+    put("furniture_cardboard_box_closed", x1 - 0.5, z0 + 0.6, 15.0)
+    put("furniture_coat_rack_standing", x0 + 0.5, z1 - 3.5)
+    put("furniture_speaker_small", x1 - 0.4, z0 + 1.6, -90.0)
 
 
 def library(m, x0, z0, x1, z1):
@@ -467,22 +557,25 @@ def cafeteria(m, x0, z0, x1, z1, kitchen_x):
     m.prop("furniture_cardboard_box_open", kitchen_x + 3.2, z1 - 0.6, 20.0)
     m.prop("furniture_cardboard_box_closed", kitchen_x + 2.5, z1 - 0.6, 5.0).update({"at": v3(kitchen_x + 2.5, 0.65, z1 - 0.6)})
     m.prop("furniture_trashcan", x0 + 0.5, z1 - 0.5)
-    m.prop("furniture_trashcan", kitchen_x - 0.9, z0 + 0.6)
+    m.prop("furniture_trashcan", kitchen_x - 2.4, z0 + 0.6)
 
 
 def bathroom(m, x0, z0, x1, z1, stalls=2):
-    """Stalls with toilets along the back, sinks along the side."""
+    """Stalls with toilets along the back wall (z0), sinks along the side by the door (z1).
+
+    The door is in the z1 wall. The stalls were along it until the first play test found a
+    toilet standing in each bathroom's doorway."""
     stall_w = 1.5
     for i in range(stalls):
         sx = x0 + 0.2 + i * stall_w
-        m.prop("furniture_toilet", sx + stall_w / 2, z1 - 0.6, 180.0)
+        m.prop("furniture_toilet", sx + stall_w / 2, z0 + 0.6, 0.0)
         if i > 0:
-            m.span(sx - 0.03, sx + 0.03, 0.15, 2.0, z1 - 1.7, z1, "metal", (0.75, 0.82, 0.88))
-    m.span(x0 + 0.2 + stalls * stall_w - 0.03, x0 + 0.2 + stalls * stall_w + 0.03, 0.15, 2.0, z1 - 1.7, z1, "metal", (0.75, 0.82, 0.88))
+            m.span(sx - 0.03, sx + 0.03, 0.15, 2.0, z0, z0 + 1.7, "metal", (0.75, 0.82, 0.88))
+    m.span(x0 + 0.2 + stalls * stall_w - 0.03, x0 + 0.2 + stalls * stall_w + 0.03, 0.15, 2.0, z0, z0 + 1.7, "metal", (0.75, 0.82, 0.88))
     for i in range(2):
-        m.against("furniture_bathroom_sink_square", "e", x1, z0 + 1.0 + i * 1.2)
-    m.prop("furniture_trashcan", x1 - 0.4, z0 + 3.4)
-    m.against("furniture_bathroom_cabinet", "w", x0, z0 + 0.8)
+        m.against("furniture_bathroom_sink_square", "e", x1, z1 - 2.4 - i * 1.2)
+    m.prop("furniture_trashcan", x1 - 0.4, z1 - 4.6)
+    m.against("furniture_bathroom_cabinet", "w", x0, z1 - 2.6)
 
 
 def lockers(m, x0, x1, z, side, height=2.0):
@@ -621,7 +714,7 @@ def school():
     m.room(-8.0, 2.0, 12.0, 16.0, "carpet", (0.55, 0.35, 0.3), height=H)
     m.room(12.0, 2.0, 40.0, 16.0, "tile", height=H, energy=1.2)
     # The hallway.
-    m.room(-40.0, -2.0, 40.0, 2.0, "tile", (0.95, 0.95, 0.9), height=H, energy=0.9, eave=WALL / 2)
+    m.room(-40.0, -2.0, 40.0, 2.0, "tile", (0.95, 0.95, 0.9), height=H, energy=0.9, eave=WALL / 2, hall=True)
     # South of the hallway (z -16..-2): gym, bathrooms, nurse, principal, lobby, lounge, classrooms C and D.
     m.room(-40.0, -16.0, -22.0, -2.0, "gym", height=6.0, energy=1.4)
     m.room(-22.0, -16.0, -16.0, -2.0, "tile_small", height=H, eave=WALL / 2)
@@ -642,9 +735,10 @@ def school():
         return out
 
     m.wall((X0, Z0), (X1, Z0), "x", "brick", BRICK, height=H, thick=OUTER, inner="paint",
-           holes=windows(X0, X1, skip=(-31.0, -26.0, 0.0)) + [(40.0 - 1.4, 40.0 + 1.4, 0.0, 2.6)])
+           holes=windows(X0, X1, skip=(-31.0, -26.0, -2.0, 2.0)) + [(40.0 - 1.4, 40.0 + 1.4, 0.0, 2.6)])
+    # No windows behind the north classrooms' boards (x -32 and -16, 5.2 m wide).
     m.wall((X0, Z1), (X1, Z1), "x", "brick", BRICK, height=H, thick=OUTER, inner=None,
-           holes=windows(X0, X1, skip=(26.0, 34.0)) + [(26.0 - 0.7 + 40.0, 26.0 + 0.7 + 40.0, 0.0, DOOR_H), (34.0 - 0.7 + 40.0, 34.0 + 0.7 + 40.0, 0.0, DOOR_H)])
+           holes=windows(X0, X1, skip=(26.0, 34.0, -34.0, -30.0, -18.0, -14.0)) + [(26.0 - 0.7 + 40.0, 26.0 + 0.7 + 40.0, 0.0, DOOR_H), (34.0 - 0.7 + 40.0, 34.0 + 0.7 + 40.0, 0.0, DOOR_H)])
     m.wall((X0, Z0), (X0, Z1), "z", "brick", BRICK, height=H, thick=OUTER,
            holes=[(16.0 - 1.2, 16.0 + 1.2, 0.0, 2.6)])
     m.wall((X1, Z0), (X1, Z1), "z", "brick", BRICK, height=H, thick=OUTER,
@@ -695,14 +789,15 @@ def school():
     m.prop("furniture_bench_cushion", 15.0, -1.2, 180.0)
     m.prop("furniture_trashcan", -21.0, -1.5)
     m.prop("furniture_trashcan", 24.0, -1.5)
-    m.prop("furniture_potted_plant", -38.8, -1.4)
-    m.prop("furniture_potted_plant", 38.8, -1.4)
-    m.prop("furniture_cardboard_box_closed", 37.0, 1.1, 30.0)
-    m.prop("furniture_bathroom_sink", -26.0, -1.6, 0.0)
+    # Only what a school hallway has, against its walls and between the doors: no sink (the
+    # first play test found one out here) and no box in front of the lockers.
+    m.prop("furniture_potted_plant", -38.5, -1.7)
+    m.prop("furniture_potted_plant", 38.5, -1.7)
 
     # --- Rooms ---
-    classroom(m, -40.0 + 0.1, 2.0 + 0.1, -24.0 - 0.1, 16.0 - 0.3, "n")
-    classroom(m, -24.0 + 0.1, 2.0 + 0.1, -8.0 - 0.1, 16.0 - 0.3, "n")
+    # The boards on the far wall from the hallway's doors.
+    classroom(m, -40.0 + 0.1, 2.0 + 0.1, -24.0 - 0.1, 16.0 - 0.3, "s")
+    classroom(m, -24.0 + 0.1, 2.0 + 0.1, -8.0 - 0.1, 16.0 - 0.3, "s")
     library(m, -8.0 + 0.1, 2.0 + 0.1, 12.0 - 0.1, 16.0 - 0.3)
     cafeteria(m, 12.0 + 0.1, 2.0 + 0.1, 40.0 - 0.3, 16.0 - 0.3, kitchen_x=33.0)
 
@@ -759,9 +854,10 @@ def school():
     m.prop("furniture_cardboard_box_closed", 5.0, -15.2, 10.0)
 
     # Classroom C becomes the teachers' lounge, and D a science room.
-    m.against("furniture_lounge_sofa_long", "s", -2.0 - 0.1, 18.0)
-    m.prop("furniture_table_coffee", 18.0, -5.0)
-    m.against("furniture_television_modern", "n", -16.0 + 0.3, 18.0)
+    # The sofa clear of the lounge's door (x 19), the table and television in line with it.
+    m.against("furniture_lounge_sofa_long", "s", -2.0 - 0.1, 22.5)
+    m.prop("furniture_table_coffee", 22.5, -5.0)
+    m.against("furniture_television_modern", "n", -16.0 + 0.3, 22.5)
     m.against("furniture_kitchen_cabinet", "e", 26.0 - 0.1, -14.5)
     m.against("furniture_kitchen_sink", "e", 26.0 - 0.1, -13.47)
     cofmach = m.against("furniture_kitchen_cabinet_drawer", "e", 26.0 - 0.1, -12.44)
@@ -847,7 +943,8 @@ def house():
     m.against("furniture_lounge_sofa_corner", "w", -12.0 + 0.15, -7.4)
     m.prop("furniture_table_coffee", -9.0, -6.0, 90.0)
     m.prop("furniture_rug_rectangle", -8.6, -6.0, 90.0)
-    tv = m.against("furniture_cabinet_television", "e", -2.0 - 0.1, -6.0)
+    # Beside the opening into the dining room (z -8..-5), not across it.
+    tv = m.against("furniture_cabinet_television", "e", -2.0 - 0.1, -3.7)
     m.on("furniture_television_modern", tv, yaw=-90.0)
     m.against("furniture_lounge_chair", "n", -10.0 + 0.15, -9.0)
     m.against("furniture_bookcase_open", "s", -2.0 - 0.1, -9.2).update({"yaw": 180.0})
@@ -862,13 +959,14 @@ def house():
         m.prop("furniture_chair_cushion", 0.0, -6.5 + dz, 90.0)
         m.prop("furniture_chair_cushion", 2.0, -6.5 + dz, -90.0)
     m.on("furniture_plant_small1", dt)
-    m.against("furniture_side_table_drawers", "n", -10.0 + 0.15, 1.0)
+    m.against("furniture_side_table_drawers", "n", -10.0 + 0.15, 2.2)
     m.prop("furniture_coat_rack_standing", -1.4, -9.4)
     m.prop("furniture_rug_doormat", 0.0, -9.6)
     # Kitchen.
     for i, pid in enumerate(("furniture_kitchen_cabinet", "furniture_kitchen_stove", "furniture_kitchen_cabinet_drawer",
                              "furniture_kitchen_sink", "furniture_kitchen_cabinet")):
-        p = m.against(pid, "s", -2.0 - 0.1, 5.0 + i * 1.0)
+        # East of the door into the kids' room (x 5.3..6.7): the counter once ran across it.
+        p = m.against(pid, "s", -2.0 - 0.1, 7.4 + i * 1.0)
         if i == 0:
             m.on("furniture_kitchen_microwave", p)
         if i == 2:
@@ -894,7 +992,7 @@ def house():
     m.prop("furniture_chair_modern_cushion", -5.6, 0.5, 90.0)
     _ = bed
     # Bathroom.
-    m.against("furniture_bathtub", "s", 6.0 - 0.15, -1.0)
+    m.against("furniture_bathtub", "s", 6.0 - 0.15, 0.7)
     m.against("furniture_toilet", "e", 2.0 - 0.1, 2.0)
     m.against("furniture_bathroom_sink", "w", -4.0 + 0.1, 3.5)
     m.against("furniture_bathroom_cabinet_drawer", "w", -4.0 + 0.1, 0.5)
@@ -917,8 +1015,9 @@ def house():
         m.prop("furniture_cardboard_box_closed" if i % 2 == 0 else "furniture_cardboard_box_open", x, z, yaw)
     m.prop("furniture_cardboard_box_closed", 13.0, 5.2, 25.0, y=0.65)
     m.against("furniture_side_table_drawers", "w", 12.0 + 0.1, -3.0)
-    m.prop("furniture_trashcan", 19.3, -9.3)
-    m.prop("furniture_trashcan", 18.6, -9.3)
+    # Along the side wall, not in front of the garage door.
+    m.prop("furniture_trashcan", 19.5, -7.6)
+    m.prop("furniture_trashcan", 19.5, -6.9)
 
     # The garden: a deck, a pool, loungers, a fence, trees and beds.
     m.floor(-6.0, 6.0, 10.0, 12.0, "wood", (0.78, 0.62, 0.45), y=0.15, thick=0.3)
@@ -939,7 +1038,9 @@ def house():
     m.on("furniture_plant_small2", pt)
     m.prop("nature_pot_large", -5.0, 7.0, y=0.15)
     m.prop("nature_pot_small", 9.0, 7.0, y=0.15)
-    fence(m, -20.0, 6.3, 20.0, 30.0, height=1.8, gaps=(("w", 4.0, 6.0),))
+    # No fence along the house itself (x -12..20): it stood 0.3 m outside the back wall, across
+    # the back door and the garage's side door.
+    fence(m, -20.0, 6.3, 20.0, 30.0, height=1.8, gaps=(("w", 4.0, 6.0), ("n", 8.0, 40.0)))
     for x, z, kind in ((-16.0, 26.0, "nature_tree_oak"), (15.0, 26.0, "nature_tree_default"), (-16.0, 12.0, "nature_tree_small"),
                        (16.0, 14.0, "nature_tree_pine_round_a"), (0.0, 27.0, "nature_tree_fat")):
         m.prop(kind, x, z, (x * 11) % 360)
@@ -1183,7 +1284,9 @@ def woods():
     m.prop("nature_log_large", 10.0, 3.0, 20.0)
     for i in range(9):
         m.prop("nature_crop_pumpkin" if i % 3 else "nature_crop_melon", 16.0 + (i % 3) * 1.8, -10.0 + (i // 3) * 1.8, i * 40.0)
-    fence(m, 14.5, -11.5, 22.0, -4.0, height=1.0, gaps=(("w", 3.0, 4.6),))
+    # The gate on the east side, clear of the crops and the pines west of the patch (the west
+    # gate opened onto a row of melons).
+    fence(m, 14.5, -11.5, 22.0, -4.0, height=1.0, gaps=(("e", 3.0, 4.6),))
     m.prop("nature_sign", 1.0, -8.0, 160.0)
     m.prop("furniture_table_cross", -9.0, -3.0, 90.0)
     m.prop("furniture_bench", -10.4, -3.0, 90.0)
