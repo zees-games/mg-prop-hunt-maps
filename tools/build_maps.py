@@ -1360,6 +1360,13 @@ def woods():
                 continue
             if C0 - 3 < x < C1 + 3 and D0 - 4 < z < D1 + 3:
                 continue
+            # Nothing grows inside the pumpkin patch's fence: a pine and its mushroom stood
+            # among the crops and walled the patch's south row off from the rest of the map
+            # (mg-prop-hunt's headless_bots, 1-3 of 68 places a round). The count still moves
+            # on, so every other tree keeps its kind.
+            if 14.0 < x < 22.5 and -12.0 < z < -3.5:
+                i += 1
+                continue
             # Two of the nearest ring are made to be climbed (mg-prop-hunt's climbing trees): a
             # limb up there is somewhere a prop is never looked for.
             kind = "nature_climbtree_oak" if ring == 0 and k in (2, 7) else kinds[i % len(kinds)]
