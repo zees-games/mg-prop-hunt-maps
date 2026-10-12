@@ -27,7 +27,7 @@ python3 tools/build_maps.py --sync-sizes   # copy prop sizes from ../mg-prop-hun
 
 The JSON is still what the game reads and is committed; CI runs `--check`, so a hand edit to a built document is caught instead of being lost on the next build. Hand-written documents the builder does not produce are fine too: anything in `maps/` with a `.json` extension is loaded.
 
-The builder moves any spawn that a prop or a wall was put on top of to the nearest clear spot and says so. Every map is then checked by mg-prop-hunt's `examples/headless_maps.tscn`: it fits on the wire, every prop is one the game knows, every spawn has a floor and room for a person, no prop is sunk into a wall, and every prop stands on something.
+The builder moves any spawn that a prop or a wall was put on top of to the nearest clear spot and says so. It refuses to write a map with furniture in a doorway or out in the middle of a hallway, and names the piece. Every map is then checked by mg-prop-hunt's `examples/headless_maps.tscn`: it fits on the wire, every prop is one the game knows, every spawn has a floor and room for a person, no prop is sunk into a wall, and every prop stands on something.
 
 ## License
 

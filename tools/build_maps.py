@@ -489,6 +489,8 @@ def classroom(m, x0, z0, x1, z1, board_side="n", tint=(0.92, 0.95, 1.0)):
                 m.on("furniture_books", desk, dx=-0.3)
             elif (i * 7 + j) % 5 == 0:
                 m.on("furniture_laptop", desk, dx=0.2)
+            elif (i + 2 * j) % 4 == 1:
+                m.on("survival_bottle", desk, dx=0.25, dz=0.1)
     # The back: bookcases, a plant, a bin, boxes.
     back("furniture_bookcase_open", x0 + 1.2)
     back("furniture_bookcase_closed_doors", x0 + 2.3)
@@ -536,7 +538,11 @@ def cafeteria(m, x0, z0, x1, z1, kitchen_x):
             tz = z0 + 2.6 + j * 3.4
             if tx > kitchen_x - 2.5:
                 continue
-            m.prop("furniture_table_cross", tx, tz, 90.0)
+            lunch = m.prop("furniture_table_cross", tx, tz, 90.0)
+            # Lunch on every table: plates, a drink, now and then a carton or fruit.
+            for n, dz in enumerate((-0.45, 0.45)):
+                m.on("food_plate", lunch, dx=-0.3, dz=dz)
+                m.on(("food_carton_small", "food_soda_bottle", "food_apple", "food_banana")[(i + j + n) % 4], lunch, dx=0.3, dz=dz)
             for k in (-0.6, 0.6):
                 m.prop("furniture_stool_bar_square", tx - 0.95, tz + k)
                 m.prop("furniture_stool_bar_square", tx + 0.95, tz + k)
@@ -553,6 +559,14 @@ def cafeteria(m, x0, z0, x1, z1, kitchen_x):
     m.on("furniture_kitchen_microwave", cab)
     m.on("furniture_toaster", sink, dz=0.3)
     m.on("furniture_kitchen_coffee_machine", stove, dz=0.3)
+    m.on("food_pot_stew", stove, dz=-0.25)
+    m.on("food_knife_block", sink, dz=-0.3)
+    m.on("food_cutting_board", cab, dz=-0.3)
+    m.on("food_pepper_mill", cab, dz=0.35)
+    # The kitchen's store: crates, a barrel and a bucket by the boxes.
+    m.prop("survival_box", kitchen_x + 4.4, z1 - 0.6, 8.0)
+    m.prop("survival_barrel", kitchen_x + 5.3, z1 - 0.5)
+    m.prop("survival_bucket", kitchen_x + 6.2, z1 - 1.4)
     m.prop("furniture_cardboard_box_closed", kitchen_x + 2.5, z1 - 0.6)
     m.prop("furniture_cardboard_box_open", kitchen_x + 3.2, z1 - 0.6, 20.0)
     m.prop("furniture_cardboard_box_closed", kitchen_x + 2.5, z1 - 0.6, 5.0).update({"at": v3(kitchen_x + 2.5, 0.65, z1 - 0.6)})
@@ -804,13 +818,17 @@ def school():
     # The gym: benches along the walls, mats, crates, speakers, hoops.
     for z in (-14.6, -3.4):
         for x in (-36.0, -31.0, -26.0):
-            m.prop("furniture_bench", x, z, 0.0 if z < -9 else 180.0)
+            bench = m.prop("furniture_bench", x, z, 0.0 if z < -9 else 180.0)
+            if (x, z) in ((-36.0, -14.6), (-26.0, -3.4)):
+                m.on("survival_bottle", bench, dx=0.25)
     for x, z in ((-34.0, -9.0), (-28.0, -9.0)):
         m.prop("furniture_rug_square", x, z)
     m.prop("furniture_cardboard_box_closed", -38.9, -15.0, 10.0)
     m.prop("furniture_cardboard_box_closed", -38.9, -14.3, 30.0)
     m.prop("furniture_cardboard_box_open", -38.2, -15.1, 5.0)
     m.prop("furniture_speaker", -22.6, -15.2, -45.0)
+    m.prop("survival_box_large", -36.5, -15.2, 90.0)
+    m.prop("survival_bucket", -24.0, -15.3)
     m.prop("furniture_speaker", -22.6, -2.8, -135.0)
     for z in (-15.75, -2.25):
         m.span(-31.6, -30.4, 3.0, 3.9, z - 0.04, z + 0.04, "flat", (1.6, 1.6, 1.6))
@@ -868,6 +886,8 @@ def school():
     m.prop("furniture_chair_cushion", 16.0, -10.0, -90.0)
     m.prop("furniture_chair_cushion", 15.0, -11.1, 0.0)
     m.on("furniture_radio", lt)
+    m.on("food_mug", lt, dx=0.35, dz=0.2)
+    m.on("food_cup_coffee", lt, dx=-0.3, dz=-0.25)
     m.prop("furniture_lamp_round_floor", 12.5, -15.4)
     m.prop("furniture_potted_plant", 25.4, -2.8)
     classroom(m, 26.0 + 0.1, -16.0 + 0.3, 40.0 - 0.3, -2.0 - 0.1, "n")
@@ -977,6 +997,9 @@ def house():
     island = m.prop("furniture_kitchen_bar", 7.5, -6.5)
     m.prop("furniture_kitchen_bar", 8.5, -6.5)
     m.on("furniture_kitchen_blender", island)
+    m.on("food_watermelon", island, dx=0.15, dz=0.1)
+    m.on("food_loaf", island, dx=1.0, dz=0.1)
+    m.on("food_pineapple", island, dx=1.3, dz=-0.1)
     m.prop("furniture_stool_bar", 7.5, -7.4)
     m.prop("furniture_stool_bar", 8.5, -7.4)
     m.prop("furniture_trashcan", 11.4, -9.5)
@@ -1015,6 +1038,13 @@ def house():
         m.prop("furniture_cardboard_box_closed" if i % 2 == 0 else "furniture_cardboard_box_open", x, z, yaw)
     m.prop("furniture_cardboard_box_closed", 13.0, 5.2, 25.0, y=0.65)
     m.against("furniture_side_table_drawers", "w", 12.0 + 0.1, -3.0)
+    # The workbench end of the garage: a bench, a barrel, a bucket, crates.
+    wb = m.against("survival_workbench", "e", 20.0 - 0.15, -1.0)
+    m.on("survival_bottle_large", wb, dx=0.1)
+    m.prop("survival_barrel", 19.4, 0.4)
+    m.prop("survival_bucket", 18.4, -0.2)
+    m.prop("survival_box", 13.0, 3.4, 10.0)
+    m.prop("survival_box_open", 13.0, 2.6, -5.0)
     # Along the side wall, not in front of the garage door.
     m.prop("furniture_trashcan", 19.5, -7.6)
     m.prop("furniture_trashcan", 19.5, -6.9)
@@ -1145,6 +1175,8 @@ def office():
     m.prop("furniture_chair", 9.0, 12.0, -90.0)
     m.prop("furniture_chair", 8.0, 11.0, 0.0)
     m.on("furniture_toaster", bt)
+    m.on("food_mug", bt, dx=0.35, dz=0.2)
+    m.on("food_soda_bottle", bt, dx=-0.3, dz=0.25)
     m.prop("furniture_trashcan", 11.4, 8.6)
     m.prop("furniture_lounge_sofa", 2.5, 9.2, 0.0)
     # The manager's office (x 12..24, z 8..16).
@@ -1170,6 +1202,9 @@ def office():
         if i % 4 == 0:
             m.on("furniture_cardboard_box_closed", b, yaw=15.0)
     m.prop("furniture_kitchen_fridge_small", 23.2, -7.0, -90.0)
+    m.prop("survival_box", 23.2, -15.2, 5.0)
+    m.prop("survival_box_large", 22.6, -10.5, 90.0)
+    m.prop("survival_barrel", 13.0, -8.0)
     # The server corner (x -24..-12, z -16..-6): racks as metal boxes, speakers for blinking boxes.
     m.wall((-24.0, -6.0), (-12.0, -6.0), "x", "paint", GREY, height=H, holes=[(9.0, 10.4, 0.0, DOOR_H)])
     m.wall((-12.0, -16.0), (-12.0, -6.0), "z", "paint", GREY, height=H)
@@ -1259,6 +1294,7 @@ def woods():
     m.against("furniture_kitchen_stove", "s", D1 - 0.2, 3.5)
     kc = m.against("furniture_kitchen_cabinet", "s", D1 - 0.2, 4.5)
     m.on("furniture_kitchen_coffee_machine", kc)
+    m.on("food_pot", kc, dz=-0.2)
     tbl = m.prop("furniture_table_cloth", 3.0, 15.0)
     m.prop("furniture_chair", 2.4, 14.2, 0.0)
     m.prop("furniture_chair", 3.6, 15.8, 180.0)
@@ -1282,6 +1318,14 @@ def woods():
     for i in range(3):
         m.prop("nature_log_stack", 12.0, 8.0 + i * 1.6, 90.0)
     m.prop("nature_log_large", 10.0, 3.0, 20.0)
+    # A camp by the fire: a tent, a bedroll, firewood, a bucket, a barrel, a chest.
+    m.prop("survival_tent_canvas", -6.5, -8.5, 30.0)
+    m.prop("survival_bedroll", -4.2, -6.4, 120.0)
+    m.prop("survival_resource_wood", 2.4, 2.6, 15.0)
+    m.prop("survival_resource_wood", 2.9, 2.9, 75.0)
+    m.prop("survival_bucket", -3.0, 1.8)
+    m.prop("survival_barrel", 9.0, 6.0)
+    m.prop("survival_chest", -3.6, -9.4, 70.0)
     for i in range(9):
         m.prop("nature_crop_pumpkin" if i % 3 else "nature_crop_melon", 16.0 + (i % 3) * 1.8, -10.0 + (i // 3) * 1.8, i * 40.0)
     # The gate on the east side, clear of the crops and the pines west of the patch (the west
