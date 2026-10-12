@@ -109,7 +109,8 @@ def footprint(pid, yaw):
 
 
 class Map:
-    def __init__(self, mid, name, blurb, environment, round_seconds=0.0, hide_seconds=0.0, kill_y=-20.0):
+    def __init__(self, mid, name, blurb, environment, round_seconds=0.0, hide_seconds=0.0, kill_y=-20.0,
+                 players_per_hunter=0.0):
         self.doc = {
             "format": 1, "kind": "prophunt_map", "id": mid, "name": name, "author": "mg-prop-hunt",
             "blurb": blurb, "environment": environment, "kill_y": kill_y,
@@ -118,6 +119,11 @@ class Map:
             self.doc["round_seconds"] = round_seconds
         if hide_seconds:
             self.doc["hide_seconds"] = hide_seconds
+        # A map's own share of hunters (mg-prop-hunt's headless_bots holds each map to a close
+        # game on its own): a big school with a hiding place every few metres wants more hunters
+        # than a cottage. 0 leaves it to the server.
+        if players_per_hunter:
+            self.doc["players_per_hunter"] = players_per_hunter
         self.boxes = []
         self.props = []
         self.lights = []
@@ -649,7 +655,7 @@ def school():
             "sun_pitch": -50.0, "sun_yaw": 35.0, "sun_energy": 0.95, "sun_colour": [1.0, 0.96, 0.88],
             "ambient": [0.66, 0.70, 0.76], "ambient_energy": 0.42,
         },
-        round_seconds=360.0, hide_seconds=40.0,
+        round_seconds=360.0, hide_seconds=20.0, players_per_hunter=2.0,
     )
     H = 3.4
     BRICK = (0.86, 0.62, 0.52)
@@ -909,7 +915,7 @@ def house():
             "sun_pitch": -32.0, "sun_yaw": -60.0, "sun_energy": 1.0, "sun_colour": [1.0, 0.86, 0.68],
             "ambient": [0.62, 0.62, 0.70], "ambient_energy": 0.45,
         },
-        round_seconds=300.0, hide_seconds=30.0,
+        round_seconds=300.0, hide_seconds=30.0, players_per_hunter=4.0,
     )
     H = 3.0
     # The house is x -12..12, z -10..6; the garage x 12..20; the garden north to z 26; the street south.
@@ -1258,7 +1264,7 @@ def woods():
             "sun_pitch": -18.0, "sun_yaw": -100.0, "sun_energy": 1.1, "sun_colour": [1.0, 0.74, 0.48],
             "ambient": [0.56, 0.54, 0.62], "ambient_energy": 0.6, "fog": 0.0025,
         },
-        round_seconds=300.0, hide_seconds=35.0,
+        round_seconds=240.0, hide_seconds=35.0, players_per_hunter=4.0,
     )
     S = 45.0
     m.floor_around(-S - 10.0, -S - 10.0, S + 10.0, S + 10.0, (-30.0, 16.0, -18.0, 28.0), "grass", (0.85, 0.95, 0.75), y=-0.02, thick=0.3)

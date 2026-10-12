@@ -18,6 +18,7 @@ Every length is metres, every angle degrees, every time seconds. A position is `
 	"blurb": "One line, shown when the map starts.",
 	"round_seconds": 0,
 	"hide_seconds": 0,
+	"players_per_hunter": 0,
 	"kill_y": -20.0,
 	"environment": {
 		"sky_top": [0.32, 0.52, 0.82], "sky_horizon": [0.72, 0.82, 0.92], "ground": [0.35, 0.33, 0.30],
@@ -33,6 +34,7 @@ Every length is metres, every angle degrees, every time seconds. A position is `
 
 - `id` is lowercase a to z, 0 to 9 and `_`. A file whose id is `ph_practice` replaces the built-in practice house.
 - `round_seconds` and `hide_seconds`: how long this map's rounds and hides last; 0 is the server's own (`ph_round_seconds`, `ph_hide_seconds`), and the server's is always the ceiling.
+- `players_per_hunter`: this map's own share of hunters, one for every this many players (rounded up); 0 is the server's own (`ph_players_per_hunter`), and the server's least and most hunters hold either way. A big map dense with hiding places wants more hunters than a cottage: the stand-ins played the school 11 rounds in 12 for the props and the woods 1 in 12 at the server's one in three.
 - `kill_y`: anybody below it is out. Put it under anything a player could fall off.
 - `environment`: every field is optional and the values above are the defaults. `fog` is a density; 0.0025 is a light haze over a big outdoor map, and 0.008 already hides everything past forty metres.
 

@@ -38,8 +38,9 @@
   "fog": 0.0025
  },
  "kill_y": -20.0,
- "round_seconds": 300.0,
+ "round_seconds": 240.0,
  "hide_seconds": 35.0,
+ "players_per_hunter": 4.0,
  "boxes": [
   {
    "at": [

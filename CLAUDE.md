@@ -18,6 +18,10 @@ The maps mg-prop-hunt plays, as JSON documents. Read `../../CLAUDE.md` and `../m
 - **A sunken thing is cut out of the ground** (`floor_around`): the house's pool and the woods' pond sit below a lawn that would otherwise be drawn over them. Found by rendering: the first house had a pool of grass.
 - **A tall room is lined on the inside** (the school's gym): brick above a painted wall read as a missing wall.
 
+## Each map is a close game on its own
+
+mg-prop-hunt's `headless_bots` holds every map to its own band (the props win 25-65% of its rounds at medium, 12 rounds a map), not only the four together. With the server's one hunter in three the stand-ins gave the props 11 rounds in 12 on the school (319 hiding places, every one among others of its kind), 7 on the office, 2 in the house and 1 in the woods (68 and 101 places, fewer of each kind). Each map now sets its own: the school `players_per_hunter=2.0` (four hunters for eight) and a 20 s hide; the house and the woods 4.0 (two hunters), the woods a 240 s round; the office the server's. Measured 2026-10-12 over 48 rounds: school 7 of 12, house 5, office 7, woods 5. Re-measure (`headless_bots -- --map <id>`) after dressing a map: more pieces of a kind is more places to be lost among.
+
 ## Lighting
 
 Outdoor maps are lit by the sun and the ambient colour in the document's `environment`. The first renders were washed out (sun 1.15, ambient 0.6 on the school); 0.95 and 0.42 read as daylight. The woods' fog was 0.008 and turned the whole map orange from above; it is 0.0025. Render after changing either: `mg-prop-hunt/tools/shot.sh --view=overview --ph-map-ids=<id>`.

@@ -38,7 +38,8 @@
  },
  "kill_y": -20.0,
  "round_seconds": 360.0,
- "hide_seconds": 40.0,
+ "hide_seconds": 20.0,
+ "players_per_hunter": 2.0,
  "boxes": [
   {
    "at": [
