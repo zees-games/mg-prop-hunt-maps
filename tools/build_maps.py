@@ -856,7 +856,7 @@ def school():
             "sun_pitch": -50.0, "sun_yaw": 35.0, "sun_energy": 0.95, "sun_colour": [1.0, 0.96, 0.88],
             "ambient": [0.66, 0.70, 0.76], "ambient_energy": 0.42,
         },
-        round_seconds=360.0, hide_seconds=20.0, players_per_hunter=2.0,
+        round_seconds=360.0, hide_seconds=20.0, players_per_hunter=1.6,
     )
     H = 3.4
     BRICK = (0.86, 0.62, 0.52)
@@ -1623,11 +1623,16 @@ def toys_office(m):
 
 
 def toys_school(m):
-    # One ball, in the hall. Any toy outdoors (a ball or a tyre on the playground or the field,
-    # wherever it was put) had mg-prop-hunt's headless_bots giving the props a round more, 8 of
-    # 12, past the map's band, and nothing the bots ask of the physics space sees a toy: why is
-    # open (nightly ph-toys-bots-1).
+    # A ball in the hall, and a football, a beach ball and a tyre out by the field. The outdoor
+    # ones once looked like they gave the props a round in 12; they did not. Any body added to the
+    # physics space, even one nothing collides with, re-rolls one knife-edge round (the first
+    # school round of the rotation, found with 3 s left), and the school's real share over 48
+    # seeds was 75% for the props with four hunters. Five hunters for eight: 38% (mg-prop-hunt
+    # docs/history.md, "The school's toys were not the school's problem").
     m.toy("football", -30.0, -6.0, near=6.0)
+    m.toy("football", 22.0, -40.0, near=6.0)
+    m.toy("beach_ball", 30.0, -44.0, near=6.0)
+    m.toy("tyre", 18.0, -36.0, near=6.0)
 
 
 def toys_woods(m):

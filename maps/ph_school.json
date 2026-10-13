@@ -39,7 +39,7 @@
  "kill_y": -20.0,
  "round_seconds": 360.0,
  "hide_seconds": 20.0,
- "players_per_hunter": 2.0,
+ "players_per_hunter": 1.6,
  "boxes": [
   {
    "at": [
@@ -12479,6 +12479,30 @@
     -30.0,
     0.0,
     -6.0
+   ]
+  },
+  {
+   "toy": "football",
+   "at": [
+    22.0,
+    -0.02,
+    -40.0
+   ]
+  },
+  {
+   "toy": "beach_ball",
+   "at": [
+    30.0,
+    -0.02,
+    -44.0
+   ]
+  },
+  {
+   "toy": "tyre",
+   "at": [
+    18.0,
+    -0.02,
+    -36.0
    ]
   }
  ]
