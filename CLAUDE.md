@@ -18,6 +18,10 @@ The maps mg-prop-hunt plays, as JSON documents. Read `../../CLAUDE.md` and `../m
 - **A sunken thing is cut out of the ground** (`floor_around`): the house's pool and the woods' pond sit below a lawn that would otherwise be drawn over them. Found by rendering: the first house had a pool of grass.
 - **A tall room is lined on the inside** (the school's gym): brick above a painted wall read as a missing wall.
 
+## Toys
+
+`TOY_PLANS` puts a few of dot-props' **loose** toys on each map (`Map.toy`, settled at build by `_settle_toys` to the nearest spot within `near` that is floored, clear of every prop, solid box, spawn and other toy, and a metre from every doorway; a hint with nowhere stops the build). Never a fixed toy: it would be cover or a way up to a hiding place, and nobody can hide as one. The code is game-hide-n-seek-maps' with the doorway check in this builder's own terms. mg-prop-hunt's `headless_maps` checks each is built, inside nothing, and still two seconds on.
+
 ## Each map is a close game on its own
 
 mg-prop-hunt's `headless_bots` holds every map to its own band (the props win 25-65% of its rounds at medium, 12 rounds a map), not only the four together. With the server's one hunter in three the stand-ins gave the props 11 rounds in 12 on the school (319 hiding places, every one among others of its kind), 7 on the office, 2 in the house and 1 in the woods (68 and 101 places, fewer of each kind). Each map now sets its own: the school `players_per_hunter=2.0` (four hunters for eight) and a 20 s hide; the house and the woods 4.0 (two hunters), the woods a 240 s round; the office the server's. Measured 2026-10-12 over 48 rounds: school 7 of 12, house 5, office 7, woods 5. Re-measure (`headless_bots -- --map <id>`) after dressing a map: more pieces of a kind is more places to be lost among.
