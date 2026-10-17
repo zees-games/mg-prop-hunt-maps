@@ -1,4 +1,4 @@
-The maps for [**mg-prop-hunt**](https://github.com/zees-games/mg-prop-hunt): a whole primary school with its grounds, a family house with a garden and a pool, an office floor, and a clearing in the woods at golden hour. Four maps to start with, plus the practice house built into the game.
+The maps for [**mg-prop-hunt**](https://github.com/zees-games/mg-prop-hunt): a whole primary school with its grounds, a family house with a garden and a pool, an office floor, and a clearing in the woods at golden hour. Several maps to start with, plus the practice house built into the game.
 
 Every map is a **JSON document**, not a scene. A server reads the documents in its map directory and sends the one it is playing to every client when the map changes, so players need no map files at all and a new map is one file dropped into a directory. [`maps/README.md`](maps/README.md) is the format.
 
@@ -16,6 +16,7 @@ Every map is a **JSON document**, not a scene. A server reads the documents in i
 | `ph_woods` (Pinecrest Woods) | A log cabin in a clearing, a woodpile, a pumpkin patch, a pond and a lot of trees and rocks to be |
 | `ph_frontyard` (Front Yard) | **Converted from a community map** (see Credits): a walled yard with a small house, a melon patch, an oil-drum yard and a lot of lamps, crates and furniture to be |
 | `ph_office221` (Presentation Office) | **Converted from a community map** (see Credits): a small corporate floor with a curved lobby, a presentation room, filing cabinets, binders, cardboard boxes and a lot of desk clutter to be |
+| `ph_apartment` (Apartment) | **Converted from a community map** (see Credits): a very small flat of a kitchen, a living room and a bedroom, with a shelf, beds, tables, plants and a great many bottles, mugs and cartons to be |
 
 ## Credits: community maps
 
@@ -25,6 +26,7 @@ These are other people's work, converted with their layout kept and every textur
 | --- | --- | --- | --- |
 | `ph_frontyard` | axoh | https://gamebanana.com/mods/398632 (`ph_frontyard.rar`, 2022-08-28) | "do whatever idc just dont say this terrible map is urs"; GameBanana's checklist leaves redistribution and modification as "ask". Credit and removal on request is the arrangement. |
 | `ph_office221` | Z(Rus) (zeromapping) | https://gamebanana.com/mods/61503 (`ph_office221_2.7z`, 2014-01-01 release) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0; GameBanana's checklist leaves redistribution and modification as "ask". Credit and removal on request is the arrangement: **this map is removed on request**. |
+| `ph_apartment` | Tib | https://gamebanana.com/mods/61479 (`ph_apartment.zip`) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0; credit and removal on request is the arrangement: **this map is removed on request by the author**. |
 
 `tools/import_bsp.py` does the conversion (`tools/bsp_read.py` is copied from game-g2gfast's importer): brushes become boxes (a brush turned off the grid becomes a box with a yaw, and a wedge of a curved wall the smallest turned box round it), the author's `prop_physics*` and `prop_dynamic*` become catalogue props, the start entities of either team are shared between the teams. Door leaves the author left standing ajar are dropped (they close a doorway to the bots' nav), scenery out of reach of the starts is pruned, `--field=name=value` keeps a balance number (`players_per_hunter`, `hide_seconds`) across reruns, and `--drop-beside` and `--clear` take away the props that wall a place off, as named by the `PH_BOTS_TRACE=1` "cut off" lines of headless_bots (ph_office221 uses both: a row of cabinets a hand's width off the lobby wall, and a sunken cubby of counters too tall to step over). A map the author left as a developer grid is given suburban surfaces by shape with `--style=yard` (ph_frontyard); a skinned map keeps the surfaces its material names say. Unlike the generated maps above, an imported map's JSON is **not** rewritten by `build_maps.py`; rerun the importer with the original `.bsp`.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Converts a Source 1 community prop-hunt .bsp (VBSP 19/20) into a mg-prop-hunt map document.
 
-    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1]
+    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1] [--prune-pockets] [--widen-doors]
 
 --field=<name>=<number> sets a document number the map's own band wants (players_per_hunter, round_seconds,
 hide_seconds), found by headless_bots, so a rerun of the importer keeps it.
@@ -12,6 +12,11 @@ are found beside props, so this takes the place away. Reruns keep it.
 
 --clear=x0,z0,x1,z1 (in the finished map's coordinates) drops every prop inside the rectangle: a cubby the
 author walled in with counters too tall for a bot to step over, where one prop at a time is whack-a-mole.
+
+--prune-pockets drops every floor prop that leaves a sliver of floor the bots' mesh cuts off (a small flat's
+beds and bookcases a hand off a wall), by a flood fill over a grid, instead of one --drop-beside at a time.
+
+--widen-doors widens a flat's metre-wide doorways to the game's 1.4 m, which the bots' mesh can pass.
 
 --style=yard gives the developer-grid boxes a suburban surface by their shape (a yard map the
 author left unskinned); other maps keep the surface their material names say.
@@ -65,6 +70,9 @@ TEXTURE_MAP = [
     ("WALLOFFICE", "paint", (0.92, 0.94, 1.00)),
     ("OFFWLLB", "plaster", (0.90, 0.95, 1.00)),
     ("OFFWLLC", "paint", (0.96, 0.94, 0.88)),
+    ("BUILDING_TEMPLATE", "plaster", (0.95, 0.90, 0.82)),
+    ("GLASSWINDOW", "glass", None),
+    ("CEILING01", "ceiling", None),
     ("BUILDING", "concrete", None),
     ("PLASTER", "plaster", (0.95, 0.92, 0.84)),
     ("GRASS", "grass", (0.85, 0.95, 0.75)),
@@ -154,6 +162,29 @@ PROP_MAP = {
     "pi_bucket": "survival_bucket",
     "tv_plasma": "furniture_television_modern",
     "table_coffee": "furniture_table_coffee",
+    # A flat (ph_apartment): the kitchen table's leftovers, bedroom and living room.
+    "garbage_metalcan002a": "food_soda_can",
+    "garbage_plasticbottle003a": "survival_bottle",
+    "garbage_coffeemug001a": "food_mug",
+    "garbage_glassbottle001a": "survival_bottle",
+    "garbage_glassbottle003a": "survival_bottle",
+    "garbage_milkcarton001a": "food_carton_small",
+    "water_bottle": "survival_bottle",
+    "bottle03": "survival_bottle",
+    "wood_table": "furniture_table",
+    "furniture_shelf01a": "furniture_bookcase_closed",
+    "furniturechair001a": "furniture_chair",
+    "chairantique": "furniture_chair",
+    "bed": "furniture_bed_double",
+    "potted_plant1": "furniture_potted_plant",
+    "potted_plant2": "furniture_potted_plant",
+    "potted_plant3": "furniture_potted_plant",
+    "bananna": "food_banana",
+    "doll01": "furniture_bear",
+    "trashdumpster01a": "survival_box_large",
+    "furnituretable003a": "furniture_side_table",
+    "desklamp01": "furniture_lamp_square_table",
+    "radio": "furniture_radio",
 }
 
 
@@ -380,6 +411,162 @@ def brush_boxes(bsp, index):
     return out, 1
 
 
+def widen_doors(boxes, want=1.4):
+    """Widens the doorways a flat's author made about a metre wide (--widen-doors).
+
+    A door is a gap between two collinear wall slabs, a header box over it and a thin trim post
+    either side (ph_apartment's are 0.91 m clear). The bots' mesh is eroded by the body radius
+    on each side, a doorway that narrow bakes as a sliver or not at all, and every room behind
+    one becomes an island. The game's own door convention is 1.4 m. Each slab end moves back,
+    the header is stretched over the new gap, and the trim posts and lintels are dropped (they are
+    what made the opening narrower than the wall's gap)."""
+    walls = []
+    for b in boxes:
+        w, h, d = b["size"]
+        if not b.get("solid", True) or b.get("yaw") or h < 2.5 or b["at"][1] - h / 2 > 0.5:
+            continue
+        if min(w, d) <= 0.4 < max(w, d):
+            walls.append(b)
+    done = 0
+    for a in walls:
+        axis = 2 if a["size"][2] > a["size"][0] else 0        # the run's axis; the other is across it
+        cross = 0 if axis == 2 else 2
+        for c in walls:
+            if c is a or c["size"][axis] <= c["size"][cross] or abs(c["at"][cross] - a["at"][cross]) > 0.02:
+                continue
+            if abs(c["size"][1] - a["size"][1]) > 0.01 or abs(c["at"][1] - a["at"][1]) > 0.01:
+                continue
+            a_end = a["at"][axis] + a["size"][axis] / 2
+            c_start = c["at"][axis] - c["size"][axis] / 2
+            gap = c_start - a_end
+            if not 0.9 <= gap <= 1.2:
+                continue
+            grow = (want - gap) / 2
+            mid = (a_end + c_start) / 2
+            for piece in (a, c):
+                piece["size"][axis] = round(piece["size"][axis] - grow, 3)
+            a["at"][axis] = round(a["at"][axis] - grow / 2, 3)
+            c["at"][axis] = round(c["at"][axis] + grow / 2, 3)
+            for b in list(boxes):
+                if b is a or b is c or abs(b["at"][cross] - a["at"][cross]) > 0.3 or abs(b["at"][axis] - mid) > want / 2 + 0.2:
+                    continue
+                w, h, d = b["size"]
+                if b["at"][1] - h / 2 > 1.8 and abs(b["size"][axis] - gap) < 0.1 and b["size"][cross] <= 0.4:
+                    b["size"][axis] = round(want, 3)               # the header over the door
+                    b["at"][axis] = round(mid, 3)
+                elif b["mat"] == "concrete" and (min(w, d) < 0.1) and b["at"][1] - h / 2 < 2.2:
+                    boxes.remove(b)                                 # a trim post or lintel
+            done += 1
+    return done
+
+
+def prune_pockets(doc, rounds=4):
+    """Drops floor props that leave a pocket the bots cannot walk out of (--prune-pockets).
+
+    mg-prop-hunt's headless_bots holds every hiding place reachable from the props' first start,
+    and a place is "beside" a piece of floor furniture (0.45 m off its side). A bed, a bookcase
+    or a table left a hand's width off a wall makes a sliver of floor that the bots' walkable mesh
+    (eroded by the body radius, 0.35 m) cuts off from the rest, and a small flat has dozens. This
+    does what the headless_bots trace asks for, in one pass over every prop instead of one
+    whack-a-mole drop at a time: it finds the walkable cells on a 0.1 m grid (floor within a step's
+    height, nothing solid between knee and head, nothing furniture), floods them from the start,
+    and drops a prop whose every free side lands in a cell the flood did not reach."""
+    R, RAD, BESIDE = 0.1, 0.35, 0.45
+    boxes = [b for b in doc["boxes"] if b.get("solid", True)]
+    xs0 = min(b["at"][0] - b["size"][0] / 2 for b in boxes)
+    xs1 = max(b["at"][0] + b["size"][0] / 2 for b in boxes)
+    zs0 = min(b["at"][2] - b["size"][2] / 2 for b in boxes)
+    zs1 = max(b["at"][2] + b["size"][2] / 2 for b in boxes)
+    W, H = int((xs1 - xs0) / R) + 1, int((zs1 - zs0) / R) + 1
+    total = 0
+    for _ in range(rounds):
+        floor = bytearray(W * H)
+        block = bytearray(W * H)
+
+        def cells(b, test):
+            hx, hz = b["size"][0] / 2, b["size"][2] / 2
+            reach = math.hypot(hx, hz) if b.get("yaw") else None
+            ax, az = (reach, reach) if reach else (hx, hz)
+            for zi in range(max(0, int((b["at"][2] - az - zs0) / R)), min(H, int((b["at"][2] + az - zs0) / R) + 2)):
+                for xi in range(max(0, int((b["at"][0] - ax - xs0) / R)), min(W, int((b["at"][0] + ax - xs0) / R) + 2)):
+                    if within(b, xs0 + (xi + 0.5) * R, zs0 + (zi + 0.5) * R):
+                        test(zi * W + xi)
+
+        for b in boxes:
+            lo, hi = b["at"][1] - b["size"][1] / 2, b["at"][1] + b["size"][1] / 2
+            if -0.05 <= hi <= 0.3:
+                cells(b, lambda i: floor.__setitem__(i, 1))
+            if hi > 0.3 and lo < 1.4:
+                cells(b, lambda i: block.__setitem__(i, 1))
+        for q in doc["props"]:
+            if q["at"][1] > 0.3:
+                continue
+            sx, sy, sz = build_maps.size_of(q["id"])
+            if sy < 0.3:
+                continue
+            fw, fd = build_maps.footprint(q["id"], q.get("yaw", 0.0))
+            cells({"at": q["at"], "size": [fw, sy, fd]}, lambda i: block.__setitem__(i, 1))
+        bad = bytearray(W * H)
+        k = int(math.ceil(RAD / R))
+        for i in range(W * H):
+            if block[i] or not floor[i]:
+                zi, xi = divmod(i, W)
+                for dz in range(-k, k + 1):
+                    for dx in range(-k, k + 1):
+                        if dx * dx + dz * dz <= k * k and 0 <= zi + dz < H and 0 <= xi + dx < W:
+                            bad[(zi + dz) * W + xi + dx] = 1
+        sp = doc["spawns"]["props"][0]["at"]
+        start = (int((sp[2] - zs0) / R), int((sp[0] - xs0) / R))
+        near = next(((zi, xi) for rr in range(0, 15) for zi in range(start[0] - rr, start[0] + rr + 1)
+                     for xi in range(start[1] - rr, start[1] + rr + 1)
+                     if 0 <= zi < H and 0 <= xi < W and not bad[zi * W + xi]), None)
+        if near is None:
+            return total
+        seen = bytearray(W * H)
+        seen[near[0] * W + near[1]] = 1
+        stack = [near]
+        while stack:
+            zi, xi = stack.pop()
+            for dz, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nz, nx = zi + dz, xi + dx
+                if 0 <= nz < H and 0 <= nx < W and not seen[nz * W + nx] and not bad[nz * W + nx]:
+                    seen[nz * W + nx] = 1
+                    stack.append((nz, nx))
+
+        def nearest_free(x, z):
+            """The closest walkable cell within 0.35 m of (x, z): (reached?, found?)."""
+            ci, cj = int((z - zs0) / R), int((x - xs0) / R)
+            best = None
+            for zi in range(ci - 4, ci + 5):
+                for xi in range(cj - 4, cj + 5):
+                    if 0 <= zi < H and 0 <= xi < W and not bad[zi * W + xi]:
+                        d2 = (zi - ci) ** 2 + (xi - cj) ** 2
+                        if d2 <= 12 and (best is None or d2 < best[0]):
+                            best = (d2, bool(seen[zi * W + xi]))
+            return best
+
+        gone = []
+        for q in doc["props"]:
+            if q["at"][1] > 0.3:
+                continue
+            sx, sy, sz = build_maps.size_of(q["id"])
+            fw, fd = build_maps.footprint(q["id"], q.get("yaw", 0.0))
+            ys = math.radians(q.get("yaw", 0.0))
+            states = []
+            for lx, lz in ((fw / 2 + BESIDE, 0), (-fw / 2 - BESIDE, 0), (0, fd / 2 + BESIDE), (0, -fd / 2 - BESIDE)):
+                n = nearest_free(q["at"][0] + lx, q["at"][2] + lz)
+                if n is not None:
+                    states.append(n[1])
+            if states and not any(states):
+                gone.append(q)
+        if not gone:
+            break
+        for q in gone:
+            doc["props"].remove(q)
+        total += len(gone)
+    return total
+
+
 def drop_door_leaves(m):
     """Remove door leaves the author left standing ajar in a doorway.
 
@@ -452,9 +639,15 @@ def main(argv):
     fields = {}
     drops = []
     clears = []
+    pockets = False
+    widen = False
     for a in argv[1:]:
         if a.startswith("--out="):
             out_path = a[6:]
+        elif a == "--widen-doors":
+            widen = True
+        elif a == "--prune-pockets":
+            pockets = True
         elif a.startswith("--style="):
             style = a[8:]
         elif a.startswith("--field="):
@@ -607,10 +800,17 @@ def main(argv):
         if all((x - a) ** 2 + (z - b) ** 2 >= 9.0 for a, b in have):
             m.spawn("props", x, z, yaw=0.0)
             have.append((x, z))
+    hy = sorted(sp["at"][1] for sp in m.spawns["hunters"])
+    fy = round(hy[len(hy) // 2] - 0.05, 3) if hy else 0.0
     for tid, near in (("football", 5.0), ("barrel", 5.0), ("beach_ball", 5.0)):
-        spot = next(((x, z) for size, x, z in m.spots(step=1.5, top=60) if all((x - a) ** 2 + (z - b) ** 2 >= 4.0 for a, b in have)), None)
+        # Two metres from every start, then one and a half when a small flat's 44 starts leave none.
+        spot = None
+        for gap in (4.0, 2.25):
+            spot = next(((x, z) for size, x, z in m.spots(y=fy, step=1.5, top=60) if all((x - a) ** 2 + (z - b) ** 2 >= gap for a, b in have)), None)
+            if spot:
+                break
         if spot:
-            m.toy(tid, spot[0], spot[1], near=near)
+            m.toy(tid, spot[0], spot[1], y=fy, near=near)
             have.append(spot)
     print("props %d  lights %d  spawns %d  dropped models %s" % (len(m.props), len(m.lights), len(starts), dropped))
     doc = m.build()
@@ -619,6 +819,15 @@ def main(argv):
     # map whose origin hangs in the air (this one's was outside the yard) fails it for every prop.
     ground = [b for b in doc["boxes"] if b.get("solid", True) and abs(b["at"][1] + b["size"][1] / 2) < 0.05
               and b["size"][0] > 4.0 and b["size"][2] > 4.0]
+    oy = 0.0
+    if not ground:
+        # A flat on the author's first floor (ph_apartment): the play floor is a metre or so above
+        # the world's zero, with the building's footing under it. Lower the whole map so the floor
+        # the spawns stand on is y = 0, which is where the game, the audit and the bots expect it.
+        ys = sorted(sp["at"][1] for sp in doc["spawns"]["hunters"])
+        oy = round(ys[len(ys) // 2] - 0.05, 3)
+        ground = [b for b in doc["boxes"] if b.get("solid", True) and abs(b["at"][1] + b["size"][1] / 2 - oy) < 0.05
+                  and b["size"][0] > 4.0 and b["size"][2] > 4.0]
     if ground:
         cx = sum(sp["at"][0] for sp in doc["spawns"]["hunters"]) / len(doc["spawns"]["hunters"])
         cz = sum(sp["at"][2] for sp in doc["spawns"]["hunters"]) / len(doc["spawns"]["hunters"])
@@ -627,7 +836,7 @@ def main(argv):
         def shift(o):
             if isinstance(o, dict):
                 if isinstance(o.get("at"), list) and len(o["at"]) == 3:
-                    o["at"] = [round(o["at"][0] - ox, 3), o["at"][1], round(o["at"][2] - oz, 3)]
+                    o["at"] = [round(o["at"][0] - ox, 3), round(o["at"][1] - oy, 3), round(o["at"][2] - oz, 3)]
                 for v in o.values():
                     shift(v)
             elif isinstance(o, list):
@@ -635,6 +844,10 @@ def main(argv):
                     shift(v)
         for key in ("boxes", "props", "lights", "spawns", "toys"):
             shift(doc.get(key))
+    if widen:
+        print("widened %d doorways to 1.4 m" % widen_doors(doc["boxes"]))
+    if pockets:
+        print("pruned %d props that left a pocket the bots cannot leave" % prune_pockets(doc))
     # Spots are found beside props, so taking the prop away takes the spot: for a place the
     # headless_bots trace names as cut off (a slot between a row of furniture and a wall).
     for x0, z0, x1, z1 in clears:
