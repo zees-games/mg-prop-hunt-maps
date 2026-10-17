@@ -14,7 +14,7 @@ Every map is a **JSON document**, not a scene. A server reads the documents in i
 | `ph_house` (Willow Lane) | A living room, kitchen, two bedrooms, a bathroom and a garage, with a garden, a deck and a pool behind it and the street in front |
 | `ph_office` (Brightline Offices) | Open-plan desks, glass meeting rooms, a break room and a store room full of boxes, on one floor with glass all round |
 | `ph_woods` (Pinecrest Woods) | A log cabin in a clearing, a woodpile, a pumpkin patch, a pond and a lot of trees and rocks to be |
-| `ph_frontyard` (Front Yard) | **Converted from a community map** (see Credits): a house, a garden shed, a melon patch and an oil-drum yard, with furniture, lamps and crates to be |
+| `ph_frontyard` (Front Yard) | **Converted from a community map** (see Credits): a walled yard with a small house, a melon patch, an oil-drum yard and a lot of lamps, crates and furniture to be |
 
 ## Credits: community maps
 
