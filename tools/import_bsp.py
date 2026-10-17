@@ -42,7 +42,7 @@ TEXTURE_MAP = [
     ("ACOUSTICCEILING", "ceiling", None),
     ("TILEFLOOR", "tile", None),
     ("WOODFLOOR", "parquet", None),
-    ("TILEROOF", "roof", None),
+    ("TILEROOF", "roof", (1.00, 0.72, 0.62)),
     ("COMBINEGLASS", "glass", None),
     ("CONCRETE", "concrete", None),
     ("STONE", "stone", None),
@@ -78,6 +78,38 @@ PROP_MAP = {
     "breenclock": "furniture_radio",
     "huladoll": "furniture_bear",
 }
+
+
+# The author left every wall that is not a house as a developer grid. Those are given a
+# suburban surface by what the box IS, since its texture says nothing: size and height tell a
+# neighbour's tall wall from a fence, a path, a roof slab or a shed. Every name is an existing
+# PhMaterials surface; the tint only chooses which pastel family it is.
+SIDING_BLUE = (0.80, 0.88, 1.00)
+SIDING_GREEN = (0.82, 0.96, 0.84)
+BRICK_RED = (1.00, 0.86, 0.80)
+ROOF_RED = (1.00, 0.72, 0.62)
+FENCE_WHITE = (1.00, 0.96, 0.90)
+
+
+def suburban_surface(at, size):
+    """(mat, tint) for a developer-grid box, from its centre `at` and `size` in metres."""
+    w, h, d = size
+    top = at[1] + h / 2
+    if h < 0.7 and max(w, d) > 2.0:
+        # A slab: high up it is a roof or a balcony, at the ground a path or the drive.
+        return ("roof", ROOF_RED) if top > 5.0 else ("sidewalk", None)
+    if min(w, d) < 0.6 and h > 2.0:
+        return "wood", FENCE_WHITE          # slats and pickets
+    if h >= 8.0:
+        # A neighbour's house wall round the yard: brick on two sides, siding on the others.
+        if d > w:
+            return "brick", BRICK_RED
+        return ("plaster", SIDING_BLUE) if at[2] < 0 else ("plaster", SIDING_GREEN)
+    if h >= 4.5:
+        return "plaster", SIDING_BLUE        # the upper storey of a house
+    if abs(w - h) < 0.1 and abs(d - h) < 0.1:
+        return "brick", BRICK_RED            # a shed block or a chimney stack
+    return "wood", FENCE_WHITE               # a yard fence or a low wall
 
 
 def gd(p):
@@ -204,6 +236,12 @@ def main(argv):
             bx = m.span(x0 * S, x1 * S, z0 * S, z1 * S, -y1 * S, -y0 * S, mt[0], mt[1])
             if invisible and bx is not None:
                 bx["visible"] = False
+            elif bx is not None and mt[0] == "flat":
+                bx["mat"], tint = suburban_surface(bx["at"], bx["size"])
+                if tint is not None:
+                    bx["tint"] = list(tint)
+                else:
+                    bx.pop("tint", None)
     print("brushes %d  tool-only %d  sliced %d  boxes %d" % (len(bsp.model_brushes(0)), skipped, sliced, len(m.boxes)))
 
     # Props: sit on the highest solid box under the footprint when one is within reach of the
