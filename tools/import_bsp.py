@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Converts a Source 1 community prop-hunt .bsp (VBSP 19/20) into a mg-prop-hunt map document.
 
-    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1] [--prune-pockets] [--widen-doors]
+    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1] [--prune-pockets] [--widen-doors] [--terrain]
 
 --field=<name>=<number> sets a document number the map's own band wants (players_per_hunter, round_seconds,
 hide_seconds), found by headless_bots, so a rerun of the importer keeps it.
@@ -17,6 +17,9 @@ author walled in with counters too tall for a bot to step over, where one prop a
 beds and bookcases a hand off a wall), by a flood fill over a grid, instead of one --drop-beside at a time.
 
 --widen-doors widens a flat's metre-wide doorways to the game's 1.4 m, which the bots' mesh can pass.
+
+--terrain turns the map's displacement ground (sculpted terrain, which is not a brush) into a stepped field of
+ground boxes; without it a map whose yard is terrain has no floor.
 
 --style=yard gives the developer-grid boxes a suburban surface by their shape (a yard map the
 author left unskinned); other maps keep the surface their material names say.
@@ -185,6 +188,77 @@ PROP_MAP = {
     "furnituretable003a": "furniture_side_table",
     "desklamp01": "furniture_lamp_square_table",
     "radio": "furniture_radio",
+    # A hotel (ph_hotel) and a ruined church with a cellar (ph_abandoned_church).
+    "furniture_couch01a": "furniture_lounge_sofa",
+    "couch": "furniture_lounge_sofa",
+    "sofa": "furniture_lounge_sofa",
+    "sofa_chair": "furniture_lounge_chair",
+    "furnituredrawer001a": "furniture_cabinet_bed_drawer",
+    "furnituredrawer002a": "furniture_cabinet_bed_drawer",
+    "furnituredrawer003a": "furniture_side_table_drawers",
+    "furniture_cabinetdrawer01a": "furniture_cabinet_bed_drawer",
+    "bookshelf1": "furniture_bookcase_closed",
+    "shelfunit01a": "furniture_bookcase_open",
+    "furnitureshelf001a": "furniture_bookcase_open",
+    "kitchen_shelf001a": "furniture_bookcase_open_low",
+    "newspaperstack01": "furniture_books",
+    "paper_towels": "food_carton_small",
+    "furnituresink001a": "furniture_kitchen_sink",
+    "furniturestove001a": "furniture_kitchen_stove",
+    "cafeteria_table001a": "furniture_table",
+    "cafeteria_bench001a": "furniture_bench",
+    "furnituretable002a": "furniture_table",
+    "chair02a": "furniture_chair",
+    "controlroom_desk001a": "furniture_desk",
+    "metalpot001a": "food_pot",
+    "metalpot002a": "food_pot",
+    "pot01a": "food_pot",
+    "jar01a": "survival_bottle",
+    "jar01b": "survival_bottle",
+    "glassjug01": "survival_bottle_large",
+    "vendingmachine": "furniture_kitchen_fridge_small",
+    "kennel": "survival_box_large",
+    "citizenradio": "furniture_radio",
+    "pottery04a": "nature_pot_small",
+    "pottery02a": "nature_pot_small",
+    "metalbucket02a": "survival_bucket",
+    "garbage_metalcan001a": "furniture_trashcan",
+    "garbage_bag001a": "survival_bucket",
+    "wine_barrel": "survival_barrel",
+    "grainbasket01a": "survival_bucket",
+    "grainbasket01b": "survival_bucket",
+    "grainbasket01c": "survival_bucket",
+    "claypot01": "nature_pot_small",
+    "claypot01_damage_01": "nature_pot_small",
+    "claypot01_damage_02": "nature_pot_small",
+    "claypot01_damage_03": "nature_pot_small",
+    "claypot01_damage_04": "nature_pot_small",
+    "claypot02": "nature_pot_large",
+    "claypot02_damage_01": "nature_pot_large",
+    "claypot02_damage_02": "nature_pot_large",
+    "claypot02_damage_03": "nature_pot_large",
+    "claypot02_damage_04": "nature_pot_large",
+    "pottery_large01a": "nature_pot_large",
+    "gravestone001a": "nature_stone_large_a",
+    "shrub_01a": "nature_plant_bush_small",
+    "bramble001a": "nature_plant_bush",
+    "militiarock05": "nature_rock_small_a",
+    "hallo_pumpkin_l": "nature_crop_pumpkin",
+    "hallo_pumpkin_m": "nature_crop_pumpkin",
+    "hallo_pumpkin_s": "nature_crop_pumpkin",
+    "hallo_pumpkin_xl": "nature_crop_pumpkin",
+    "concrete_chunk03a": "nature_stone_small_a",
+    "concrete_chunk04a": "nature_stone_small_a",
+    "concrete_chunk05g": "nature_stone_small_a",
+    "concrete_chunk02a": "nature_stone_small_a",
+    "concrete_chunk09a": "nature_stone_small_a",
+    "grainbasket01c_gib1": "survival_bucket",
+    "grainbasket01c_gib2": "survival_bucket",
+    "wood_pallet_debris_03": "survival_box",
+    "wood_pallet_debris_04": "survival_box",
+    "wood_pallet_debris_06": "survival_box",
+    "wood_pallet_debris_11": "survival_box",
+    "wood_pallet_debris_12": "survival_box",
 }
 
 
@@ -423,7 +497,7 @@ def widen_doors(boxes, want=1.4):
     walls = []
     for b in boxes:
         w, h, d = b["size"]
-        if not b.get("solid", True) or b.get("yaw") or h < 2.5 or b["at"][1] - h / 2 > 0.5:
+        if not b.get("solid", True) or b.get("yaw") or h < 2.3 or b["at"][1] - h / 2 > 0.5:
             continue
         if min(w, d) <= 0.4 < max(w, d):
             walls.append(b)
@@ -439,7 +513,7 @@ def widen_doors(boxes, want=1.4):
             a_end = a["at"][axis] + a["size"][axis] / 2
             c_start = c["at"][axis] - c["size"][axis] / 2
             gap = c_start - a_end
-            if not 0.9 <= gap <= 1.2:
+            if not 0.8 <= gap <= 1.2:
                 continue
             grow = (want - gap) / 2
             mid = (a_end + c_start) / 2
@@ -454,7 +528,7 @@ def widen_doors(boxes, want=1.4):
                 if b["at"][1] - h / 2 > 1.8 and abs(b["size"][axis] - gap) < 0.1 and b["size"][cross] <= 0.4:
                     b["size"][axis] = round(want, 3)               # the header over the door
                     b["at"][axis] = round(mid, 3)
-                elif b["mat"] == "concrete" and (min(w, d) < 0.1) and b["at"][1] - h / 2 < 2.2:
+                elif b["mat"] in ("concrete", "wood", "parquet") and (min(w, d) < 0.1) and b["at"][1] - h / 2 < 2.2:
                     boxes.remove(b)                                 # a trim post or lintel
             done += 1
     return done
@@ -578,7 +652,8 @@ def drop_door_leaves(m):
     for b in m.boxes:
         w, h, d = b["size"]
         thin, wide = sorted((w, d))
-        if b.get("mat") == "wood" and 1.9 <= h <= 2.3 and thin < 0.15 and 0.6 <= wide <= 1.1:
+        # A hotel's double doors are two half leaves (0.4 m each, in wood or parquet).
+        if b.get("mat") in ("wood", "parquet") and 1.9 <= h <= 2.3 and thin < 0.15 and 0.35 <= wide <= 1.1:
             dropped += 1
             continue
         kept.append(b)
@@ -632,6 +707,72 @@ def prune_far_scenery(m, starts, reach=12.0):
         print("dropped %d boxes of scenery out of reach of the starts" % (before - len(m.boxes)))
 
 
+def terrain_boxes(bsp, cell=80.0, quant=5.0, depth=52.0):
+    """The map's displacement ground as a stepped field of boxes (--terrain).
+
+    A displacement is a heightmap the mapper sculpted over a quad, not a brush, so the box
+    pass above finds no ground at all in a map whose yard is terrain (the church's spawns
+    stood on nothing). The surfaces are sampled at the middle of cells of `cell` source units
+    (about 1.5 m, nine sub-samples averaged so a cell half under a wall still has a height),
+    the height rounded to `quant` units (about 0.1 m) and equal neighbours merged: a long
+    flat yard is a few boxes, not a thousand, and the document's box limit is shared with the
+    walls. Yields ((x0, x1), (y0, y1), (z0, z1), material) in source units.
+    """
+    tris = []
+    for f in bsp.model_faces(0):
+        if f[6] >= 0:
+            tris += bsp.displacement_tris(f)
+    if not tris:
+        return []
+    x0 = min(p[0] for t in tris for p in t)
+    y0 = min(p[1] for t in tris for p in t)
+    nx = int((max(p[0] for t in tris for p in t) - x0) // cell) + 1
+    ny = int((max(p[1] for t in tris for p in t) - y0) // cell) + 1
+    acc = {}
+    sub = (0.17, 0.5, 0.83)
+    for a, b, c in tris:
+        mnx, mxx = min(q[0] for q in (a, b, c)), max(q[0] for q in (a, b, c))
+        mny, mxy = min(q[1] for q in (a, b, c)), max(q[1] for q in (a, b, c))
+        d = (b[1] - c[1]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[1] - c[1])
+        if abs(d) < 1e-9:
+            continue
+        for i in range(int((mnx - x0) // cell), int((mxx - x0) // cell) + 1):
+            for j in range(int((mny - y0) // cell), int((mxy - y0) // cell) + 1):
+                for fx in sub:
+                    for fy in sub:
+                        px, py = x0 + (i + fx) * cell, y0 + (j + fy) * cell
+                        l1 = ((b[1] - c[1]) * (px - c[0]) + (c[0] - b[0]) * (py - c[1])) / d
+                        l2 = ((c[1] - a[1]) * (px - c[0]) + (a[0] - c[0]) * (py - c[1])) / d
+                        l3 = 1 - l1 - l2
+                        if min(l1, l2, l3) >= -1e-6:
+                            acc.setdefault((i, j), []).append(l1 * a[2] + l2 * b[2] + l3 * c[2])
+    h = {k: round(sum(v) / len(v) / quant) * quant for k, v in acc.items()}
+    # Runs along x of one height, then runs of identical runs along y.
+    runs = {}
+    for j in range(ny):
+        i = 0
+        while i < nx:
+            if (i, j) not in h:
+                i += 1
+                continue
+            e = i
+            while (e + 1, j) in h and h[(e + 1, j)] == h[(i, j)]:
+                e += 1
+            runs[(i, e, h[(i, j)], j)] = j
+            i = e + 1
+    out = []
+    done = set()
+    for (i, e, ht, j) in sorted(runs, key=lambda k: (k[3], k[0])):
+        if (i, e, ht, j) in done:
+            continue
+        j2 = j
+        while (i, e, ht, j2 + 1) in runs:
+            j2 += 1
+            done.add((i, e, ht, j2))
+        out.append(((x0 + i * cell, x0 + (e + 1) * cell), (ht - depth, ht), (y0 + j * cell, y0 + (j2 + 1) * cell), "grass"))
+    return out
+
+
 def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     out_path = None
@@ -641,11 +782,14 @@ def main(argv):
     clears = []
     pockets = False
     widen = False
+    terrain = False
     for a in argv[1:]:
         if a.startswith("--out="):
             out_path = a[6:]
         elif a == "--widen-doors":
             widen = True
+        elif a == "--terrain":
+            terrain = True
         elif a == "--prune-pockets":
             pockets = True
         elif a.startswith("--style="):
@@ -705,6 +849,12 @@ def main(argv):
                     bx["tint"] = list(tint)
                 else:
                     bx.pop("tint", None)
+    if terrain:
+        n = 0
+        for (x0, x1), (y0, y1), (z0, z1), mat in terrain_boxes(bsp):
+            m.span(x0 * S, x1 * S, y0 * S, y1 * S, -z1 * S, -z0 * S, mat, (0.85, 0.9, 0.78))
+            n += 1
+        print("terrain: %d ground boxes from the displacements" % n)
     print("brushes %d  tool-only %d  sliced %d  boxes %d" % (len(bsp.model_brushes(0)), skipped, sliced, len(m.boxes)))
 
     drop_door_leaves(m)
