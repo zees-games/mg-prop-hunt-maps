@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Converts a Source 1 community prop-hunt .bsp (VBSP 19/20) into a mg-prop-hunt map document.
 
-    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1] [--prune-pockets] [--widen-doors] [--terrain]
+    tools/import_bsp.py <map.bsp> <id> "<Name>" <author> <page-url> [--out=maps/<id>.json] [--style=yard] [--field=players_per_hunter=4] [--drop-beside=x,z,kind] [--clear=x0,z0,x1,z1] [--prune-pockets] [--widen-doors] [--widen-thick-doors] [--prune-levels] [--pocket-margin=0.07] [--terrain]
 
 --field=<name>=<number> sets a document number the map's own band wants (players_per_hunter, round_seconds,
 hide_seconds), found by headless_bots, so a rerun of the importer keeps it.
@@ -989,7 +989,7 @@ def brush_boxes(bsp, index):
     return out, 1
 
 
-def widen_doors(boxes, want=1.4):
+def widen_doors(boxes, want=1.4, thick=0.4, narrowest=0.8):
     """Widens the doorways a flat's author made about a metre wide (--widen-doors).
 
     A door is a gap between two collinear wall slabs, a header box over it and a thin trim post
@@ -997,13 +997,17 @@ def widen_doors(boxes, want=1.4):
     on each side, a doorway that narrow bakes as a sliver or not at all, and every room behind
     one becomes an island. The game's own door convention is 1.4 m. Each slab end moves back,
     the header is stretched over the new gap, and the trim posts and lintels are dropped (they are
-    what made the opening narrower than the wall's gap)."""
+    what made the opening narrower than the wall's gap).
+
+    thick / narrowest (--widen-thick-doors) reach a yard house's doorway cut through a wall up to
+    1.3 m thick and as narrow as 0.6 m, which the thin-wall rule leaves a 0.75 m slot the bots
+    cannot pass: the room behind it was a whole island."""
     walls = []
     for b in boxes:
         w, h, d = b["size"]
         if not b.get("solid", True) or b.get("yaw") or h < 2.3 or b["at"][1] - h / 2 > 0.5:
             continue
-        if min(w, d) <= 0.4 < max(w, d):
+        if min(w, d) <= thick < max(w, d):
             walls.append(b)
     done = 0
     for a in walls:
@@ -1017,7 +1021,7 @@ def widen_doors(boxes, want=1.4):
             a_end = a["at"][axis] + a["size"][axis] / 2
             c_start = c["at"][axis] - c["size"][axis] / 2
             gap = c_start - a_end
-            if not 0.8 <= gap <= 1.2:
+            if not narrowest <= gap <= 1.2:
                 continue
             grow = (want - gap) / 2
             mid = (a_end + c_start) / 2
@@ -1029,7 +1033,7 @@ def widen_doors(boxes, want=1.4):
                 if b is a or b is c or abs(b["at"][cross] - a["at"][cross]) > 0.3 or abs(b["at"][axis] - mid) > want / 2 + 0.2:
                     continue
                 w, h, d = b["size"]
-                if b["at"][1] - h / 2 > 1.8 and abs(b["size"][axis] - gap) < 0.1 and b["size"][cross] <= 0.4:
+                if b["at"][1] - h / 2 > 1.8 and abs(b["size"][axis] - gap) < 0.1 and b["size"][cross] <= thick:
                     b["size"][axis] = round(want, 3)               # the header over the door
                     b["at"][axis] = round(mid, 3)
                 elif b["mat"] in ("concrete", "wood", "parquet") and (min(w, d) < 0.1) and b["at"][1] - h / 2 < 2.2:
@@ -1038,7 +1042,95 @@ def widen_doors(boxes, want=1.4):
     return done
 
 
-def prune_pockets(doc, rounds=4):
+def drop_trim_posts(boxes):
+    """Drops the door-frame trim posts: tall boxes under 16 cm either way (--widen-thick-doors).
+
+    A frame's trim is a post a few centimetres square either side of the opening. It stands in
+    the doorway's clear width, and the bots' mesh (eroded by the body radius) turns a 1.4 m
+    opening with two posts in it into a slot it cannot pass; the room behind is an island. The
+    wall and the lintel stay, so the opening still reads as a doorway."""
+    gone = [b for b in boxes if b.get("solid", True) and not b.get("yaw") and b["size"][0] <= 0.16
+            and b["size"][2] <= 0.16 and 1.8 <= b["size"][1] <= 2.4]
+    for b in gone:
+        boxes.remove(b)
+    return len(gone)
+
+
+def widen_sliced_doors(boxes, want=1.4, thick=1.3):
+    """Widens a doorway cut through a thick wall that the importer sliced into stacked boxes (--widen-thick-doors).
+
+    A wall a metre thick with a 0.9 m door arrives as a low slab either side of the door (floor to
+    lintel), more slabs above it, and a few header pieces over the gap, none of them a full-height
+    slab, so widen_doors does not see it. The bots' mesh is eroded by the body radius, and 0.9 m
+    bakes as a sliver: the room behind is an island. Every slab in that wall line that ends at the
+    gap moves back, and the header pieces are replaced by one box over the wider gap."""
+    done = 0
+    solids = [b for b in boxes if b.get("solid", True) and not b.get("yaw")]
+    lows = [b for b in solids if ((b["at"][1] - b["size"][1] / 2 <= 0.1 and b["at"][1] + b["size"][1] / 2 >= 1.3)
+                                  or b["size"][1] >= 2.3)
+            and min(b["size"][0], b["size"][2]) <= thick]
+    for a in lows:
+        axis = 2 if a["size"][2] > a["size"][0] else 0
+        cross = 2 - axis
+        for c in lows:
+            if c is a or c["size"][axis] <= c["size"][cross] or abs(c["at"][cross] - a["at"][cross]) > 0.02:
+                continue
+            if abs(c["size"][1] - a["size"][1]) > 0.01 or abs(c["at"][1] - a["at"][1]) > 0.01:
+                continue
+            a_end = a["at"][axis] + a["size"][axis] / 2
+            c_start = c["at"][axis] - c["size"][axis] / 2
+            gap = c_start - a_end
+            if not 0.6 <= gap <= 1.2:
+                continue
+            line = [b for b in solids if b in boxes and abs(b["at"][cross] - a["at"][cross]) < 0.02
+                    and abs(b["size"][cross] - a["size"][cross]) < 0.02]
+            inside = [b for b in line if b["at"][axis] - b["size"][axis] / 2 >= a_end - 0.02
+                      and b["at"][axis] + b["size"][axis] / 2 <= c_start + 0.02]
+            floor_y = a["at"][1] - a["size"][1] / 2
+            sill = [b for b in inside if b["at"][1] + b["size"][1] / 2 <= floor_y + 0.5]
+            for b in sill:                                          # the floor through the doorway: as wide as the new gap
+                b["size"][axis] = round(want, 3)
+                b["at"][axis] = round((a_end + c_start) / 2, 3)
+            inside = [b for b in inside if b not in sill]
+            if any(b["at"][1] - b["size"][1] / 2 < floor_y + 1.8 for b in inside):
+                continue                                           # something solid in the doorway: not a door
+            grow = (want - gap) / 2
+            # A trim post either side of the opening (a few centimetres of frame) is what made it
+            # narrower than the gap: the bots' mesh is eroded round it.
+            for b in [b for b in solids if b in boxes and min(b["size"][0], b["size"][2]) < 0.2
+                      and b["size"][1] > 1.5 and b["at"][1] - b["size"][1] / 2 < floor_y + 0.5
+                      and a_end - 0.12 <= b["at"][axis] <= c_start + 0.12
+                      and abs(b["at"][cross] - a["at"][cross]) <= a["size"][cross] / 2 + 0.15]:
+                boxes.remove(b)
+            for b in line:
+                if b in inside:
+                    continue
+                lo, hi = b["at"][axis] - b["size"][axis] / 2, b["at"][axis] + b["size"][axis] / 2
+                if abs(hi - a_end) < 0.02:
+                    b["size"][axis] = round(b["size"][axis] - grow, 3)
+                    b["at"][axis] = round(b["at"][axis] - grow / 2, 3)
+                elif abs(lo - c_start) < 0.02:
+                    b["size"][axis] = round(b["size"][axis] - grow, 3)
+                    b["at"][axis] = round(b["at"][axis] + grow / 2, 3)
+            if inside:
+                y0 = min(b["at"][1] - b["size"][1] / 2 for b in inside)
+                y1 = max(b["at"][1] + b["size"][1] / 2 for b in inside)
+                head = dict(inside[0])
+                head["at"] = list(inside[0]["at"])
+                head["size"] = list(inside[0]["size"])
+                head["at"][axis] = round((a_end + c_start) / 2, 3)
+                head["size"][axis] = round(want, 3)
+                head["at"][1] = round((y0 + y1) / 2, 3)
+                head["size"][1] = round(y1 - y0, 3)
+                for b in inside:
+                    boxes.remove(b)
+                boxes.append(head)
+                solids.append(head)
+            done += 1
+    return done
+
+
+def prune_pockets(doc, rounds=4, levels=False, margin=0.0, floor_lo=-0.05):
     """Drops floor props that leave a pocket the bots cannot walk out of (--prune-pockets).
 
     mg-prop-hunt's headless_bots holds every hiding place reachable from the props' first start,
@@ -1048,8 +1140,22 @@ def prune_pockets(doc, rounds=4):
     does what the headless_bots trace asks for, in one pass over every prop instead of one
     whack-a-mole drop at a time: it finds the walkable cells on a 0.1 m grid (floor within a step's
     height, nothing solid between knee and head, nothing furniture), floods them from the start,
-    and drops a prop whose every free side lands in a cell the flood did not reach."""
+    and drops a prop whose every free side lands in a cell the flood did not reach.
+
+    floor_lo is how low a walkable top may be: a map whose ground is terrain sits below zero (--terrain passes -1), and with the
+    default every cell of it was "not floor", the flood found no start and the pass did nothing.
+
+    margin (--pocket-margin=0.07) widens the body radius the grid erodes by: the bots' mesh also
+    erodes a cell's worth for its cell size, so a 0.75 m gap the grid calls walkable bakes as a
+    sliver island with places on it.
+
+    levels (--prune-levels) also drops a prop standing more than half a metre below, or two metres above, the floor the
+    grid models: a cellar or lower floor reached only by a ladder or a lift, which a map document
+    cannot express (it has no ladder and no link), so the bots' mesh leaves it an island and
+    every place on it "cut off". The grid has no floor cells down there, so the flood cannot tell."""
     R, RAD, BESIDE = 0.1, 0.35, 0.45
+    # With levels on, a slab up to the mesh's 0.4 m climb is floor (a 0.3 m sidewalk is not a wall).
+    STEP = 0.4 if levels else 0.3
     boxes = [b for b in doc["boxes"] if b.get("solid", True)]
     xs0 = min(b["at"][0] - b["size"][0] / 2 for b in boxes)
     xs1 = max(b["at"][0] + b["size"][0] / 2 for b in boxes)
@@ -1072,12 +1178,12 @@ def prune_pockets(doc, rounds=4):
 
         for b in boxes:
             lo, hi = b["at"][1] - b["size"][1] / 2, b["at"][1] + b["size"][1] / 2
-            if -0.05 <= hi <= 0.3:
+            if floor_lo <= hi <= STEP:
                 cells(b, lambda i: floor.__setitem__(i, 1))
-            if hi > 0.3 and lo < 1.4:
+            if hi > STEP and lo < 1.4:
                 cells(b, lambda i: block.__setitem__(i, 1))
         for q in doc["props"]:
-            if q["at"][1] > 0.3:
+            if q["at"][1] > STEP:
                 continue
             sx, sy, sz = build_maps.size_of(q["id"])
             if sy < 0.3:
@@ -1095,7 +1201,7 @@ def prune_pockets(doc, rounds=4):
                             bad[(zi + dz) * W + xi + dx] = 1
         sp = doc["spawns"]["props"][0]["at"]
         start = (int((sp[2] - zs0) / R), int((sp[0] - xs0) / R))
-        near = next(((zi, xi) for rr in range(0, 15) for zi in range(start[0] - rr, start[0] + rr + 1)
+        near = next(((zi, xi) for rr in range(0, 40) for zi in range(start[0] - rr, start[0] + rr + 1)
                      for xi in range(start[1] - rr, start[1] + rr + 1)
                      if 0 <= zi < H and 0 <= xi < W and not bad[zi * W + xi]), None)
         if near is None:
@@ -1125,7 +1231,9 @@ def prune_pockets(doc, rounds=4):
 
         gone = []
         for q in doc["props"]:
-            if q["at"][1] > 0.3:
+            if q["at"][1] > STEP:
+                if levels and q["at"][1] > 2.0:
+                    gone.append(q)                    # an upper floor: no table is that high
                 continue
             sx, sy, sz = build_maps.size_of(q["id"])
             fw, fd = build_maps.footprint(q["id"], q.get("yaw", 0.0))
@@ -1135,9 +1243,25 @@ def prune_pockets(doc, rounds=4):
                 n = nearest_free(q["at"][0] + lx, q["at"][2] + lz)
                 if n is not None:
                     states.append(n[1])
-            if states and not any(states):
+            if (states and not any(states)) or (levels and q["at"][1] < -0.5):
                 gone.append(q)
         if not gone:
+            if not levels:
+                break
+            # A spawn the flood never reached is in a sealed room (a shed with no door): a bot
+            # that starts there hides inside it for the round and the hunters can never meet it.
+            # It moves to the nearest cell the flood did reach (the game wants its 8 and 3 spawns).
+            for team in ("props", "hunters"):
+                for i, sp in enumerate(doc["spawns"][team]):
+                    if (i == 0 and team == "props") or (nearest_free(sp["at"][0], sp["at"][2]) or (0, True))[1]:
+                        continue
+                    ci, cj = int((sp["at"][2] - zs0) / R), int((sp["at"][0] - xs0) / R)
+                    best = min(((zi - ci) ** 2 + (xi - cj) ** 2, zi, xi)
+                               for zi in range(max(0, ci - 60), min(H, ci + 61))
+                               for xi in range(max(0, cj - 60), min(W, cj + 61)) if seen[zi * W + xi])
+                    sp["at"][0], sp["at"][2] = round(xs0 + (best[2] + 0.5) * R, 3), round(zs0 + (best[1] + 0.5) * R, 3)
+                    sp["at"][1] = 0.05
+                    total += 1
             break
         for q in gone:
             doc["props"].remove(q)
@@ -1157,7 +1281,7 @@ def drop_door_leaves(m):
         w, h, d = b["size"]
         thin, wide = sorted((w, d))
         # A hotel's double doors are two half leaves (0.4 m each, in wood or parquet).
-        if b.get("mat") in ("wood", "parquet") and 1.9 <= h <= 2.3 and thin < 0.15 and 0.35 <= wide <= 1.1:
+        if b.get("mat") in ("wood", "parquet", "flat") and 1.9 <= h <= 2.3 and thin <= 0.16 and 0.35 <= wide <= 1.1:
             dropped += 1
             continue
         kept.append(b)
@@ -1332,7 +1456,10 @@ def main(argv):
     drops = []
     clears = []
     pockets = False
+    levels = False
+    margin = 0.0
     widen = False
+    thick_doors = False
     terrain = False
     terrain_args = {}
     for a in argv[1:]:
@@ -1340,6 +1467,8 @@ def main(argv):
             out_path = a[6:]
         elif a == "--widen-doors":
             widen = True
+        elif a == "--widen-thick-doors":
+            widen, thick_doors = True, True
         elif a == "--terrain":
             terrain = True
         elif a.startswith("--terrain-cell="):
@@ -1349,6 +1478,10 @@ def main(argv):
             terrain_args = dict(cell=float(t_cell), quant=float(t_quant or 5.0))
         elif a == "--prune-pockets":
             pockets = True
+        elif a.startswith("--pocket-margin="):
+            pockets, margin = True, float(a[16:])
+        elif a == "--prune-levels":
+            pockets, levels = True, True
         elif a.startswith("--style="):
             style = a[8:]
         elif a.startswith("--field="):
@@ -1568,9 +1701,13 @@ def main(argv):
         for key in ("boxes", "props", "lights", "spawns", "toys"):
             shift(doc.get(key))
     if widen:
-        print("widened %d doorways to 1.4 m" % widen_doors(doc["boxes"]))
+        n_doors = widen_doors(doc["boxes"])
+        if thick_doors:
+            n_doors += widen_sliced_doors(doc["boxes"])
+            print("dropped %d door trim posts" % drop_trim_posts(doc["boxes"]))
+        print("widened %d doorways to 1.4 m" % n_doors)
     if pockets:
-        print("pruned %d props that left a pocket the bots cannot leave" % prune_pockets(doc))
+        print("pruned %d props that left a pocket the bots cannot leave" % prune_pockets(doc, levels=levels, margin=margin, floor_lo=-1.0 if terrain else -0.05))
     # Spots are found beside props, so taking the prop away takes the spot: for a place the
     # headless_bots trace names as cut off (a slot between a row of furniture and a wall).
     for x0, z0, x1, z1 in clears:
