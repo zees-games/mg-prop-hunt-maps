@@ -724,6 +724,45 @@ PROP_MAP = {
     "dvd_player": "furniture_radio",
     "books02": "furniture_books",
     "garbage_remotecontrol01a": "furniture_computer_mouse",
+    # cyber diner
+    "spph_trash_p1": "survival_bottle",
+    "spph_trash_p2": "food_carton_small",
+    "spph_trash_p3": "furniture_cardboard_box_closed",
+    "spph_trash_p4": "food_cup_coffee",
+    "spph_trash_p5": "food_carton",
+    "spph_trash_p6": "survival_bucket",
+    "spph_trash_p7": "furniture_books",
+    "spph_trash_p8": "food_soda_can",
+    "spph_trash_p9": "survival_bottle",
+    "spph_trash_p10": "food_carton_small",
+    "spph_trash_p11": "furniture_cardboard_box_closed",
+    "spph_trash_p12": "food_cup_coffee",
+    "spph_trash_p14": "survival_bucket",
+    "spph_trash_p15": "furniture_books",
+    "spph_trash_p16": "food_soda_can",
+    "phcy_trash_box": "furniture_cardboard_box_open",
+    "trash_2_0": "food_carton",
+    "trash_cantain": "furniture_trashcan",
+    "vedro_trash": "survival_bucket",
+    "cofe_cup": "food_cup_coffee",
+    "cyph_prop_pizza_1": "food_pizza_box",
+    "cyph_prop_pizza_2": "food_pizza_box",
+    "cyph_prop_pizza_3": "food_pizza_box",
+    "cyph_prop_eat_4": "food_plate",
+    "cyph_prop_eat_5": "food_bowl",
+    "cyph_prop_eat_6": "food_plate",
+    "cyph_prop_eat_7": "food_bowl",
+    "cyph_prop_eat_8": "food_plate",
+    "cyph_prop_eat_9": "food_mug",
+    "cyph_prop_bottle_4": "food_soda_bottle",
+    "cyph_prop_bottle_7": "food_bottle_oil",
+    "beer_1": "food_soda_bottle",
+    "beer_2": "food_soda_bottle",
+    "radio_nc": "furniture_radio",
+    "tv_circle_c": "furniture_television_modern",
+    "cyph_prop_pechka": "furniture_kitchen_stove",
+    "cyph_prop_chines_lamp": "furniture_lamp_round_floor",
+    "cyph_prop_sakura": "nature_tree_small",
 }
 
 
@@ -1419,6 +1458,7 @@ def main(argv):
             o = vec(e["origin"])
             gx, gy, gz = gd(o)
             c = vec(e.get("_light", "255 255 255 200"))
+            c = (list(c) + [255, 255, 255, 200][len(c):])[:4]  # a light may omit its brightness (or all of it)
             m.light(gx, gy, gz, rng=9.0, energy=min(1.2, c[3] / 200.0), colour=[c[0] / 255, c[1] / 255, c[2] / 255])
     def floor_corners_ok(x, z, pid, yaw, y):
         """A prop standing on the ground has solid floor under every corner of its footprint:
