@@ -259,6 +259,36 @@ PROP_MAP = {
     "wood_pallet_debris_06": "survival_box",
     "wood_pallet_debris_11": "survival_box",
     "wood_pallet_debris_12": "survival_box",
+    # An abandoned hotel / prison block (ph_abandoned_hotel).
+    "bench01a": "furniture_bench",
+    "bluebarrel001": "survival_barrel",
+    "chair_office01a": "furniture_chair_desk",
+    "prison_shelf002a": "furniture_bookcase_open_low",
+    "monitor02": "furniture_computer_screen",
+    "furnitureradiator001a": "furniture_cabinet_bed",
+    "kitchen_shelf002a": "furniture_bookcase_open_low",
+    "wood_pallet001a": "survival_box",
+    "cinderblock01a": "nature_stone_small_a",
+    "prison_bedframe001a": "furniture_bed_single",
+    "trashcan_indoor001a": "furniture_trashcan",
+    "consolebox05a": "furniture_speaker_small",
+    "metalgascan": "survival_bucket",
+    "plasticbucket001a": "survival_bucket",
+    "prison_toilet01": "furniture_toilet",
+    "harddrive02": "furniture_laptop",
+    "prison_sink001b": "furniture_bathroom_sink",
+    "lockers001a": "furniture_bookcase_closed_doors",
+    "pot02a": "food_pot",
+    "kitchen_counter001d": "furniture_kitchen_cabinet",
+    "cardboard_box002a": "furniture_cardboard_box_closed",
+    "furniturearmchair001a": "furniture_lounge_chair",
+    # An elementary school (ph_elementary_school).
+    "vendingmachinesoda01a": "furniture_kitchen_fridge",
+    "furniturecouch002a": "furniture_lounge_sofa",
+    "furniture_chair01a": "furniture_chair",
+    "controlroom_desk001b": "furniture_desk",
+    "pushcart01a": "survival_box_large",
+    "playground_teetertoter_seat": "furniture_bench",
 }
 
 
@@ -773,6 +803,53 @@ def terrain_boxes(bsp, cell=80.0, quant=5.0, depth=52.0):
     return out
 
 
+def audit_props(doc):
+    """Drops what mg-prop-hunt's headless_maps would refuse, in the document's own coordinates: a prop
+    whose middle is inside a solid box (an author's prop in a pit or a wall) and one with nothing
+    under its base (a ray down from 4 cm above it finds no box top or prop top within 12 cm, from
+    the nine points that audit samples). Repeats, because a dropped table leaves what stood on it
+    floating. Returns the number dropped."""
+    solid = [b for b in doc["boxes"] if b.get("solid", True)]
+    gone = 0
+    for _ in range(8):
+        changed = False
+        for q in sorted(doc["props"], key=lambda t: t["at"][1]):
+            pid, yaw = q["id"], q.get("yaw", 0.0)
+            w, h, d = build_maps.footprint(pid, yaw)[0], build_maps.size_of(pid)[1], build_maps.footprint(pid, yaw)[1]
+            cx, cy, cz = q["at"][0], q["at"][1] + h / 2, q["at"][2]
+            sunk = any(within(b, cx, cz, 0.0) and b["at"][1] - b["size"][1] / 2 + 0.02 < cy < b["at"][1] + b["size"][1] / 2 - 0.02 for b in solid)
+            floating = False
+            if not sunk and "ceiling" not in pid and "lily" not in pid:
+                base = q["at"][1]
+                floating = True
+                for fx in (-0.3, 0.0, 0.3):
+                    for fz in (-0.3, 0.0, 0.3):
+                        px, pz = cx + fx * w, cz + fz * d
+                        for b in solid:
+                            t = b["at"][1] + b["size"][1] / 2
+                            if base - 0.12 <= t <= base + 0.04 and within(b, px, pz, 0.0):
+                                floating = False
+                        for o in doc["props"]:
+                            if o is q:
+                                continue
+                            ow, od = build_maps.footprint(o["id"], o.get("yaw", 0.0))
+                            if abs(px - o["at"][0]) <= ow / 2 and abs(pz - o["at"][2]) <= od / 2:
+                                t = o["at"][1] + build_maps.rest_on(o, px - o["at"][0], pz - o["at"][2], pid, yaw)
+                                if base - 0.12 <= t <= base + 0.04:
+                                    floating = False
+                        if not floating:
+                            break
+                    if not floating:
+                        break
+            if sunk or floating:
+                doc["props"].remove(q)
+                gone += 1
+                changed = True
+        if not changed:
+            break
+    return gone
+
+
 def main(argv):
     args = [a for a in argv[1:] if not a.startswith("--")]
     out_path = None
@@ -876,7 +953,7 @@ def main(argv):
                 t = b["at"][1] + b["size"][1] / 2
                 if t <= ymax and (best is None or t > best):
                     best = t
-        for q in m.props:
+        for q in (m.props if pid else []):
             qw, qd = build_maps.footprint(q["id"], q.get("yaw", 0.0))
             # Well inside the footprint, not on its rim: a round bin's corner is air.
             if abs(x - q["at"][0]) <= qw / 2 - 0.08 and abs(z - q["at"][2]) <= qd / 2 - 0.08:
@@ -1011,6 +1088,7 @@ def main(argv):
         if near and (near[0]["at"][0] - dx) ** 2 + (near[0]["at"][2] - dz) ** 2 <= 1.8 ** 2:
             doc["props"].remove(near[0])
             print("dropped %s at %s beside (%.1f, %.1f)" % (near[0]["id"], near[0]["at"], dx, dz))
+    print("audit: dropped %d props sunk in a wall or standing on nothing" % audit_props(doc))
     out_path = out_path or os.path.join(build_maps.ROOT, "maps", mid + ".json")
     with open(out_path, "w") as f:
         f.write(json.dumps(doc, indent=1) + "\n")
