@@ -289,6 +289,90 @@ PROP_MAP = {
     "controlroom_desk001b": "furniture_desk",
     "pushcart01a": "survival_box_large",
     "playground_teetertoter_seat": "furniture_bench",
+    # A getaway (ph_autumngetaway): trees, food, pottery, chess pieces, patio.
+    "trees3": "nature_tree_oak_fall",
+    "trees2": "nature_tree_default_fall",
+    "hotdog": "food_loaf",
+    "burger": "food_loaf_round",
+    "potato": "food_apple",
+    "orange": "food_apple",
+    "donut": "food_cake",
+    "bananna_bunch": "food_banana",
+    "black_pawn": "food_pineapple",
+    "white_pawn": "food_pineapple",
+    "black_knight": "food_pineapple",
+    "white_knight": "food_pineapple",
+    "white_bishop": "food_pineapple",
+    "black_bishop": "food_pineapple",
+    "white_king": "food_pineapple",
+    "white_rook": "food_pineapple",
+    "black_rook": "food_pineapple",
+    "caseofbeer01": "survival_box",
+    "paper01": "furniture_books",
+    "paintbucket01": "survival_bucket",
+    "patio_chair2": "furniture_chair_rounded",
+    "pottery01a": "nature_pot_small",
+    "pottery09a": "nature_pot_small",
+    "pottery03a": "nature_pot_small",
+    "pottery08a": "nature_pot_small",
+    "pottery07a": "nature_pot_small",
+    "terracotta01": "nature_pot_small",
+    "claypot03": "nature_pot_small",
+    "claypot03_damage_01": "nature_pot_small",
+    "nuclearcontainerboxclosed": "survival_barrel",
+    "bushgreenbig": "nature_plant_bush_large",
+    "trash_can_p1": "furniture_trashcan",
+    "furnituremattress001a": "furniture_bed_single",
+    "dynamite": "food_carton",
+    "consolebox03a": "furniture_speaker_small",
+    "light_chandelier02": "furniture_lamp_square_ceiling",
+    "chair_stool01a": "furniture_stool_bar",
+    "plant01_p1": "furniture_potted_plant",
+    "planterplantsunlit": "nature_plant_bush_small",
+    "winerack_small": "furniture_bookcase_open_low",
+    "bench_concrete": "furniture_bench",
+    "vending_turtle": "furniture_kitchen_fridge_small",
+    "radiator01a": "furniture_cabinet_bed",
+    "propanecanister001a": "survival_barrel",
+    "potted_plant3_p1": "furniture_potted_plant",
+    "potted_plant1_p1": "furniture_potted_plant",
+    "potted_plant2_p1": "furniture_potted_plant",
+    "furnitureshelf001b": "furniture_bookcase_open",
+    "furnitureshelf002a": "furniture_bookcase_open",
+    "gravestone002a": "nature_stone_large_a",
+    "tv_console": "furniture_cabinet_television",
+    "television_console01": "furniture_cabinet_television",
+    "sinkkitchen01a": "furniture_kitchen_sink",
+    "table_meeting": "furniture_table",
+    "furniturewashingmachine001a": "furniture_washer",
+    "dryer": "furniture_dryer",
+    "file_box_p1": "survival_box",
+    "microwave": "furniture_kitchen_microwave",
+    "breendesk": "furniture_desk",
+    "computer": "furniture_computer_screen",
+    "breenchair": "furniture_chair_desk",
+    "filecabinet02": "furniture_side_table_drawers",
+    "armchair": "furniture_lounge_chair",
+    "gun_cabinet": "furniture_bookcase_closed_doors",
+    "scrapyarddumpster": "survival_box_large",
+    "fern01": "furniture_plant_small1",
+    "succulant": "furniture_plant_small2",
+    "pi_shrub": "nature_plant_bush_small",
+    "rockcliff_cluster01a": "nature_rock_large_a",
+    "it_mkt_container3a": "survival_box_large",
+    "fountain_plants": "nature_plant_bush",
+    "furnituretable002a_chunk08": "furniture_table_coffee",
+    "fireplace": "furniture_cabinet_television_doors",
+    # A bank and a Halloween church (ph_bank, ph_abandoned_church workshop).
+    "chair_office2": "furniture_chair_desk",
+    "fan_ceiling_blade": "furniture_ceiling_fan",
+    "paper_tray": "furniture_books",
+    "lamp_table02": "furniture_lamp_round_table",
+    "vending_machine": "furniture_kitchen_fridge_small",
+    "wood_board04a": "survival_resource_wood",
+    "brokenboard_damage_02": "survival_resource_wood",
+    "brokenboard_damage_01": "survival_resource_wood",
+    "brokenboard": "survival_resource_wood",
 }
 
 
@@ -1008,6 +1092,8 @@ def main(argv):
         if y < 0.06 and not floor_corners_ok(gx, gz, pid, yaw, y) and not any(
                 abs(q["at"][0] - gx) < 0.01 and abs(q["at"][2] - gz) < 0.01 for q in m.props):
             dropped["(over a hole)"] = dropped.get("(over a hole)", 0) + 1
+            if os.environ.get("PH_DEBUG"):
+                print("over a hole: %s at %.2f %.2f %.2f" % (pid, gx, y, gz))
             continue
         m.prop(pid, gx, gz, yaw=yaw, y=y)
     starts = [e for e in bsp.entities if e.get("classname") in START_CLASSES]
@@ -1017,6 +1103,15 @@ def main(argv):
         ang = vec(e.get("angles", "0 0 0"))
         # Stands on whatever floor is under the start (a sunken room is below zero), not on zero.
         floor = support(gx, gz, None, 0.0, gy + 0.6)
+        sy = (max(gy, 0.0) if floor is None else floor) + 0.05
+        # A start the author put in a prop or a wall with nothing clear and floored within four
+        # metres (a bin on a rooftop, a hole in the terrain) is dropped: the builder would stop
+        # the whole build rather than move it.
+        if m._blocked(gx, sy, gz) is not None and not any(
+                m._blocked(gx + r * 0.5 * math.cos(a * math.pi / (4 * r)), sy, gz + r * 0.5 * math.sin(a * math.pi / (4 * r))) is None
+                and m._floored(gx + r * 0.5 * math.cos(a * math.pi / (4 * r)), sy, gz + r * 0.5 * math.sin(a * math.pi / (4 * r)))
+                for r in range(1, 9) for a in range(8 * r)):
+            continue
         m.spawn("props" if i % 2 == 0 else "hunters", gx, gz, yaw=ang[1] - 90.0, y=(max(gy, 0.0) if floor is None else floor) + 0.05)
     # The author gave six starts; a prop hunt wants six hiding starts and three hunter ones.
     # More are taken from the clearest open floor, at least 3 m from any other start.
