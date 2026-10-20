@@ -20,6 +20,7 @@ beds and bookcases a hand off a wall), by a flood fill over a grid, instead of o
 
 --terrain turns the map's displacement ground (sculpted terrain, which is not a brush) into a stepped field of
 ground boxes; without it a map whose yard is terrain has no floor.
+--terrain-cell=<cell>[,<quant>] is --terrain with a coarser (or finer) field, in source units (default 80,5): a map whose terrain would pass the 6000-box limit wants 120 or more.
 
 --style=yard gives the developer-grid boxes a suburban surface by their shape (a yard map the
 author left unskinned); other maps keep the surface their material names say.
@@ -1294,6 +1295,7 @@ def main(argv):
     pockets = False
     widen = False
     terrain = False
+    terrain_args = {}
     for a in argv[1:]:
         if a.startswith("--out="):
             out_path = a[6:]
@@ -1301,6 +1303,11 @@ def main(argv):
             widen = True
         elif a == "--terrain":
             terrain = True
+        elif a.startswith("--terrain-cell="):
+            # cell,quant in source units: coarser ground for a map that would pass the box limit
+            terrain = True
+            t_cell, _, t_quant = a[15:].partition(",")
+            terrain_args = dict(cell=float(t_cell), quant=float(t_quant or 5.0))
         elif a == "--prune-pockets":
             pockets = True
         elif a.startswith("--style="):
@@ -1362,7 +1369,7 @@ def main(argv):
                     bx.pop("tint", None)
     if terrain:
         n = 0
-        for (x0, x1), (y0, y1), (z0, z1), mat in terrain_boxes(bsp):
+        for (x0, x1), (y0, y1), (z0, z1), mat in terrain_boxes(bsp, **terrain_args):
             m.span(x0 * S, x1 * S, y0 * S, y1 * S, -z1 * S, -z0 * S, mat, (0.85, 0.9, 0.78))
             n += 1
         print("terrain: %d ground boxes from the displacements" % n)
@@ -1537,6 +1544,8 @@ def main(argv):
         if near and (near[0]["at"][0] - dx) ** 2 + (near[0]["at"][2] - dz) ** 2 <= 1.8 ** 2:
             doc["props"].remove(near[0])
             print("dropped %s at %s beside (%.1f, %.1f)" % (near[0]["id"], near[0]["at"], dx, dz))
+    # A sliver brush can come out with a zero or negative side; the game refuses the whole document for one.
+    doc["boxes"] = [b for b in doc["boxes"] if min(b["size"]) > 0.005]
     print("audit: dropped %d props sunk in a wall or standing on nothing" % audit_props(doc))
     out_path = out_path or os.path.join(build_maps.ROOT, "maps", mid + ".json")
     with open(out_path, "w") as f:
