@@ -1642,6 +1642,10 @@ def main(argv):
                 and m._floored(gx + r * 0.5 * math.cos(a * math.pi / (4 * r)), sy, gz + r * 0.5 * math.sin(a * math.pi / (4 * r)))
                 for r in range(1, 9) for a in range(8 * r)):
             continue
+        # Nor is one over nothing: a start on a prop or a ledge that this document does not carry
+        # (Island House: a hunter start in a stairwell pit) fails headless_maps' "stands on a floor".
+        if not m._floored(gx, sy - 0.05, gz):
+            continue
         m.spawn("props" if i % 2 == 0 else "hunters", gx, gz, yaw=ang[1] - 90.0, y=(max(gy, 0.0) if floor is None else floor) + 0.05)
     # The author gave six starts; a prop hunt wants six hiding starts and three hunter ones.
     # More are taken from the clearest open floor, at least 3 m from any other start.
@@ -1654,15 +1658,26 @@ def main(argv):
             have.append((x, z))
     hy = sorted(sp["at"][1] for sp in m.spawns["hunters"])
     fy = round(hy[len(hy) // 2] - 0.05, 3) if hy else 0.0
+    # The median level first (every earlier map keeps its toys), then the other levels the hunters
+    # start on, most used first: a map with starts on four levels can have a median that is no floor
+    # (Island House found no toy).
+    hlevels = {}
+    for sp in m.spawns["hunters"]:
+        k = round(sp["at"][1] - 0.05, 3)
+        hlevels[k] = hlevels.get(k, 0) + 1
+    order = [fy] + [k for k in sorted(hlevels, key=lambda k: -hlevels[k]) if k != fy]
     for tid, near in (("football", 5.0), ("barrel", 5.0), ("beach_ball", 5.0)):
         # Two metres from every start, then one and a half when a small flat's 44 starts leave none.
         spot = None
-        for gap in (4.0, 2.25):
-            spot = next(((x, z) for size, x, z in m.spots(y=fy, step=1.5, top=60) if all((x - a) ** 2 + (z - b) ** 2 >= gap for a, b in have)), None)
+        for ty in order:
+            for gap in (4.0, 2.25):
+                spot = next(((x, z) for size, x, z in m.spots(y=ty, step=1.5, top=60) if all((x - a) ** 2 + (z - b) ** 2 >= gap for a, b in have)), None)
+                if spot:
+                    break
             if spot:
                 break
         if spot:
-            m.toy(tid, spot[0], spot[1], y=fy, near=near)
+            m.toy(tid, spot[0], spot[1], y=ty, near=near)
             have.append(spot)
     # The game refuses more than 128 lights: keep an evenly spaced subset.
     if len(m.lights) > 128:
