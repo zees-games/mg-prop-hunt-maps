@@ -22,7 +22,7 @@ Every map is a **JSON document**, not a scene. A server reads the documents in i
 | `ph_abandoned_hotel` (Abandoned Hotel) | **Converted from a community map** (see Credits): a small run-down block of cells, corridors and a kitchen, with benches, barrels, buckets, bunks, desks and monitors to be |
 
 | `ph_elementary_school` (Elementary School) | **Converted from a community map** (see Credits): a primary school of classrooms, hallways, a cafeteria and a playground yard, with desks, chairs, bottles, boxes and vending machines to be |
-| `ph_autumngetaway` (Autumn Getaway) | **Converted from a community map** (see Credits): a glass-fronted villa on a grassy headland with a pool of pottery, patio chairs, food and chess pieces to be |
+| `ph_autumngetaway` (Autumn Getaway) | **Converted from a community map** (see Credits): a glass-fronted villa on a grassy headland with pottery, patio chairs, food and chess pieces to be |
 
 ## Credits: community maps
 
