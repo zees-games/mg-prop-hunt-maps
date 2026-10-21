@@ -12,24 +12,37 @@
    0.82
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.984,
+   0.902,
+   0.71
   ],
   "ground": [
    0.35,
    0.33,
    0.3
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
-  "sun_energy": 1.0,
+  "sun_pitch": -45,
+  "sun_yaw": 52,
+  "sun_energy": 0.6,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.984,
+   0.973,
+   0.831
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   0.984,
+   0.973,
+   0.831
+  ],
+  "fog_colour": [
+   0.984,
+   0.902,
+   0.71
+  ],
+  "fog_start": 0.0,
+  "fog_end": 285.8,
+  "fog_max": 0.7
  },
  "kill_y": -20.0,
  "players_per_hunter": 4.0,
@@ -58375,5 +58388,6 @@
     -23.998
    ]
   }
- ]
+ ],
+ "ambience": "amb_eerie"
 }

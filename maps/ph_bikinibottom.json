@@ -7,29 +7,34 @@
  "blurb": "Converted from ph_bikinibottom.bsp by iitzRayD (https://steamcommunity.com/sharedfiles/filedetails/?id=1123262520).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.28,
+   0.6,
+   0.94
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.76,
+   0.9,
+   0.95
   ],
   "ground": [
-   0.35,
-   0.33,
-   0.3
+   0.3,
+   0.38,
+   0.4
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
-  "sun_energy": 1.0,
+  "sun_pitch": -71,
+  "sun_yaw": 41,
+  "sun_energy": 0.75,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.882,
+   0.98,
+   1.0
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   1.0,
+   0.976,
+   0.8
+  ]
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=1123262520",

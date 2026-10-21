@@ -7,29 +7,34 @@
  "blurb": "Converted from ph_midwestapartment.bsp by Punkychaz (https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.05,
+   0.07,
+   0.16
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.13,
+   0.15,
+   0.27
   ],
   "ground": [
-   0.35,
-   0.33,
-   0.3
+   0.06,
+   0.06,
+   0.09
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
+  "sun_pitch": -9,
+  "sun_yaw": 42,
   "sun_energy": 1.0,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.161,
+   0.216,
+   0.38
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.38,
+  "sun_colour": [
+   0.349,
+   0.349,
+   0.545
+  ]
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073",
@@ -33543,5 +33548,6 @@
    ]
   }
  ],
- "players_per_hunter": 4.0
+ "players_per_hunter": 4.0,
+ "ambience": "amb_night"
 }

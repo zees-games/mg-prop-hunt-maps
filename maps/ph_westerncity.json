@@ -7,29 +7,42 @@
  "blurb": "Converted from ph_westerncity.bsp by Skate6788 (https://steamcommunity.com/sharedfiles/filedetails/?id=1738480835).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.5,
+   0.57,
+   0.66
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.792,
+   0.827,
+   0.753
   ],
   "ground": [
-   0.35,
+   0.38,
    0.33,
-   0.3
+   0.27
   ],
-  "sun_pitch": -55,
+  "sun_pitch": -60,
   "sun_yaw": 30,
   "sun_energy": 1.0,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.816,
+   0.894,
+   0.902
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.6,
+  "sun_colour": [
+   0.992,
+   0.98,
+   0.851
+  ],
+  "fog_colour": [
+   0.792,
+   0.827,
+   0.753
+  ],
+  "fog_start": 15.2,
+  "fog_end": 400.1,
+  "fog_max": 0.7
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=1738480835",
@@ -87616,5 +87629,6 @@
    ]
   }
  ],
- "players_per_hunter": 4.0
+ "players_per_hunter": 4.0,
+ "ambience": "amb_wind"
 }

@@ -21,15 +21,20 @@
    0.33,
    0.3
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
+  "sun_pitch": -20,
+  "sun_yaw": 180,
   "sun_energy": 1.0,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.675,
+   0.769,
+   0.8
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   1.0,
+   0.988,
+   0.902
+  ]
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=331545400",

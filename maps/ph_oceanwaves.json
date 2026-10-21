@@ -7,29 +7,42 @@
  "blurb": "Converted from ph_oceanwaves.bsp by Gvarados (https://steamcommunity.com/sharedfiles/filedetails/?id=1654704542).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.27,
+   0.45,
+   0.76
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.6,
+   0.788,
+   0.902
   ],
   "ground": [
-   0.35,
-   0.33,
-   0.3
+   0.3,
+   0.29,
+   0.27
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
+  "sun_pitch": -35,
+  "sun_yaw": 340,
   "sun_energy": 1.0,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   0.404,
+   0.557,
+   0.663
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.62,
+  "sun_colour": [
+   1.0,
+   0.871,
+   0.749
+  ],
+  "fog_colour": [
+   0.6,
+   0.788,
+   0.902
+  ],
+  "fog_start": 190.5,
+  "fog_end": 666.8,
+  "fog_max": 0.6
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=1654704542",
@@ -14551,6 +14564,20 @@
     0.976,
     0.867
    ]
+  },
+  {
+   "at": [
+    -7.714,
+    4.395,
+    0.412
+   ],
+   "range": 9.0,
+   "energy": 0.9,
+   "colour": [
+    1.0,
+    1.0,
+    0.957
+   ]
   }
  ],
  "spawns": {
@@ -14785,5 +14812,6 @@
    ]
   }
  ],
- "players_per_hunter": 1.4
+ "players_per_hunter": 1.4,
+ "ambience": "amb_wind"
 }

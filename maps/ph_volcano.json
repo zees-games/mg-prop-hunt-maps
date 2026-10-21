@@ -7,29 +7,34 @@
  "blurb": "Converted from ph_volcano_v1.bsp by Patrick\u2122 (https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.27,
+   0.45,
+   0.76
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.8,
+   0.8,
+   0.78
   ],
   "ground": [
-   0.35,
-   0.33,
-   0.3
+   0.3,
+   0.29,
+   0.27
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
+  "sun_pitch": -68,
+  "sun_yaw": 328,
   "sun_energy": 1.0,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   1.0,
+   1.0,
+   1.0
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   1.0,
+   0.878,
+   0.659
+  ]
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849",
@@ -37025,16 +37030,16 @@
   },
   {
    "at": [
-    32.838,
-    9.038,
-    -14.365
+    19.127,
+    1.22,
+    -21.698
    ],
    "range": 9.0,
-   "energy": 0.75,
+   "energy": 0.9,
    "colour": [
     1.0,
-    1.0,
-    0.922
+    0.502,
+    0.0
    ]
   }
  ],
@@ -37614,5 +37619,6 @@
    ]
   }
  ],
- "players_per_hunter": 1.6
+ "players_per_hunter": 1.6,
+ "ambience": "amb_wind"
 }

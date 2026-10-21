@@ -7,29 +7,42 @@
  "blurb": "Converted from ph_bank.bsp by EHOT (https://steamcommunity.com/sharedfiles/filedetails/?id=667484197).",
  "environment": {
   "sky_top": [
-   0.32,
-   0.52,
-   0.82
+   0.27,
+   0.45,
+   0.76
   ],
   "sky_horizon": [
-   0.72,
-   0.82,
-   0.92
+   0.812,
+   0.878,
+   0.878
   ],
   "ground": [
-   0.35,
-   0.33,
-   0.3
+   0.3,
+   0.29,
+   0.27
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
-  "sun_energy": 1.0,
+  "sun_pitch": -45,
+  "sun_yaw": 150,
+  "sun_energy": 0.67,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   1.0,
+   0.976,
+   0.843
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   0.812,
+   0.878,
+   0.878
+  ],
+  "fog_colour": [
+   0.812,
+   0.878,
+   0.878
+  ],
+  "fog_start": 9.5,
+  "fog_end": 160.0,
+  "fog_max": 0.7
  },
  "kill_y": -20.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=667484197",
@@ -45241,5 +45254,6 @@
     42.811
    ]
   }
- ]
+ ],
+ "ambience": "amb_city"
 }

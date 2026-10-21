@@ -37,6 +37,8 @@ Every length is metres, every angle degrees, every time seconds. A position is `
 - `players_per_hunter`: this map's own share of hunters, one for every this many players (rounded up); 0 is the server's own (`ph_players_per_hunter`), and the server's least and most hunters hold either way. A big map dense with hiding places wants more hunters than a cottage: the stand-ins played the school 11 rounds in 12 for the props and the woods 1 in 12 at the server's one in three.
 - `kill_y`: anybody below it is out. Put it under anything a player could fall off.
 - `environment`: every field is optional and the values above are the defaults. `fog` is a density; 0.0025 is a light haze over a big outdoor map, and 0.008 already hides everything past forty metres.
+  A converted map also carries the author's own: `fog_colour` (r, g, b), `fog_start` and `fog_end` in metres and `fog_max` (the densest it gets, 0 to 1), which replace the density and the default haze when `fog_end` is present; its `ambient` colour tints the shade a quarter of the way.
+- `ambience` and `ambience_indoor`: the sound bed outdoors and under any ceiling, one of dot-audio's stock beds (`amb_wind`, `amb_outdoor`, `amb_night`, `amb_city`, `amb_indoor`, `amb_eerie`, `amb_industrial`, `amb_cave`, `amb_rain`); absent, the game's own per map or `amb_outdoor` and `amb_indoor`.
 
 ## Boxes
 

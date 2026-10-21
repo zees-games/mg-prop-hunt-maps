@@ -21,15 +21,20 @@
    0.33,
    0.3
   ],
-  "sun_pitch": -55,
-  "sun_yaw": 30,
-  "sun_energy": 1.0,
+  "sun_pitch": -60,
+  "sun_yaw": 70,
+  "sun_energy": 0.95,
   "ambient": [
-   0.62,
-   0.66,
-   0.72
+   1.0,
+   1.0,
+   1.0
   ],
-  "ambient_energy": 0.5
+  "ambient_energy": 0.42,
+  "sun_colour": [
+   1.0,
+   1.0,
+   0.749
+  ]
  },
  "kill_y": -20.0,
  "players_per_hunter": 2.2,
@@ -9460,6 +9465,20 @@
     1.0,
     0.502,
     0.0
+   ]
+  },
+  {
+   "at": [
+    -1.828,
+    5.201,
+    -14.478
+   ],
+   "range": 9.0,
+   "energy": 0.9,
+   "colour": [
+    0.878,
+    0.878,
+    0.878
    ]
   }
  ],
