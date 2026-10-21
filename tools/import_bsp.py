@@ -764,6 +764,26 @@ PROP_MAP = {
     "cyph_prop_pechka": "furniture_kitchen_stove",
     "cyph_prop_chines_lamp": "furniture_lamp_round_floor",
     "cyph_prop_sakura": "nature_tree_small",
+    # ph_wolfsmanor (gamebanana 61511)
+    "furniturebathtub001a": "furniture_bathtub",
+    "kitchen_stove001a": "furniture_kitchen_stove",
+    "furniturefridge001a": "furniture_kitchen_fridge",
+    "furniturebed001a": "furniture_bed_single",
+    "furniture_desk01a": "furniture_desk",
+    "furniture_cabinetdrawer02a": "furniture_cabinet_bed_drawer",
+    "kitchen_counter001c": "furniture_kitchen_cabinet",
+    "laundry_cart001": "survival_box_open",
+    "workspace001": "furniture_desk",
+    "workspace002": "furniture_desk",
+    "workspace003": "furniture_desk",
+    "oak_tree01": "nature_tree_oak",
+    "tree_deciduous_02a": "nature_tree_default_fall",
+    "tree_deciduous_03a": "nature_tree_default_fall",
+    "tree_deciduous_03b": "nature_tree_oak_fall",
+    "tree_poplar_01": "nature_tree_tall",
+    "wood_fence01a": "nature_fence_planks",
+    "driftwood_01a": "nature_log",
+    "driftwood_03a": "nature_log",
 }
 
 
