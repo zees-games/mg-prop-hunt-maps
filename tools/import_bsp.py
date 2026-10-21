@@ -51,7 +51,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import bsp_read  # noqa: E402
+import bsp_read  # noqa: E402  (a shim over dot-map's shared reader; it puts dotbsp on sys.path)
+from dotbsp import docboxes  # noqa: E402  (the shared passes over a document's boxes)
 import build_maps  # noqa: E402
 
 S = 0.01905
@@ -766,66 +767,12 @@ PROP_MAP = {
 }
 
 
-# The author left every wall that is not a house as a developer grid. Those are given a
-# suburban surface by what the box IS, since its texture says nothing: size and height tell a
-# neighbour's tall wall from a fence, a path, a roof slab or a shed. Every name is an existing
-# PhMaterials surface; the tint only chooses which pastel family it is.
-SIDING_BLUE = (0.80, 0.88, 1.00)
-SIDING_GREEN = (0.82, 0.96, 0.84)
-BRICK_RED = (1.00, 0.86, 0.80)
-ROOF_RED = (1.00, 0.72, 0.62)
-FENCE_WHITE = (1.00, 0.96, 0.90)
-
-
-def suburban_surface(at, size):
-    """(mat, tint) for a developer-grid box, from its centre `at` and `size` in metres."""
-    w, h, d = size
-    top = at[1] + h / 2
-    if h < 0.7 and max(w, d) > 2.0:
-        # A slab: high up it is a roof or a balcony, at the ground a path or the drive.
-        return ("roof", ROOF_RED) if top > 5.0 else ("sidewalk", None)
-    if min(w, d) < 0.6 and h > 2.0:
-        return "wood", FENCE_WHITE          # slats and pickets
-    if h >= 8.0:
-        # A neighbour's house wall round the yard: brick on two sides, siding on the others.
-        if d > w:
-            return "brick", BRICK_RED
-        return ("plaster", SIDING_BLUE) if at[2] < 0 else ("plaster", SIDING_GREEN)
-    if h >= 4.5:
-        return "plaster", SIDING_BLUE        # the upper storey of a house
-    if abs(w - h) < 0.1 and abs(d - h) < 0.1:
-        return "brick", BRICK_RED            # a shed block or a chimney stack
-    return "wood", FENCE_WHITE               # a yard fence or a low wall
-
-
-def classify(name):
-    """A Source material name without its per-map folder and cubemap suffix. vbsp renames a
-    material the map patches to MAPS/<map>/<group>/<name>_<x>_<y>_<z>, and the folder carries
-    the map's own name, which must not decide a surface (a map called ph_school would match
-    SCHOOL-anything); only the material's own name does."""
-    n = name.upper()
-    if n.startswith("MAPS/"):
-        n = n.split("/", 2)[-1]
-    return re.sub(r"(_-?\d+){3}$", "", n)
-
-
 # Every entity class an author uses for a loose prop; the _dynamic ones are placed furniture
 # that does not move in the original, which a catalogue prop is not either (it is a disguise).
 PROP_CLASSES = ("prop_physics", "prop_physics_multiplayer", "prop_physics_override",
                 "prop_dynamic", "prop_dynamic_override")
 START_CLASSES = ("info_player_start", "info_player_terrorist", "info_player_counterterrorist",
                  "info_player_deathmatch", "info_player_teamspawn")
-
-
-def within(b, x, z, slack=0.0):
-    """Whether (x, z) is under box b's footprint, which a turned box (yaw) shares only in its own
-    frame: the point is taken into it first (godot turns a box about +y)."""
-    dx, dz = x - b["at"][0], z - b["at"][2]
-    yaw = b.get("yaw", 0.0)
-    if yaw:
-        c, sn = math.cos(math.radians(yaw)), math.sin(math.radians(yaw))
-        dx, dz = dx * c - dz * sn, dx * sn + dz * c
-    return abs(dx) <= b["size"][0] / 2 + slack and abs(dz) <= b["size"][2] / 2 + slack
 
 
 def gd(p):
@@ -838,32 +785,6 @@ def kv(e, k, default=None):
 
 def vec(s):
     return [float(x) for x in s.split()]
-
-
-def brush_material(bsp, index):
-    first, count, _ = bsp.brushes[index]
-    names = []
-    for s in bsp.brushsides[first:first + count]:
-        if s[3] or s[1] < 0:
-            continue
-        ti = bsp.texinfo[s[1]]
-        td = int(ti[17])
-        if 0 <= td < len(bsp.texdata):
-            names.append(bsp.texnames[bsp.texdata[td][3]].upper())
-    return names
-
-
-def pick_material(names):
-    real = [n for n in names if not n.startswith("TOOLS/")]
-    if not real:
-        return None
-    # Majority of the sides, ignoring dev grids when anything else is there.
-    pool = [n for n in real if not n.startswith("DEV/")] or real
-    best = classify(max(sorted(set(pool)), key=pool.count))  # sorted: a tie follows the name, not the hash seed
-    for key, mat, tint in TEXTURE_MAP:
-        if key in best:
-            return mat, tint
-    return "flat", None
 
 
 def planes_of(bsp, index):
@@ -1173,7 +1094,7 @@ def prune_pockets(doc, rounds=4, levels=False, margin=0.0, floor_lo=-0.05):
             ax, az = (reach, reach) if reach else (hx, hz)
             for zi in range(max(0, int((b["at"][2] - az - zs0) / R)), min(H, int((b["at"][2] + az - zs0) / R) + 2)):
                 for xi in range(max(0, int((b["at"][0] - ax - xs0) / R)), min(W, int((b["at"][0] + ax - xs0) / R) + 2)):
-                    if within(b, xs0 + (xi + 0.5) * R, zs0 + (zi + 0.5) * R):
+                    if docboxes.within(b, xs0 + (xi + 0.5) * R, zs0 + (zi + 0.5) * R):
                         test(zi * W + xi)
 
         for b in boxes:
@@ -1269,72 +1190,6 @@ def prune_pockets(doc, rounds=4, levels=False, margin=0.0, floor_lo=-0.05):
     return total
 
 
-def drop_door_leaves(m):
-    """Remove door leaves the author left standing ajar in a doorway.
-
-    A leaf is a wood slab as tall as a door, about a door wide and under 15 cm thick. In the
-    source it swings clear of the opening; here it is a fixed box in the middle of a gap that is
-    then too narrow for the bots' nav (radius plus a cell either side), which cuts a whole room
-    off. The frame and the wall stay, so the doorway reads as a doorway."""
-    kept, dropped = [], 0
-    for b in m.boxes:
-        w, h, d = b["size"]
-        thin, wide = sorted((w, d))
-        # A hotel's double doors are two half leaves (0.4 m each, in wood or parquet).
-        if b.get("mat") in ("wood", "parquet", "flat") and 1.9 <= h <= 2.3 and thin <= 0.16 and 0.35 <= wide <= 1.1:
-            dropped += 1
-            continue
-        kept.append(b)
-    m.boxes[:] = kept
-    return dropped
-
-
-def prune_far_scenery(m, starts, reach=12.0):
-    """Drops the boxes of every cluster that is out of reach of the starts. A community map keeps
-    its 3D skybox scenery (a distant city, a crane) in the same world as the play space, and the
-    overview camera frames all of it, so the real map shrank to a corner of the frame. Boxes are
-    grouped by touching (a quarter metre of slack); a group is kept when one of its boxes comes
-    within `reach` metres of a start; the author's sky-box walls that bound the play space are
-    big enough to pass, and a second, sealed sky cell holding the scenery is dropped with it."""
-    if not starts:
-        return
-    n = len(m.boxes)
-    parent = list(range(n))
-
-    def find(i):
-        while parent[i] != i:
-            parent[i] = parent[parent[i]]
-            i = parent[i]
-        return i
-
-    def box_range(b):
-        h = [b["size"][0] / 2, b["size"][1] / 2, b["size"][2] / 2]
-        if b.get("yaw"):
-            # The turned box's own bounds, so its slack is not the box's corner sticking out.
-            c, sn = abs(math.cos(math.radians(b["yaw"]))), abs(math.sin(math.radians(b["yaw"])))
-            h = [h[0] * c + h[2] * sn, h[1], h[0] * sn + h[2] * c]
-        return [(b["at"][i] - h[i] - 0.25, b["at"][i] + h[i] + 0.25) for i in range(3)]
-
-    rng = [box_range(b) for b in m.boxes]
-    order = sorted(range(n), key=lambda i: rng[i][0][0])
-    for ai, a in enumerate(order):
-        for b in order[ai + 1:]:
-            if rng[b][0][0] > rng[a][0][1]:
-                break
-            if all(rng[a][k][0] <= rng[b][k][1] and rng[b][k][0] <= rng[a][k][1] for k in (1, 2)):
-                parent[find(a)] = find(b)
-    keep = set()
-    for i, b in enumerate(m.boxes):
-        near = any(rng[i][0][0] - reach <= sx <= rng[i][0][1] + reach and rng[i][2][0] - reach <= sz <= rng[i][2][1] + reach
-                   for sx, _sy, sz in starts)
-        if near:
-            keep.add(find(i))
-    before = len(m.boxes)
-    m.boxes[:] = [b for i, b in enumerate(m.boxes) if find(i) in keep]
-    if len(m.boxes) != before:
-        print("dropped %d boxes of scenery out of reach of the starts" % (before - len(m.boxes)))
-
-
 def terrain_boxes(bsp, cell=80.0, quant=5.0, depth=52.0):
     """The map's displacement ground as a stepped field of boxes (--terrain).
 
@@ -1415,7 +1270,7 @@ def audit_props(doc):
             pid, yaw = q["id"], q.get("yaw", 0.0)
             w, h, d = build_maps.footprint(pid, yaw)[0], build_maps.size_of(pid)[1], build_maps.footprint(pid, yaw)[1]
             cx, cy, cz = q["at"][0], q["at"][1] + h / 2, q["at"][2]
-            sunk = any(within(b, cx, cz, 0.0) and b["at"][1] - b["size"][1] / 2 + 0.02 < cy < b["at"][1] + b["size"][1] / 2 - 0.02 for b in solid)
+            sunk = any(docboxes.within(b, cx, cz, 0.0) and b["at"][1] - b["size"][1] / 2 + 0.02 < cy < b["at"][1] + b["size"][1] / 2 - 0.02 for b in solid)
             floating = False
             if not sunk and "ceiling" not in pid and "lily" not in pid:
                 base = q["at"][1]
@@ -1425,7 +1280,7 @@ def audit_props(doc):
                         px, pz = cx + fx * w, cz + fz * d
                         for b in solid:
                             t = b["at"][1] + b["size"][1] / 2
-                            if base - 0.12 <= t <= base + 0.04 and within(b, px, pz, 0.0):
+                            if base - 0.12 <= t <= base + 0.04 and docboxes.within(b, px, pz, 0.0):
                                 floating = False
                         for o in doc["props"]:
                             if o is q:
@@ -1505,8 +1360,8 @@ def main(argv):
 
     sliced = skipped = 0
     for bi in sorted(bsp.model_brushes(0)):
-        names = brush_material(bsp, bi)
-        mt = pick_material(names)
+        names = docboxes.brush_material_names(bsp, bi)
+        mt = docboxes.majority_material(names, TEXTURE_MAP, default=("flat", None))
         invisible = False
         if mt is None:
             # The author's sky box is the map's wall: solid to a player, drawn as nothing.
@@ -1534,7 +1389,7 @@ def main(argv):
             if invisible and bx is not None:
                 bx["visible"] = False
             elif bx is not None and mt[0] == "flat" and style == "yard":
-                bx["mat"], tint = suburban_surface(bx["at"], bx["size"])
+                bx["mat"], tint = docboxes.suburban_surface(bx["at"], bx["size"])
                 if tint is not None:
                     bx["tint"] = list(tint)
                 else:
@@ -1547,8 +1402,8 @@ def main(argv):
         print("terrain: %d ground boxes from the displacements" % n)
     print("brushes %d  tool-only %d  sliced %d  boxes %d" % (len(bsp.model_brushes(0)), skipped, sliced, len(m.boxes)))
 
-    drop_door_leaves(m)
-    prune_far_scenery(m, [gd(vec(e["origin"])) for e in bsp.entities if e.get("classname") in START_CLASSES])
+    docboxes.drop_door_leaves(m.boxes)
+    docboxes.prune_far_scenery(m.boxes, [gd(vec(e["origin"])) for e in bsp.entities if e.get("classname") in START_CLASSES])
 
     # Props: sit on the highest solid box under the footprint when one is within reach of the
     # source height, else at the source height (a lamp on a table the author placed as a prop).
@@ -1562,7 +1417,7 @@ def main(argv):
         for b in m.boxes:
             if not b.get("solid", True):
                 continue
-            if within(b, x, z, 0.001):
+            if docboxes.within(b, x, z, 0.001):
                 t = b["at"][1] + b["size"][1] / 2
                 if t <= ymax and (best is None or t > best):
                     best = t
@@ -1603,7 +1458,7 @@ def main(argv):
                 for b in m.boxes:
                     if not b.get("solid", True):
                         continue
-                    if within(b, x + dx, z + dz):
+                    if docboxes.within(b, x + dx, z + dz):
                         if abs(b["at"][1] + b["size"][1] / 2 - y) < 0.06:
                             ok = True
                             break
