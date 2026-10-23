@@ -81956,15 +81956,6 @@
    "yaw": 138.0
   },
   {
-   "id": "survival_barrel",
-   "at": [
-    13.354,
-    -0.095,
-    14.116
-   ],
-   "yaw": 127.0
-  },
-  {
    "id": "furniture_potted_plant",
    "at": [
     33.872,
@@ -82070,15 +82061,6 @@
     21.472
    ],
    "yaw": 160.5
-  },
-  {
-   "id": "survival_box_large",
-   "at": [
-    9.068,
-    -0.095,
-    -15.43
-   ],
-   "yaw": 57.0
   },
   {
    "id": "nature_log_large",
@@ -82509,15 +82491,6 @@
    "yaw": 229.0
   },
   {
-   "id": "furniture_lounge_chair",
-   "at": [
-    8.382,
-    0.077,
-    -8.591
-   ],
-   "yaw": 136.0
-  },
-  {
    "id": "furniture_bookcase_closed_doors",
    "at": [
     0.895,
@@ -82797,24 +82770,6 @@
    ]
   },
   {
-   "id": "furniture_bed_bunk",
-   "at": [
-    9.544,
-    0.21,
-    16.06
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_bed_bunk",
-   "at": [
-    9.544,
-    0.21,
-    16.06
-   ],
-   "yaw": 270.0
-  },
-  {
    "id": "furniture_trashcan",
    "at": [
     8.554,
@@ -82944,24 +82899,6 @@
     19.355
    ],
    "yaw": 180.0
-  },
-  {
-   "id": "nature_stone_small_a",
-   "at": [
-    9.62,
-    0.02,
-    19.355
-   ],
-   "yaw": 321.0
-  },
-  {
-   "id": "nature_stone_small_a",
-   "at": [
-    9.354,
-    0.498,
-    19.374
-   ],
-   "yaw": 57.0
   },
   {
    "id": "survival_bottle",
@@ -83525,15 +83462,6 @@
   {
    "id": "furniture_cabinet_bed_drawer",
    "at": [
-    10.344,
-    0.21,
-    15.336
-   ],
-   "yaw": 1.0
-  },
-  {
-   "id": "furniture_cabinet_bed_drawer",
-   "at": [
     15.659,
     0.21,
     18.517
@@ -83744,22 +83672,6 @@
     19.031
    ],
    "yaw": 357.215
-  },
-  {
-   "id": "survival_resource_wood",
-   "at": [
-    13.442,
-    0.02,
-    19.012
-   ]
-  },
-  {
-   "id": "survival_resource_wood",
-   "at": [
-    13.583,
-    0.182,
-    18.99
-   ]
   },
   {
    "id": "furniture_bench",
@@ -84273,15 +84185,6 @@
     17.107
    ],
    "yaw": 8.5
-  },
-  {
-   "id": "furniture_bookcase_closed",
-   "at": [
-    11.602,
-    0.21,
-    15.336
-   ],
-   "yaw": 1.0
   },
   {
    "id": "survival_bottle",
@@ -85090,15 +84993,6 @@
     -21.945
    ],
    "yaw": 270.0
-  },
-  {
-   "id": "furniture_lounge_chair",
-   "at": [
-    7.049,
-    2.458,
-    -9.868
-   ],
-   "yaw": 89.5
   },
   {
    "id": "food_mug",
@@ -86460,24 +86354,6 @@
     -8.02
    ],
    "yaw": 228.5
-  },
-  {
-   "id": "furniture_chair",
-   "at": [
-    6.725,
-    3.512,
-    -9.429
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_chair",
-   "at": [
-    6.744,
-    3.512,
-    -10.001
-   ],
-   "yaw": 90.0
   },
   {
    "id": "furniture_chair",

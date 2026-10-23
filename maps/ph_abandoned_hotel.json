@@ -5619,24 +5619,6 @@
   {
    "id": "survival_barrel",
    "at": [
-    8.077,
-    0.001,
-    -3.657
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_barrel",
-   "at": [
-    9.449,
-    0.001,
-    -4.115
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_barrel",
-   "at": [
     18.745,
     0.001,
     -0.914
@@ -5905,15 +5887,6 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_lamp_square_table",
-   "at": [
-    8.306,
-    0.001,
-    -6.248
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "furniture_side_table",
    "at": [
     6.401,
@@ -6071,14 +6044,6 @@
     -9.753
    ],
    "yaw": 90.0
-  },
-  {
-   "id": "furniture_table",
-   "at": [
-    10.821,
-    0.001,
-    -5.334
-   ]
   },
   {
    "id": "furniture_table",
@@ -6292,15 +6257,6 @@
     -2.419
    ],
    "yaw": 270.0
-  },
-  {
-   "id": "furniture_cabinet_bed_drawer",
-   "at": [
-    7.773,
-    0.001,
-    -6.401
-   ],
-   "yaw": 90.0
   },
   {
    "id": "furniture_cabinet_bed_drawer",
@@ -6746,15 +6702,6 @@
     -23.107
    ],
    "yaw": 45.0
-  },
-  {
-   "id": "furniture_chair",
-   "at": [
-    10.363,
-    0.001,
-    -5.943
-   ],
-   "yaw": 270.0
   },
   {
    "id": "survival_bottle",
@@ -7256,15 +7203,6 @@
    "id": "furniture_toilet",
    "at": [
     1.829,
-    0.001,
-    12.878
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "furniture_toilet",
-   "at": [
-    3.048,
     0.001,
     12.878
    ],
@@ -8160,14 +8098,6 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_table",
-   "at": [
-    10.821,
-    0.752,
-    -5.334
-   ]
-  },
-  {
    "id": "furniture_computer_screen",
    "at": [
     -9.353,
@@ -8523,15 +8453,6 @@
    "yaw": 180.0
   },
   {
-   "id": "food_mug",
-   "at": [
-    9.43,
-    0.895,
-    -4.115
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "furniture_computer_keyboard",
    "at": [
     -5.22,
@@ -8559,15 +8480,6 @@
    "yaw": 90.0
   },
   {
-   "id": "food_mug",
-   "at": [
-    8.096,
-    0.895,
-    -3.657
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "survival_box",
    "at": [
     -13.716,
@@ -8583,15 +8495,6 @@
     3.734
    ],
    "yaw": 90.0
-  },
-  {
-   "id": "furniture_chair",
-   "at": [
-    10.059,
-    1.503,
-    -5.181
-   ],
-   "yaw": 180.0
   },
   {
    "id": "furniture_computer_keyboard",
