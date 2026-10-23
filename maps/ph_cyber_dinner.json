@@ -37,6 +37,8 @@
   ]
  },
  "kill_y": -20.0,
+ "players_per_hunter": 3.0,
+ "hide_seconds": 15.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752",
  "boxes": [
   {
@@ -115,7 +117,7 @@
     6.401,
     20.726
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -674,7 +676,7 @@
     3.658,
     27.432
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -687,7 +689,7 @@
     3.658,
     20.117
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -1004,7 +1006,7 @@
     9.22,
     2.438
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -1147,7 +1149,7 @@
     41.148,
     17.983
    ],
-   "mat": "flat"
+   "mat": "brick"
   },
   {
    "at": [
@@ -14291,7 +14293,7 @@
     2.591,
     2.438
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -19479,7 +19481,7 @@
     0.076,
     0.8
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -36735,7 +36737,7 @@
     2.591,
     7.315
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -36748,7 +36750,7 @@
     2.591,
     7.315
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -37346,7 +37348,7 @@
     0.076,
     0.61
    ],
-   "mat": "wood"
+   "mat": "metal"
   },
   {
    "at": [
@@ -39803,7 +39805,7 @@
     33.833,
     10.973
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -40245,7 +40247,7 @@
     33.833,
     1.219
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -40622,7 +40624,7 @@
     33.833,
     12.192
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -40700,7 +40702,7 @@
     2.591,
     7.315
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -41246,7 +41248,7 @@
     20.574,
     3.658
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -43343,7 +43345,7 @@
     1.524,
     6.02
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -49029,7 +49031,7 @@
     4.877,
     11.582
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -49861,7 +49863,7 @@
     23.165,
     0.61
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -49900,7 +49902,7 @@
     4.877,
     11.582
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -51012,7 +51014,7 @@
     39.014,
     7.315
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -51727,7 +51729,7 @@
     35.814,
     9.144
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -52312,7 +52314,7 @@
     48.463,
     1.524
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -53066,7 +53068,7 @@
     23.165,
     9.211
    ],
-   "mat": "flat"
+   "mat": "metal"
   },
   {
    "at": [
@@ -59859,7 +59861,7 @@
  ],
  "props": [
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -57.533,
     -12.192,
@@ -59868,7 +59870,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -61.33,
     -12.192,
@@ -59877,7 +59879,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -64.255,
     -12.192,
@@ -59885,7 +59887,7 @@
    ]
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     14.33,
     -12.192,
@@ -59894,7 +59896,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -66.376,
     -12.192,
@@ -59903,15 +59905,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
-   "at": [
-    -39.409,
-    -12.192,
-    39.847
-   ]
-  },
-  {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -9.847,
     -12.192,
@@ -59920,7 +59914,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -5.272,
     -12.192,
@@ -59929,7 +59923,7 @@
    "yaw": 60.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     4.738,
     -12.192,
@@ -59938,7 +59932,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -8.854,
     -12.192,
@@ -59947,7 +59941,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -64.654,
     -12.192,
@@ -59955,7 +59949,7 @@
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -18.429,
     -12.192,
@@ -59963,7 +59957,7 @@
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -3.151,
     -12.192,
@@ -59972,7 +59966,7 @@
    "yaw": 180.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -13.443,
     -12.192,
@@ -59981,7 +59975,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -4.602,
     -12.192,
@@ -59990,7 +59984,7 @@
    "yaw": 270.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     12.317,
     -12.192,
@@ -60042,60 +60036,6 @@
     38.503
    ],
    "yaw": 195.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -38.273,
-    -12.192,
-    35.876
-   ],
-   "yaw": 195.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -38.819,
-    -12.192,
-    36.023
-   ],
-   "yaw": 195.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -46.416,
-    -12.192,
-    36.687
-   ],
-   "yaw": 195.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -45.881,
-    -12.192,
-    35.825
-   ],
-   "yaw": 165.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -36.033,
-    -12.192,
-    39.582
-   ],
-   "yaw": 15.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    -36.354,
-    -12.192,
-    39.65
-   ],
-   "yaw": 135.0
   },
   {
    "id": "food_carton",
@@ -60154,6 +60094,60 @@
   {
    "id": "food_bottle_oil",
    "at": [
+    -16.24,
+    -12.192,
+    38.089
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -12.903,
+    -12.192,
+    37.763
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -58.66,
+    -12.192,
+    -15.963
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -65.506,
+    -12.192,
+    -14.498
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -62.538,
+    -12.192,
+    -14.36
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    14.295,
+    -12.192,
+    58.567
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
     -59.897,
     -12.192,
     -14.802
@@ -60179,16 +60173,16 @@
    "yaw": 45.0
   },
   {
-   "id": "food_carton",
+   "id": "food_bottle_oil",
    "at": [
-    -38.065,
+    -66.556,
     -12.192,
-    39.469
+    4.524
    ],
-   "yaw": 300.0
+   "yaw": 270.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -10.842,
     -12.192,
@@ -60197,25 +60191,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
-   "at": [
-    -45.561,
-    -12.192,
-    34.858
-   ],
-   "yaw": 120.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -46.839,
-    -12.192,
-    34.933
-   ],
-   "yaw": 195.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -58.401,
     -12.192,
@@ -60224,7 +60200,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -58.404,
     -12.192,
@@ -60233,7 +60209,7 @@
    "yaw": 120.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -15.545,
     -12.192,
@@ -60242,7 +60218,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -10.287,
     -12.192,
@@ -60251,7 +60227,7 @@
    "yaw": 135.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     14.239,
     -12.192,
@@ -60260,7 +60236,7 @@
    "yaw": 30.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -4.674,
     -12.192,
@@ -60269,7 +60245,97 @@
    "yaw": 315.0
   },
   {
-   "id": "food_carton_small",
+   "id": "food_bottle_oil",
+   "at": [
+    -58.625,
+    -12.192,
+    -15.723
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -66.059,
+    -12.192,
+    -13.422
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -60.161,
+    -12.192,
+    -14.75
+   ],
+   "yaw": 285.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -63.71,
+    -12.192,
+    -14.608
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -64.01,
+    -12.192,
+    -14.472
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -64.07,
+    -12.192,
+    -14.591
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -59.946,
+    -12.192,
+    -14.663
+   ],
+   "yaw": 285.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -66.802,
+    -12.192,
+    5.693
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -66.677,
+    -12.192,
+    6.005
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -66.791,
+    -12.192,
+    6.061
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_cabinet_bed",
    "at": [
     -62.47,
     -12.192,
@@ -60278,7 +60344,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -13.318,
     -12.192,
@@ -60287,25 +60353,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
-   "at": [
-    -39.539,
-    -12.192,
-    36.355
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_carton_small",
-   "at": [
-    -46.938,
-    -12.192,
-    35.669
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -13.781,
     -12.192,
@@ -60314,16 +60362,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
-   "at": [
-    -40.274,
-    -12.192,
-    36.298
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -57.589,
     -12.192,
@@ -60359,43 +60398,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    -39.908,
-    -12.192,
-    37.026
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    -46.265,
-    -12.192,
-    35.838
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    -46.803,
-    -12.192,
-    36.371
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -46.824,
-    -12.192,
-    37.109
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -65.764,
     -12.192,
@@ -60404,7 +60407,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -17.296,
     -12.192,
@@ -60413,34 +60416,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
-   "at": [
-    -34.846,
-    -12.192,
-    40.309
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -35.588,
-    -12.192,
-    39.822
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -35.985,
-    -12.192,
-    40.351
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     13.469,
     -12.192,
@@ -60449,7 +60425,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     13.956,
     -12.192,
@@ -60458,7 +60434,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     13.427,
     -12.192,
@@ -60491,7 +60467,7 @@
    ]
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     13.806,
     -12.192,
@@ -60500,7 +60476,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     13.851,
     -12.192,
@@ -60509,7 +60485,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -30.943,
     -12.192,
@@ -60518,16 +60494,16 @@
    "yaw": 270.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -61.33,
-    -11.822,
+    -12.138,
     -14.696
    ],
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -60.808,
     -12.192,
@@ -60536,16 +60512,16 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -64.255,
-    -11.822,
+    -12.138,
     -14.179
    ],
    "yaw": 315.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -64.929,
     -12.192,
@@ -60581,24 +60557,16 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    -38.511,
-    -12.192,
-    39.526
-   ]
-  },
-  {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -66.376,
-    -11.822,
+    -12.138,
     6.242
    ],
    "yaw": 45.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -66.312,
     -12.192,
@@ -60607,25 +60575,52 @@
    "yaw": 15.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "nature_mushroom_red_tall",
    "at": [
-    -39.409,
-    -11.822,
-    39.847
-   ],
-   "yaw": 315.0
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    -40.083,
+    -19.998,
     -12.192,
-    39.911
+    40.042
    ],
-   "yaw": 285.0
+   "yaw": 45.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -58.662,
+    -12.192,
+    -15.011
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -65.701,
+    -12.192,
+    -15.086
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -59.227,
+    -12.192,
+    -14.783
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -14.01,
+    -12.192,
+    40.028
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -20.464,
     -11.887,
@@ -60634,7 +60629,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -20.195,
     -11.887,
@@ -60643,7 +60638,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -13.307,
     -11.887,
@@ -60652,7 +60647,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.112,
     -11.887,
@@ -60661,7 +60656,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     14.211,
     -11.887,
@@ -60670,7 +60665,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.024,
     -11.887,
@@ -60679,7 +60674,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.924,
     -11.887,
@@ -60688,7 +60683,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.429,
     -11.887,
@@ -60697,7 +60692,7 @@
    "yaw": 15.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -2.021,
     -11.887,
@@ -60706,7 +60701,7 @@
    "yaw": 15.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     2.373,
     -11.887,
@@ -60715,7 +60710,25 @@
    "yaw": 15.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -32.618,
+    -12.192,
+    40.222
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    14.024,
+    -12.192,
+    37.554
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -10.27,
     -11.887,
@@ -60724,7 +60737,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -16.265,
     -11.887,
@@ -60733,7 +60746,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -10.664,
     -11.887,
@@ -60742,13 +60755,74 @@
    "yaw": 30.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -32.514,
     -11.887,
     -8.204
    ],
    "yaw": 90.0
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    -6.02,
+    -12.192,
+    42.823
+   ]
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    6.125,
+    -12.192,
+    42.632
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    6.723,
+    -12.192,
+    41.681
+   ]
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    -0.941,
+    -12.192,
+    44.603
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    -0.445,
+    -12.192,
+    46.939
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    7.788,
+    -12.192,
+    58.279
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    9.627,
+    -12.192,
+    58.269
+   ],
+   "yaw": 270.0
   },
   {
    "id": "food_cup_coffee",
@@ -60823,7 +60897,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -1.143,
     -11.887,
@@ -60832,7 +60906,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -0.035,
     -11.887,
@@ -60841,7 +60915,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -18.074,
     -11.887,
@@ -60850,7 +60924,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -20.169,
     -11.887,
@@ -60859,7 +60933,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     6.324,
     -11.887,
@@ -60868,7 +60942,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -18.631,
     -11.887,
@@ -60877,7 +60951,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -16.952,
     -11.887,
@@ -60886,7 +60960,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     9.994,
     -11.887,
@@ -60895,7 +60969,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     6.093,
     -11.887,
@@ -60903,7 +60977,7 @@
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -47.955,
     -11.887,
@@ -60912,7 +60986,7 @@
    "yaw": 270.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -20.283,
     -11.887,
@@ -60921,7 +60995,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     2.324,
     -11.887,
@@ -60930,7 +61004,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     5.294,
     -11.887,
@@ -60938,7 +61012,7 @@
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     9.982,
     -11.887,
@@ -60947,7 +61021,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -16.71,
     -11.887,
@@ -61415,7 +61489,151 @@
    "yaw": 315.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "food_bottle_oil",
+   "at": [
+    -2.523,
+    -11.887,
+    30.31
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    1.084,
+    -11.887,
+    30.197
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    13.984,
+    -11.887,
+    17.925
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    14.142,
+    -11.887,
+    0.397
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.512,
+    -11.887,
+    3.953
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.719,
+    -11.887,
+    2.068
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.232,
+    -11.887,
+    1.25
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -18.667,
+    -11.887,
+    -17.451
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.181,
+    -11.887,
+    -21.06
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -21.0,
+    -11.887,
+    -32.907
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.0,
+    -11.887,
+    -33.081
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -62.506,
+    -11.887,
+    16.472
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -63.324,
+    -11.887,
+    15.985
+   ],
+   "yaw": 30.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.51,
+    -11.887,
+    -27.835
+   ],
+   "yaw": 150.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.023,
+    -11.887,
+    -28.653
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -3.524,
+    -11.887,
+    1.179
+   ],
+   "yaw": 315.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
    "at": [
     -21.792,
     -12.192,
@@ -61424,7 +61642,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
    "at": [
     -21.792,
     -12.192,
@@ -61433,7 +61651,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -30.685,
     -12.192,
@@ -61460,7 +61678,7 @@
    "yaw": 180.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -13.82,
     -12.192,
@@ -61496,7 +61714,177 @@
    "yaw": 225.0
   },
   {
-   "id": "survival_bottle",
+   "id": "nature_crop_melon",
+   "at": [
+    -0.416,
+    -12.192,
+    39.59
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    -64.667,
+    -12.192,
+    -8.863
+   ]
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    -59.756,
+    -12.192,
+    3.4
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    0.315,
+    -12.192,
+    36.191
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -19.173,
+    -12.192,
+    40.226
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    4.568,
+    -12.192,
+    39.617
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -9.906,
+    -12.192,
+    40.275
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -4.447,
+    -12.192,
+    41.762
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    1.981,
+    -12.192,
+    40.562
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -9.089,
+    -12.192,
+    40.237
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -4.551,
+    -12.192,
+    40.934
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -19.591,
+    -12.192,
+    39.32
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -4.657,
+    -12.192,
+    44.334
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -5.485,
+    -12.192,
+    44.567
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -1.224,
+    -12.192,
+    42.296
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -5.564,
+    -12.192,
+    41.545
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    7.884,
+    -12.192,
+    37.736
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    9.216,
+    -12.192,
+    37.719
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -1.07,
+    -12.192,
+    45.83
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     -16.616,
     -11.887,
@@ -61505,7 +61893,7 @@
    "yaw": 195.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -16.169,
     -11.887,
@@ -61514,7 +61902,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -19.351,
     -11.887,
@@ -61523,7 +61911,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -19.022,
     -11.887,
@@ -61532,7 +61920,7 @@
    "yaw": 345.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -15.001,
     -11.887,
@@ -61541,7 +61929,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -9.865,
     -11.887,
@@ -61550,7 +61938,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -2.972,
     -11.887,
@@ -61559,7 +61947,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     9.753,
     -11.887,
@@ -61568,7 +61956,86 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    1.796,
+    -12.192,
+    45.264
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    1.904,
+    -12.192,
+    42.827
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -6.249,
+    -12.192,
+    47.32
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -9.091,
+    -12.192,
+    43.03
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    6.634,
+    -12.192,
+    40.234
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -7.511,
+    -12.192,
+    47.394
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -21.102,
+    -12.192,
+    40.462
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -66.207,
+    -12.192,
+    -11.123
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -66.18,
+    -12.192,
+    -12.209
+   ]
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     9.025,
     -11.887,
@@ -61577,7 +62044,7 @@
    "yaw": 195.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     9.472,
     -11.887,
@@ -61586,7 +62053,34 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bottle",
+   "id": "survival_barrel",
+   "at": [
+    -32.651,
+    -12.192,
+    39.364
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    13.316,
+    -12.192,
+    37.643
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    14.113,
+    -12.192,
+    35.421
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     14.182,
     -11.887,
@@ -61595,7 +62089,7 @@
    "yaw": 105.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     14.066,
     -11.887,
@@ -61604,7 +62098,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -10.668,
     -11.887,
@@ -61613,7 +62107,225 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -21.107,
+    -12.192,
+    45.726
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -21.033,
+    -12.192,
+    46.989
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -16.742,
+    -12.192,
+    44.146
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -4.838,
+    -12.192,
+    56.819
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    1.77,
+    -12.192,
+    52.735
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    1.696,
+    -12.192,
+    51.472
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -12.686,
+    -12.192,
+    59.709
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -13.503,
+    -12.192,
+    59.746
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -5.359,
+    -12.192,
+    51.233
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -4.542,
+    -12.192,
+    51.196
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    0.605,
+    -12.192,
+    52.052
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    7.009,
+    -12.192,
+    53.635
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    7.162,
+    -12.192,
+    57.17
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    10.211,
+    -12.192,
+    56.388
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    10.664,
+    -12.192,
+    51.359
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    10.688,
+    -12.192,
+    59.841
+   ]
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    11.516,
+    -12.192,
+    59.738
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    10.905,
+    -12.192,
+    58.724
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    13.79,
+    -12.192,
+    51.293
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    13.794,
+    -12.192,
+    52.461
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -16.212,
+    -12.192,
+    51.931
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -16.249,
+    -12.192,
+    53.035
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -13.275,
+    -12.192,
+    49.217
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -59.485,
+    -12.192,
+    4.81
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -60.719,
+    -12.192,
+    4.315
+   ]
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     -8.55,
     -11.887,
@@ -61622,7 +62334,376 @@
    "yaw": 315.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "survival_barrel",
+   "at": [
+    -4.206,
+    -12.192,
+    35.911
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -18.899,
+    -11.887,
+    15.764
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -19.545,
+    -11.887,
+    15.277
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -56.57,
+    -11.887,
+    18.565
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -57.057,
+    -11.887,
+    19.211
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -34.354,
+    -11.887,
+    15.287
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -31.035,
+    -11.887,
+    26.242
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -31.522,
+    -11.887,
+    26.888
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -8.836,
+    -11.887,
+    4.797
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.482,
+    -11.887,
+    4.31
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    4.21,
+    -11.887,
+    6.523
+   ],
+   "yaw": 30.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    4.308,
+    -11.887,
+    5.72
+   ],
+   "yaw": 30.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -15.374,
+    -11.887,
+    -15.224
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.02,
+    -11.887,
+    -15.711
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -11.889,
+    -11.887,
+    -4.728
+   ],
+   "yaw": 210.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -2.794,
+    -11.887,
+    -30.928
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -2.307,
+    -11.887,
+    -31.574
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -4.159,
+    -11.887,
+    1.991
+   ],
+   "yaw": 255.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -4.657,
+    -11.887,
+    1.353
+   ],
+   "yaw": 255.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.323,
+    -11.887,
+    -34.078
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.686,
+    -11.887,
+    -34.577
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.492,
+    -11.887,
+    -18.438
+   ],
+   "yaw": 165.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    11.855,
+    -11.887,
+    -17.94
+   ],
+   "yaw": 165.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    1.732,
+    -11.887,
+    -35.376
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -41.504,
+    -11.887,
+    1.363
+   ],
+   "yaw": 60.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -35.737,
+    -11.887,
+    -19.064
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -33.302,
+    -11.887,
+    -7.131
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -33.948,
+    -11.887,
+    -7.618
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -19.349,
+    -11.887,
+    22.665
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -19.225,
+    -11.887,
+    22.977
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -21.452,
+    -11.887,
+    18.677
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -21.828,
+    -11.887,
+    19.13
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -19.876,
+    -11.887,
+    -17.983
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -18.521,
+    -11.887,
+    -32.633
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.436,
+    -11.887,
+    12.16
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -2.112,
+    -11.887,
+    15.608
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    2.519,
+    -11.887,
+    14.197
+   ],
+   "yaw": 285.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    14.303,
+    -11.887,
+    -1.64
+   ],
+   "yaw": 285.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    13.981,
+    -11.887,
+    27.577
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.223,
+    -11.887,
+    5.106
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.563,
+    -11.887,
+    5.391
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -10.059,
     -11.887,
@@ -61631,7 +62712,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -10.77,
     -11.887,
@@ -61640,16 +62721,213 @@
    "yaw": 30.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_bottle_oil",
+   "at": [
+    -11.019,
+    -11.887,
+    -4.382
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -3.509,
+    -11.887,
+    1.571
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    1.7,
+    -11.887,
+    -35.158
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -14.705,
+    -11.887,
+    -5.888
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -14.578,
+    -11.887,
+    -5.261
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.676,
+    -11.392,
+    -12.763
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.506,
+    -11.887,
+    -12.348
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.144,
+    -11.887,
+    -24.1
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.484,
+    -11.887,
+    -23.815
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.7,
+    -11.887,
+    -23.803
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -15.627,
+    -11.887,
+    -24.09
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -3.061,
+    -11.887,
+    5.572
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -5.613,
+    -11.887,
+    2.788
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -4.455,
+    -11.887,
+    -6.558
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -3.288,
+    -11.887,
+    -7.182
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -38.704,
+    -11.887,
+    -16.773
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -39.817,
+    -11.887,
+    -11.054
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    14.412,
+    -11.887,
+    -35.738
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -18.623,
+    -11.887,
+    -4.105
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    13.833,
+    -11.887,
+    27.751
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -16.43,
+    -11.887,
+    -24.036
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -20.195,
-    -11.517,
+    -11.833,
     -32.946
    ],
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "survival_chest",
+   "at": [
+    -3.353,
+    -12.04,
+    45.122
+   ]
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     0.263,
     -11.887,
@@ -61658,7 +62936,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -0.812,
     -11.887,
@@ -61667,7 +62945,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -58.476,
     -12.192,
@@ -61676,7 +62954,7 @@
    "yaw": 30.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -39.655,
     -11.887,
@@ -61685,7 +62963,61 @@
    "yaw": 15.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    3.378,
+    -12.192,
+    39.439
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -18.314,
+    -12.192,
+    38.954
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -8.001,
+    -12.192,
+    39.896
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -33.672,
+    -12.192,
+    39.966
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    13.812,
+    -12.192,
+    36.501
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -6.447,
+    -12.192,
+    51.574
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_cabinet_bed",
    "at": [
     -15.218,
     -11.887,
@@ -61694,7 +63026,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.326,
     -11.887,
@@ -61703,7 +63035,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -2.323,
     -11.887,
@@ -61712,7 +63044,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -2.505,
     -11.887,
@@ -61721,7 +63053,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -15.491,
     -11.887,
@@ -61730,7 +63062,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.636,
     -11.887,
@@ -61739,20 +63071,11 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.591,
     -11.887,
     2.696
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    1.766,
-    -11.887,
-    29.919
    ],
    "yaw": 90.0
   },
@@ -61811,7 +63134,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -11.111,
     -11.887,
@@ -61820,7 +63143,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -19.637,
     -11.887,
@@ -61829,7 +63152,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.103,
     -11.887,
@@ -61838,7 +63161,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     10.168,
     -11.887,
@@ -61847,7 +63170,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     14.271,
     -11.887,
@@ -61856,7 +63179,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     5.801,
     -11.887,
@@ -61865,7 +63188,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -1.871,
     -11.887,
@@ -61874,7 +63197,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -19.431,
     -11.887,
@@ -61883,7 +63206,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -46.254,
     -11.887,
@@ -61910,7 +63233,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.632,
     -11.887,
@@ -61919,7 +63242,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -18.577,
     -11.887,
@@ -61928,7 +63251,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -14.997,
     -11.887,
@@ -61937,7 +63260,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -14.288,
     -11.887,
@@ -61946,7 +63269,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.503,
     -11.887,
@@ -61955,7 +63278,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -19.573,
     -11.887,
@@ -61991,7 +63314,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -22.736,
     -11.887,
@@ -62000,7 +63323,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -22.248,
     -11.887,
@@ -62009,7 +63332,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -22.777,
     -11.887,
@@ -62018,7 +63341,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -61.878,
     -11.887,
@@ -62027,7 +63350,7 @@
    "yaw": 180.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -62.62,
     -11.887,
@@ -62036,7 +63359,7 @@
    "yaw": 180.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -63.017,
     -11.887,
@@ -62045,7 +63368,7 @@
    "yaw": 180.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -10.382,
     -11.887,
@@ -62054,7 +63377,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -9.894,
     -11.887,
@@ -62063,7 +63386,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -10.423,
     -11.887,
@@ -62072,7 +63395,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -56.144,
     -11.887,
@@ -62080,7 +63403,7 @@
    ]
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -56.939,
     -11.887,
@@ -62088,7 +63411,7 @@
    ]
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -33.441,
     -11.887,
@@ -62096,7 +63419,7 @@
    ]
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -34.236,
     -11.887,
@@ -62104,7 +63427,7 @@
    ]
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -30.609,
     -11.887,
@@ -62130,7 +63453,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     3.783,
     -11.887,
@@ -62139,7 +63462,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     4.045,
     -11.887,
@@ -62148,7 +63471,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -15.488,
     -11.887,
@@ -62166,7 +63489,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -4.776,
     -11.887,
@@ -62184,7 +63507,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -1.88,
     -11.887,
@@ -62201,7 +63524,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -3.817,
     -11.887,
@@ -62210,7 +63533,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -10.706,
     -11.887,
@@ -62219,7 +63542,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -9.716,
     -11.887,
@@ -62282,7 +63605,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     4.773,
     -11.887,
@@ -62291,7 +63614,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     3.777,
     -11.887,
@@ -62300,7 +63623,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -41.872,
     -11.887,
@@ -62309,7 +63632,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -42.4,
     -11.887,
@@ -62318,7 +63641,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -41.842,
     -11.887,
@@ -62327,7 +63650,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -35.415,
     -11.887,
@@ -62336,7 +63659,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -32.98,
     -11.887,
@@ -62354,7 +63677,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -31.959,
     -11.887,
@@ -62362,7 +63685,7 @@
    ]
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -46.657,
     -11.887,
@@ -62371,7 +63694,7 @@
    "yaw": 15.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     14.271,
     -11.887,
@@ -62380,16 +63703,16 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.924,
-    -11.517,
+    -11.833,
     23.214
    ],
    "yaw": 45.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -18.86,
     -11.887,
@@ -62407,19 +63730,47 @@
    "yaw": 195.0
   },
   {
-   "id": "food_soda_can",
+   "id": "food_bottle_oil",
    "at": [
-    5.286,
+    -40.157,
     -11.887,
-    -3.556
-   ]
+    -4.992
+   ],
+   "yaw": 150.0
   },
   {
-   "id": "food_soda_can",
+   "id": "survival_barrel",
    "at": [
-    -16.539,
-    -11.887,
-    -29.861
+    -2.149,
+    -12.04,
+    42.301
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -2.359,
+    -12.04,
+    41.021
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -3.206,
+    -12.04,
+    46.431
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -2.456,
+    -12.04,
+    45.11
    ],
    "yaw": 90.0
   },
@@ -62693,25 +64044,361 @@
    "yaw": 270.0
   },
   {
-   "id": "survival_bottle",
+   "id": "nature_mushroom_red_tall",
    "at": [
-    -18.608,
+    -2.443,
     -11.887,
-    -0.294
+    15.309
    ],
-   "yaw": 60.0
+   "yaw": 45.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    2.297,
+    -11.887,
+    14.652
+   ]
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -20.035,
+    -11.887,
+    4.924
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    8.269,
+    -11.887,
+    8.516
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -15.441,
+    -11.887,
+    0.704
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -17.861,
+    -11.887,
+    -17.997
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -17.927,
+    -11.887,
+    -21.721
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -22.16,
+    -11.887,
+    -33.119
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -15.076,
+    -11.887,
+    -35.305
+   ],
+   "yaw": 330.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -17.542,
+    -11.887,
+    -0.739
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -22.544,
+    -11.887,
+    -32.614
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -9.518,
+    -11.887,
+    -14.16
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -18.763,
+    -11.887,
+    14.654
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    14.176,
+    -11.887,
+    27.14
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -19.431,
+    -11.887,
+    0.127
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    7.391,
+    -11.887,
+    0.876
+   ],
+   "yaw": 75.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -17.87,
+    -11.887,
+    29.85
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -22.18,
+    -11.887,
+    -27.793
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -14.078,
+    -11.887,
+    -24.07
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -14.813,
+    -11.887,
+    -24.232
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -59.65,
+    -11.887,
+    15.789
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -9.826,
+    -11.887,
+    -24.979
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -55.946,
+    -11.887,
+    19.348
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -33.234,
+    -11.887,
+    15.397
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    3.278,
+    -11.887,
+    6.159
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -16.156,
+    -11.887,
+    -14.6
+   ],
+   "yaw": 285.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    6.815,
+    -11.887,
+    -5.713
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    2.791,
+    -11.887,
+    4.382
+   ]
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -40.072,
+    -11.887,
+    -10.465
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    11.793,
+    -11.887,
+    -12.68
+   ]
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    12.893,
+    -11.887,
+    -17.564
+   ]
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    13.185,
+    -11.887,
+    -34.633
+   ],
+   "yaw": 345.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    4.268,
+    -11.887,
+    -35.268
+   ],
+   "yaw": 225.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -41.804,
+    -11.887,
+    -21.312
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -13.415,
+    -11.887,
+    4.965
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -13.403,
+    -11.887,
+    4.31
+   ],
+   "yaw": 135.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -33.166,
+    -11.887,
+    -8.241
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     0.263,
-    -11.517,
+    -11.833,
     15.671
    ],
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "survival_chest",
+   "at": [
+    -20.198,
+    -11.887,
+    -5.168
+   ]
+  },
+  {
+   "id": "survival_chest",
+   "at": [
+    12.396,
+    -11.887,
+    -29.093
+   ]
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     -40.606,
     -11.887,
@@ -62738,7 +64425,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -5.264,
     -11.887,
@@ -62747,7 +64434,7 @@
    "yaw": 135.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -8.973,
     -11.887,
@@ -62756,7 +64443,7 @@
    "yaw": 45.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -13.788,
     -11.887,
@@ -62765,7 +64452,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -17.526,
     -11.887,
@@ -62774,7 +64461,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     1.708,
     -11.887,
@@ -62783,7 +64470,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     9.345,
     -11.887,
@@ -62792,7 +64479,7 @@
    "yaw": 60.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     7.662,
     -11.887,
@@ -62801,7 +64488,7 @@
    "yaw": 300.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     7.502,
     -11.887,
@@ -62810,7 +64497,7 @@
    "yaw": 330.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     6.844,
     -11.887,
@@ -62819,7 +64506,7 @@
    "yaw": 15.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     11.835,
     -11.887,
@@ -62828,7 +64515,7 @@
    "yaw": 285.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     11.719,
     -11.887,
@@ -62837,7 +64524,7 @@
    "yaw": 210.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     11.773,
     -11.887,
@@ -62846,7 +64533,7 @@
    "yaw": 300.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -35.281,
     -11.887,
@@ -62855,7 +64542,7 @@
    "yaw": 225.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -38.99,
     -11.887,
@@ -62864,7 +64551,7 @@
    "yaw": 315.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -35.849,
     -11.887,
@@ -62873,7 +64560,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_plant_bush_detailed",
    "at": [
     -39.119,
     -11.887,
@@ -62906,7 +64593,16 @@
    ]
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    5.486
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
    "at": [
     -24.232,
     -11.887,
@@ -62915,7 +64611,43 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    9.144
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    10.363
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    12.802
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    14.021
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
    "at": [
     -24.232,
     -11.887,
@@ -62924,7 +64656,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
    "at": [
     -24.232,
     -11.887,
@@ -62933,7 +64665,16 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -0.991
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
    "at": [
     -24.232,
     -11.887,
@@ -62942,7 +64683,61 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -4.648
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -5.867
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -10.363
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -11.582
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -14.021
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -15.24
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lamp_square_table",
    "at": [
     -24.232,
     -11.887,
@@ -62951,7 +64746,34 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "furniture_lamp_square_table",
+   "at": [
+    -24.232,
+    -11.887,
+    -18.898
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_frying_pan",
+   "at": [
+    -9.963,
+    -11.833,
+    5.384
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_frying_pan",
+   "at": [
+    -10.817,
+    -11.833,
+    -4.044
+   ],
+   "yaw": 30.0
+  },
+  {
+   "id": "survival_barrel",
    "at": [
     -18.835,
     -11.887,
@@ -62960,7 +64782,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -56.484,
     -11.887,
@@ -62968,7 +64790,7 @@
    ]
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -33.781,
     -11.887,
@@ -62976,7 +64798,7 @@
    ]
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -30.949,
     -11.887,
@@ -62984,7 +64806,7 @@
    ]
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -9.547,
     -11.887,
@@ -62993,7 +64815,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     3.779,
     -11.887,
@@ -63002,7 +64824,7 @@
    "yaw": 210.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -16.085,
     -11.887,
@@ -63011,7 +64833,7 @@
    "yaw": 270.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -11.458,
     -11.887,
@@ -63020,7 +64842,7 @@
    "yaw": 30.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -4.183,
     -11.887,
@@ -63029,7 +64851,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -2.22,
     -11.887,
@@ -63037,7 +64859,7 @@
    ]
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -3.948,
     -11.887,
@@ -63046,7 +64868,7 @@
    "yaw": 75.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -10.223,
     -11.887,
@@ -63055,7 +64877,7 @@
    "yaw": 165.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     12.392,
     -11.887,
@@ -63064,7 +64886,7 @@
    "yaw": 345.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     4.769,
     -11.887,
@@ -63073,7 +64895,7 @@
    "yaw": 210.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -41.847,
     -11.887,
@@ -63082,7 +64904,7 @@
    "yaw": 240.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -35.672,
     -11.887,
@@ -63091,7 +64913,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -33.237,
     -11.887,
@@ -63100,7 +64922,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -32.299,
     -11.887,
@@ -63108,7 +64930,7 @@
    ]
   },
   {
-   "id": "food_carton",
+   "id": "survival_barrel",
    "at": [
     -46.284,
     -11.887,
@@ -63207,7 +65029,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -20.498,
     -11.887,
@@ -63287,7 +65109,68 @@
    "yaw": 270.0
   },
   {
-   "id": "food_carton_small",
+   "id": "nature_crop_melon",
+   "at": [
+    8.205,
+    -11.887,
+    0.27
+   ]
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    7.317,
+    -11.887,
+    -25.74
+   ]
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    -46.26,
+    -11.887,
+    -16.076
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    3.124,
+    -11.887,
+    28.194
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    3.124,
+    -11.887,
+    29.261
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    13.792,
+    -11.887,
+    -33.819
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "nature_crop_melon",
+   "at": [
+    10.473,
+    -11.887,
+    -34.047
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_cabinet_bed",
    "at": [
     -40.139,
     -11.887,
@@ -63296,7 +65179,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -39.505,
     -11.887,
@@ -63305,7 +65188,389 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "survival_barrel",
+   "at": [
+    -19.946,
+    -11.887,
+    2.791
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.716,
+    -11.887,
+    -8.367
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.551,
+    -11.887,
+    -0.052
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    14.104,
+    -11.887,
+    30.498
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -15.463,
+    -11.887,
+    0.017
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -19.176,
+    -11.887,
+    4.891
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    1.465,
+    -11.887,
+    15.471
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    6.515,
+    -11.887,
+    -20.573
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.777,
+    -11.887,
+    -13.992
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.628,
+    -11.887,
+    -9.144
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    10.03,
+    -11.887,
+    5.946
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    9.057,
+    -11.887,
+    8.291
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.91,
+    -11.887,
+    -14.851
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    4.877,
+    -11.887,
+    -1.493
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    4.903,
+    -11.887,
+    -2.579
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    6.235,
+    -11.887,
+    -28.0
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    6.262,
+    -11.887,
+    -29.086
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -44.0,
+    -11.887,
+    -17.134
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -42.914,
+    -11.887,
+    -17.107
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -15.877,
+    -11.887,
+    18.724
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -19.153,
+    -11.887,
+    -3.444
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -17.891,
+    -11.887,
+    -3.51
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    2.895,
+    -11.887,
+    13.514
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -17.783,
+    -11.887,
+    -15.527
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -18.505,
+    -11.887,
+    -14.187
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -9.701,
+    -11.887,
+    29.737
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -9.144,
+    -11.887,
+    30.251
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    2.962,
+    -11.887,
+    25.921
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -22.091,
+    -11.887,
+    -29.926
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    6.309,
+    -11.887,
+    -4.843
+   ]
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -59.683,
+    -11.887,
+    14.93
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -61.783,
+    -11.887,
+    15.7
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -9.737,
+    -11.887,
+    -27.112
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    9.077,
+    -11.887,
+    -6.39
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    13.969,
+    -11.887,
+    -30.155
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    13.865,
+    -11.887,
+    -30.982
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    12.852,
+    -11.887,
+    -30.371
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    12.931,
+    -11.887,
+    -27.349
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    13.759,
+    -11.887,
+    -27.582
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -41.715,
+    -11.887,
+    -23.445
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    -31.475,
+    -11.887,
+    -3.986
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -14.476,
+    -11.887,
+    -29.452
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -15.562,
+    -11.887,
+    -29.479
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     -8.996,
     -11.582,
@@ -63314,7 +65579,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -12.113,
     -11.582,
@@ -63323,16 +65588,43 @@
    "yaw": 315.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "furniture_kitchen_cabinet",
    "at": [
-    0.228,
+    -32.768,
     -11.887,
-    15.803
+    -13.754
    ],
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_bottle_oil",
+   "at": [
+    -6.279,
+    -11.582,
+    20.33
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -1.472,
+    -11.582,
+    24.75
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.97,
+    -11.582,
+    25.727
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -0.381,
     -11.887,
@@ -63341,7 +65633,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -8.135,
     -11.887,
@@ -63350,7 +65642,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -6.268,
     -11.887,
@@ -63359,7 +65651,7 @@
    "yaw": 135.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -5.543,
     -11.887,
@@ -63368,7 +65660,7 @@
    "yaw": 255.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -4.419,
     -11.887,
@@ -63377,7 +65669,7 @@
    "yaw": 345.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -8.783,
     -11.887,
@@ -63386,7 +65678,7 @@
    "yaw": 105.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -9.849,
     -11.887,
@@ -63395,7 +65687,7 @@
    "yaw": 150.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -9.22,
     -11.887,
@@ -63404,7 +65696,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -14.478,
     -11.887,
@@ -63413,7 +65705,7 @@
    "yaw": 225.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -12.916,
     -11.887,
@@ -63421,7 +65713,7 @@
    ]
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -14.259,
     -11.887,
@@ -63430,7 +65722,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     9.327,
     -11.887,
@@ -63439,7 +65731,7 @@
    "yaw": 270.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     7.498,
     -11.887,
@@ -63448,7 +65740,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     7.164,
     -11.887,
@@ -63457,7 +65749,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     9.27,
     -11.887,
@@ -63466,7 +65758,7 @@
    "yaw": 60.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     8.428,
     -11.887,
@@ -63475,7 +65767,7 @@
    "yaw": 180.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     7.974,
     -11.887,
@@ -63484,7 +65776,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     8.445,
     -11.887,
@@ -63493,7 +65785,7 @@
    "yaw": 300.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     7.567,
     -11.887,
@@ -63502,7 +65794,7 @@
    "yaw": 285.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     8.403,
     -11.887,
@@ -63511,7 +65803,7 @@
    "yaw": 30.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     7.57,
     -11.887,
@@ -63520,7 +65812,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     6.647,
     -11.887,
@@ -63529,7 +65821,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     6.114,
     -11.887,
@@ -63538,25 +65830,7 @@
    "yaw": 150.0
   },
   {
-   "id": "survival_bucket",
-   "at": [
-    7.446,
-    -11.887,
-    15.595
-   ],
-   "yaw": 15.0
-  },
-  {
-   "id": "survival_bucket",
-   "at": [
-    12.484,
-    -11.887,
-    15.532
-   ],
-   "yaw": 285.0
-  },
-  {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     12.354,
     -11.887,
@@ -63565,7 +65839,7 @@
    "yaw": 60.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     11.126,
     -11.887,
@@ -63574,7 +65848,7 @@
    "yaw": 195.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     12.491,
     -11.887,
@@ -63583,7 +65857,7 @@
    "yaw": 330.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     12.174,
     -11.887,
@@ -63592,7 +65866,7 @@
    "yaw": 60.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     11.274,
     -11.887,
@@ -63601,7 +65875,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     11.046,
     -11.887,
@@ -63610,7 +65884,7 @@
    "yaw": 135.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     11.336,
     -11.887,
@@ -63619,7 +65893,7 @@
    "yaw": 210.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     12.576,
     -11.887,
@@ -63627,7 +65901,7 @@
    ]
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     12.294,
     -11.887,
@@ -63636,7 +65910,7 @@
    "yaw": 45.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -36.12,
     -11.887,
@@ -63645,7 +65919,7 @@
    "yaw": 135.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -35.034,
     -11.887,
@@ -63654,7 +65928,7 @@
    "yaw": 60.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -34.405,
     -11.887,
@@ -63663,7 +65937,7 @@
    "yaw": 330.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -35.471,
     -11.887,
@@ -63672,7 +65946,7 @@
    "yaw": 285.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -39.835,
     -11.887,
@@ -63681,7 +65955,7 @@
    "yaw": 165.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -38.711,
     -11.887,
@@ -63690,7 +65964,7 @@
    "yaw": 75.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -37.987,
     -11.887,
@@ -63699,7 +65973,7 @@
    "yaw": 315.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -36.281,
     -11.887,
@@ -63708,7 +65982,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -35.095,
     -11.887,
@@ -63717,7 +65991,7 @@
    "yaw": 15.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -35.445,
     -11.887,
@@ -63726,7 +66000,7 @@
    "yaw": 285.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -36.607,
     -11.887,
@@ -63735,7 +66009,7 @@
    "yaw": 240.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -39.542,
     -11.887,
@@ -63744,7 +66018,7 @@
    "yaw": 120.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -38.303,
     -11.887,
@@ -63753,7 +66027,7 @@
    "yaw": 30.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_toilet_square",
    "at": [
     -38.544,
     -11.887,
@@ -63762,7 +66036,146 @@
    "yaw": 270.0
   },
   {
-   "id": "survival_bottle",
+   "id": "nature_cactus_tall",
+   "at": [
+    -1.048,
+    -12.192,
+    40.787
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -8.865,
+    -12.192,
+    47.352
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -9.11,
+    -12.192,
+    41.736
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    1.939,
+    -12.192,
+    41.734
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -65.864,
+    -12.192,
+    -9.533
+   ]
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -64.852,
+    -12.192,
+    -5.678
+   ]
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -21.065,
+    -12.192,
+    44.373
+   ]
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -15.449,
+    -12.192,
+    44.128
+   ]
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -6.131,
+    -12.192,
+    56.837
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    1.728,
+    -12.192,
+    54.088
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -1.972,
+    -12.192,
+    56.621
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -0.715,
+    -12.192,
+    56.498
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    9.571,
+    -12.192,
+    51.324
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    7.185,
+    -12.192,
+    52.127
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -59.11,
+    -12.192,
+    6.525
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -10.897,
+    -12.192,
+    55.55
+   ]
+  },
+  {
+   "id": "furniture_toaster",
    "at": [
     -16.459,
     -11.887,
@@ -63771,7 +66184,7 @@
    "yaw": 105.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     -19.099,
     -11.887,
@@ -63780,7 +66193,7 @@
    "yaw": 255.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     9.182,
     -11.887,
@@ -63789,13 +66202,165 @@
    "yaw": 105.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_toaster",
    "at": [
     14.066,
     -11.887,
     -32.842
    ],
    "yaw": 15.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -20.247,
+    -11.887,
+    3.871
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    1.826,
+    -11.887,
+    13.411
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    10.134,
+    -11.887,
+    7.266
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    6.278,
+    -11.887,
+    -19.507
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -16.412,
+    -11.887,
+    -0.223
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -18.834,
+    -11.887,
+    -8.611
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -18.279,
+    -11.887,
+    -12.954
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    3.163,
+    -11.887,
+    27.0
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -22.392,
+    -11.887,
+    -28.846
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -60.704,
+    -11.887,
+    16.001
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -10.039,
+    -11.887,
+    -26.032
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    8.839,
+    -11.887,
+    -5.325
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -42.016,
+    -11.887,
+    -22.366
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -32.752,
+    -11.887,
+    -4.394
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    -31.713,
+    -11.887,
+    -2.921
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_lounge_chair_relax",
+   "at": [
+    -4.801,
+    -12.192,
+    42.901
+   ]
+  },
+  {
+   "id": "furniture_lounge_chair_relax",
+   "at": [
+    9.549,
+    -12.192,
+    59.488
+   ],
+   "yaw": 270.0
   },
   {
    "id": "furniture_cardboard_box_closed",
@@ -63807,13 +66372,31 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -19.954,
     -11.887,
     -3.667
    ],
    "yaw": 90.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -10.743,
+    -11.582,
+    25.476
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -10.135,
+    -11.582,
+    25.476
+   ],
+   "yaw": 150.0
   },
   {
    "id": "food_plate",
@@ -63834,33 +66417,33 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -0.422,
-    -12.192,
+    -11.322,
     39.595
    ],
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -64.672,
-    -12.192,
+    -11.322,
     -8.87
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -59.763,
-    -12.192,
+    -11.322,
     3.395
    ],
    "yaw": 15.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -0.282,
     -11.887,
@@ -63869,7 +66452,7 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "nature_campfire_logs",
    "at": [
     -19.736,
     -11.887,
@@ -63914,7 +66497,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -5.029,
     -12.192,
@@ -63923,7 +66506,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     11.113,
     -12.192,
@@ -63931,7 +66514,16 @@
    ]
   },
   {
-   "id": "food_pizza_box",
+   "id": "furniture_lounge_chair_relax",
+   "at": [
+    -2.667,
+    -12.04,
+    43.673
+   ],
+   "yaw": 195.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -61.04,
     -12.192,
@@ -63940,7 +66532,16 @@
    "yaw": 90.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_bottle_oil",
+   "at": [
+    -21.641,
+    -11.887,
+    25.569
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_bathroom_cabinet",
    "at": [
     -8.306,
     -11.582,
@@ -63949,7 +66550,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "furniture_bathroom_cabinet",
    "at": [
     -9.716,
     -11.582,
@@ -63958,7 +66559,7 @@
    "yaw": 75.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "furniture_bathroom_cabinet",
    "at": [
     -10.706,
     -11.582,
@@ -63967,7 +66568,7 @@
    "yaw": 135.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "furniture_bathroom_cabinet",
    "at": [
     -12.345,
     -11.582,
@@ -63976,7 +66577,7 @@
    "yaw": 75.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "furniture_bathroom_cabinet",
    "at": [
     -6.553,
     -11.582,
@@ -63985,70 +66586,16 @@
    "yaw": 45.0
   },
   {
+   "id": "furniture_bench_cushion_low",
+   "at": [
+    2.599,
+    -11.887,
+    -14.495
+   ],
+   "yaw": 330.0
+  },
+  {
    "id": "food_plate",
-   "at": [
-    -5.009,
-    -11.887,
-    15.02
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    12.083,
-    -11.887,
-    20.864
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_mug",
-   "at": [
-    6.605,
-    -11.887,
-    16.033
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_mug",
-   "at": [
-    11.779,
-    -11.887,
-    26.836
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -40.081,
-    -12.192,
-    34.976
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -44.272,
-    -12.192,
-    34.976
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -43.587,
-    -12.192,
-    34.976
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
    "at": [
     -11.554,
     -11.887,
@@ -64066,7 +66613,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     -12.346,
     -11.887,
@@ -64075,7 +66622,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     -11.023,
     -11.887,
@@ -64084,7 +66631,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     3.197,
     -11.887,
@@ -64092,7 +66639,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     1.555,
     -11.887,
@@ -64100,7 +66647,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     2.629,
     -11.887,
@@ -64108,7 +66655,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     2.753,
     -11.887,
@@ -64125,7 +66672,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     -40.035,
     -11.887,
@@ -64133,7 +66680,7 @@
    ]
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     -39.916,
     -11.887,
@@ -64151,20 +66698,11 @@
    "yaw": 180.0
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     -39.91,
     -11.887,
     -9.736
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    -40.051,
-    -11.887,
-    -10.471
    ],
    "yaw": 180.0
   },
@@ -64178,7 +66716,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     11.756,
     -11.887,
@@ -64195,7 +66733,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     11.632,
     -11.887,
@@ -64203,15 +66741,7 @@
    ]
   },
   {
-   "id": "food_bowl",
-   "at": [
-    11.773,
-    -11.887,
-    -12.674
-   ]
-  },
-  {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     13.027,
     -11.887,
@@ -64219,7 +66749,7 @@
    ]
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     11.525,
     -11.887,
@@ -64227,7 +66757,7 @@
    ]
   },
   {
-   "id": "food_mug",
+   "id": "food_plate",
    "at": [
     11.385,
     -11.887,
@@ -64235,273 +66765,81 @@
    ]
   },
   {
-   "id": "food_pizza_box",
+   "id": "nature_cactus_tall",
    "at": [
-    11.582,
+    7.008,
     -11.887,
-    14.859
-   ],
-   "yaw": 15.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    -5.458,
-    -11.887,
-    14.615
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -13.998,
-    -11.887,
-    15.48
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -5.516,
-    -11.887,
-    15.21
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    7.065,
-    -11.887,
-    16.151
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    7.59,
-    -11.887,
-    28.709
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    -38.797,
-    -11.887,
-    -21.101
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    -39.154,
-    -11.887,
-    -2.22
-   ],
-   "yaw": 225.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    6.359,
-    -11.887,
-    16.237
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    7.232,
-    -11.887,
-    20.867
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    9.125,
-    -11.887,
-    24.521
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    7.47,
-    -11.887,
-    29.127
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    8.015,
-    -11.887,
-    28.858
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    11.842,
-    -11.887,
-    14.446
+    0.066
    ]
   },
   {
-   "id": "food_cup_coffee",
+   "id": "nature_cactus_tall",
    "at": [
-    11.971,
+    6.12,
     -11.887,
-    26.54
-   ],
-   "yaw": 240.0
+    -26.41
+   ]
   },
   {
-   "id": "food_cup_coffee",
+   "id": "nature_cactus_tall",
    "at": [
-    -38.739,
+    6.12,
     -11.887,
-    -21.696
+    -25.222
+   ]
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    -45.59,
+    -11.887,
+    -17.273
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "nature_cactus_tall",
    "at": [
-    -38.692,
+    -46.778,
     -11.887,
-    -2.6
-   ],
-   "yaw": 225.0
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    -39.967,
-    -12.192,
-    35.519
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    -9.141,
-    -11.887,
-    15.416
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    -8.825,
-    -11.887,
-    15.972
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    -5.632,
-    -11.887,
-    14.912
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    7.358,
-    -11.887,
-    21.201
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    11.97,
-    -11.887,
-    15.098
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    11.342,
-    -11.887,
-    26.565
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    -35.43,
-    -11.887,
-    -22.457
+    -17.273
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_bowl",
+   "id": "nature_cactus_tall",
    "at": [
-    -35.113,
+    7.665,
     -11.887,
-    -21.902
+    -5.22
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_cactus_tall",
+   "at": [
+    13.996,
+    -11.887,
+    -35.016
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_plate",
+   "id": "nature_cactus_tall",
    "at": [
-    -38.622,
+    11.354,
     -11.887,
-    -21.398
+    -28.543
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_bowl",
+   "id": "nature_cactus_tall",
    "at": [
-    -35.814,
+    7.815,
     -11.887,
-    -0.799
-   ],
-   "yaw": 225.0
-  },
-  {
-   "id": "food_bowl",
-   "at": [
-    -35.983,
-    -11.887,
-    -0.182
-   ],
-   "yaw": 225.0
-  },
-  {
-   "id": "food_plate",
-   "at": [
-    -38.821,
-    -11.887,
-    -2.307
-   ],
-   "yaw": 225.0
+    3.734
+   ]
   },
   {
    "id": "food_bowl",
@@ -64557,7 +66895,7 @@
    ]
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     1.545,
     -11.887,
@@ -64581,7 +66919,7 @@
    ]
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     2.763,
     -11.887,
@@ -64590,7 +66928,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -40.045,
     -11.887,
@@ -64648,79 +66986,7 @@
    ]
   },
   {
-   "id": "food_carton",
-   "at": [
-    7.723,
-    -11.887,
-    20.868
-   ],
-   "yaw": 150.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    7.257,
-    -11.887,
-    29.126
-   ],
-   "yaw": 135.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    7.564,
-    -11.887,
-    29.412
-   ],
-   "yaw": 150.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -13.512,
-    -11.887,
-    14.972
-   ],
-   "yaw": 150.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -9.33,
-    -11.887,
-    15.82
-   ],
-   "yaw": 150.0
-  },
-  {
-   "id": "food_soda_can",
-   "at": [
-    -18.386,
-    -12.192,
-    39.069
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -34.925,
-    -11.887,
-    -22.305
-   ],
-   "yaw": 330.0
-  },
-  {
-   "id": "food_cup_coffee",
-   "at": [
-    -35.565,
-    -11.887,
-    -0.334
-   ],
-   "yaw": 285.0
-  },
-  {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -16.269,
     -12.192,
@@ -64729,31 +66995,12 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton",
+   "id": "furniture_lounge_chair_relax",
    "at": [
-    7.067,
+    13.615,
     -11.887,
-    16.534
-   ],
-   "yaw": 105.0
-  },
-  {
-   "id": "food_carton",
-   "at": [
-    11.535,
-    -11.887,
-    20.836
-   ],
-   "yaw": 150.0
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    -44.314,
-    -12.192,
-    35.519
-   ],
-   "yaw": 90.0
+    -29.015
+   ]
   },
   {
    "id": "food_carton",
@@ -64801,7 +67048,7 @@
    "yaw": 300.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -0.762,
     -11.887,
@@ -64810,7 +67057,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     9.677,
     -11.887,
@@ -64819,20 +67066,11 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -15.817,
     -12.192,
     38.786
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
-   "at": [
-    -2.385,
-    -11.887,
-    13.867
    ],
    "yaw": 90.0
   },
@@ -64855,70 +67093,16 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_trashcan",
+   "id": "furniture_potted_plant",
    "at": [
-    -39.396,
-    -12.192,
-    34.9
+    -15.869,
+    -11.582,
+    25.87
    ],
-   "yaw": 90.0
+   "yaw": 15.0
   },
   {
-   "id": "furniture_trashcan",
-   "at": [
-    -43.434,
-    -12.192,
-    34.9
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -12.04,
-    -12.192,
-    39.395
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -60.579,
-    -12.192,
-    -16.154
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -63.932,
-    -12.192,
-    -16.154
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    -14.021,
-    -11.887,
-    14.973
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    9.426,
-    -11.887,
-    24.184
-   ],
-   "yaw": 30.0
-  },
-  {
-   "id": "food_carton_small",
+   "id": "food_cutting_board",
    "at": [
     2.285,
     -10.954,
@@ -64927,7 +67111,7 @@
    "yaw": 30.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -11.42,
     -12.192,
@@ -64936,7 +67120,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     2.573,
     -11.887,
@@ -64945,7 +67129,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     -39.854,
     -11.887,
@@ -64953,7 +67137,7 @@
    ]
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     11.576,
     -11.887,
@@ -64962,59 +67146,158 @@
    "yaw": 180.0
   },
   {
-   "id": "food_soda_can",
+   "id": "food_bottle_oil",
+   "at": [
+    -56.558,
+    -11.887,
+    18.973
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -56.74,
+    -11.887,
+    18.991
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    4.036,
+    -11.887,
+    6.012
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    4.145,
+    -11.887,
+    6.077
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -11.715,
+    -11.887,
+    -4.201
+   ],
+   "yaw": 120.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    5.026,
+    -11.887,
+    -35.414
+   ],
+   "yaw": 300.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -41.551,
+    -11.887,
+    1.909
+   ],
+   "yaw": 330.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -41.469,
+    -11.887,
+    1.754
+   ],
+   "yaw": 330.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -35.971,
+    -11.887,
+    -19.566
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -35.961,
+    -11.887,
+    -19.377
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -33.536,
+    -11.887,
+    -7.634
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -46.606,
+    -11.887,
+    0.969
+   ],
+   "yaw": 105.0
+  },
+  {
+   "id": "nature_campfire_logs",
    "at": [
     8.2,
-    -11.887,
+    -11.017,
     0.263
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     7.313,
-    -11.887,
+    -11.017,
     -25.747
    ]
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -46.253,
-    -11.887,
+    -11.017,
     -16.081
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     13.798,
-    -11.887,
+    -11.017,
     -33.824
    ],
    "yaw": 270.0
   },
   {
-   "id": "food_soda_can",
+   "id": "food_bottle_oil",
    "at": [
-    -17.686,
-    -11.887,
-    4.648
+    -10.997,
+    -12.192,
+    37.956
    ],
-   "yaw": 90.0
+   "yaw": 180.0
   },
   {
-   "id": "food_soda_can",
-   "at": [
-    1.714,
-    -11.887,
-    -30.822
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     13.387,
     -11.887,
@@ -65030,15 +67313,6 @@
     38.363
    ],
    "yaw": 120.0
-  },
-  {
-   "id": "furniture_radio",
-   "at": [
-    1.601,
-    -10.973,
-    -13.551
-   ],
-   "yaw": 15.0
   },
   {
    "id": "food_bowl",
@@ -65058,7 +67332,7 @@
    ]
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -40.005,
     -11.887,
@@ -65075,16 +67349,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_pizza_box",
-   "at": [
-    -0.414,
-    -11.887,
-    13.963
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     0.152,
     -11.887,
@@ -65093,7 +67358,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -16.269,
     -12.192,
@@ -65111,7 +67376,7 @@
    "yaw": 105.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -11.368,
     -11.887,
@@ -65120,7 +67385,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -12.949,
     -11.887,
@@ -65129,7 +67394,7 @@
    "yaw": 240.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -12.459,
     -11.887,
@@ -65138,7 +67403,7 @@
    "yaw": 195.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -10.896,
     -11.887,
@@ -65147,7 +67412,7 @@
    "yaw": 285.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -10.893,
     -11.887,
@@ -65156,7 +67421,7 @@
    "yaw": 240.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -10.896,
     -11.887,
@@ -65165,7 +67430,7 @@
    "yaw": 330.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     1.431,
     -11.887,
@@ -65174,7 +67439,7 @@
    "yaw": 60.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     1.434,
     -11.887,
@@ -65183,7 +67448,7 @@
    "yaw": 105.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     1.434,
     -11.887,
@@ -65192,7 +67457,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     11.261,
     -11.887,
@@ -65201,7 +67466,7 @@
    "yaw": 60.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     11.263,
     -11.887,
@@ -65210,20 +67475,601 @@
    "yaw": 150.0
   },
   {
-   "id": "furniture_books",
-   "at": [
-    -20.117,
-    -11.887,
-    -3.667
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "food_carton",
    "at": [
     1.473,
     -11.887,
     -4.325
+   ]
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -15.012,
+    -11.887,
+    4.812
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -10.325,
+    -11.887,
+    3.01
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -36.462,
+    -11.887,
+    19.317
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -37.986,
+    -11.887,
+    19.279
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -39.541,
+    -11.887,
+    19.279
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -11.522,
+    -11.887,
+    0.876
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -10.954,
+    -11.887,
+    29.756
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -12.478,
+    -11.887,
+    29.756
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -13.964,
+    -11.887,
+    29.756
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -4.858,
+    -11.887,
+    29.68
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -6.382,
+    -11.887,
+    29.68
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -7.906,
+    -11.887,
+    29.68
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -35.205,
+    -11.887,
+    28.632
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -35.205,
+    -11.887,
+    30.156
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -35.205,
+    -11.887,
+    31.68
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -10.154,
+    -11.887,
+    -15.431
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -11.678,
+    -11.887,
+    -15.431
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -13.221,
+    -11.887,
+    -15.431
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -0.581,
+    -11.887,
+    -30.937
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -5.134,
+    -11.887,
+    -30.937
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -3.629,
+    -11.887,
+    -30.937
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -7.715,
+    -11.887,
+    -30.937
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -6.439,
+    -11.887,
+    -30.899
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    0.718,
+    -11.887,
+    -30.899
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    3.886,
+    -11.887,
+    -30.937
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    1.143,
+    -11.887,
+    -35.509
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -40.462,
+    -11.887,
+    15.069
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -37.735,
+    -11.887,
+    15.107
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -36.18,
+    -11.887,
+    15.107
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -51.683,
+    -11.887,
+    19.317
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -53.169,
+    -11.887,
+    19.317
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -54.693,
+    -11.887,
+    19.317
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -58.065,
+    -11.887,
+    19.393
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -59.589,
+    -11.887,
+    19.393
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -61.113,
+    -11.887,
+    19.393
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -64.77,
+    -11.887,
+    19.393
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -57.767,
+    -11.887,
+    15.287
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -53.485,
+    -11.887,
+    15.326
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -3.674,
+    -11.887,
+    0.303
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -3.677,
+    -11.887,
+    -0.914
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -4.591,
+    -11.887,
+    -1.219
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -4.591,
+    -11.887,
+    0.0
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    3.231,
+    -11.887,
+    -1.007
+   ]
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -12.535,
+    -11.887,
+    -4.039
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    5.105,
+    -11.887,
+    4.763
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    1.965,
+    -11.887,
+    -7.617
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -14.745,
+    -11.887,
+    -4.281
+   ],
+   "yaw": 240.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -15.393,
+    -11.887,
+    -5.805
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -15.393,
+    -11.887,
+    -7.329
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -42.386,
+    -11.887,
+    -10.846
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    14.108,
+    -11.887,
+    -12.299
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    13.842,
+    -11.887,
+    -11.43
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -42.653,
+    -11.887,
+    -3.368
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -42.653,
+    -11.887,
+    -1.813
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -42.691,
+    -11.887,
+    -0.289
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -44.882,
+    -11.887,
+    -0.267
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -44.882,
+    -11.887,
+    -3.391
+   ]
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    11.795,
+    -11.887,
+    -23.859
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -32.48,
+    -11.887,
+    -9.243
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -32.442,
+    -11.887,
+    -10.767
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -32.442,
+    -11.887,
+    -12.322
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_washer_dryer_stacked",
+   "at": [
+    -33.281,
+    -11.887,
+    -10.73
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -33.319,
+    -11.887,
+    -12.035
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -33.319,
+    -11.887,
+    -9.454
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -30.953,
+    -11.887,
+    31.823
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -21.603,
+    -11.887,
+    -1.901
+   ]
+  },
+  {
+   "id": "furniture_kitchen_fridge_large",
+   "at": [
+    -21.603,
+    -11.887,
+    -0.347
    ]
   },
   {
@@ -65281,7 +68127,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     2.665,
     -11.887,
@@ -65290,7 +68136,7 @@
    "yaw": 285.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     2.665,
     -11.887,
@@ -65299,7 +68145,7 @@
    "yaw": 330.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     2.667,
     -11.887,
@@ -65308,7 +68154,7 @@
    "yaw": 240.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -39.946,
     -11.887,
@@ -65317,7 +68163,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -39.946,
     -11.887,
@@ -65326,7 +68172,7 @@
    "yaw": 105.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     11.667,
     -11.887,
@@ -65335,7 +68181,7 @@
    "yaw": 330.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     1.443,
     -10.82,
@@ -65344,7 +68190,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     0.711,
     -10.82,
@@ -65353,7 +68199,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     0.368,
     -10.82,
@@ -65371,7 +68217,42 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    8.534,
+    -12.192,
+    37.758
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -6.858,
+    -12.192,
+    47.325
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -21.038,
+    -12.192,
+    46.379
+   ]
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    1.701,
+    -12.192,
+    52.082
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_plate",
    "at": [
     -17.189,
     -10.821,
@@ -65380,7 +68261,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     -8.959,
     -10.821,
@@ -65389,7 +68270,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     -0.259,
     -10.821,
@@ -65416,7 +68297,16 @@
    "yaw": 180.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
+   "at": [
+    -12.916,
+    -10.821,
+    20.383
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     -2.722,
     -10.821,
@@ -65425,7 +68315,7 @@
    "yaw": 135.0
   },
   {
-   "id": "food_carton_small",
+   "id": "food_cutting_board",
    "at": [
     1.524,
     -11.506,
@@ -65434,13 +68324,40 @@
    "yaw": 30.0
   },
   {
-   "id": "food_carton_small",
+   "id": "food_cutting_board",
    "at": [
     1.219,
     -11.506,
     26.518
    ],
    "yaw": 135.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    2.689,
+    -11.887,
+    2.267
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -39.97,
+    -11.887,
+    -8.352
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    11.692,
+    -11.887,
+    -14.795
+   ],
+   "yaw": 90.0
   },
   {
    "id": "food_plate",
@@ -65560,11 +68477,218 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_bottle_oil",
+   "at": [
+    -13.563,
+    -11.887,
+    4.59
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -13.573,
+    -11.887,
+    4.4
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -13.576,
+    -11.887,
+    3.906
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -13.563,
+    -11.887,
+    3.478
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -13.449,
+    -11.887,
+    3.422
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    2.251,
+    -11.887,
+    -6.046
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    2.373,
+    -11.887,
+    -6.182
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    3.889,
+    -11.887,
+    0.504
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    4.33,
+    -11.887,
+    0.53
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    3.219,
+    -11.887,
+    0.53
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -40.773,
+    -11.887,
+    -6.758
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -41.17,
+    -11.887,
+    -6.607
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -40.5,
+    -11.887,
+    -6.607
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.892,
+    -11.887,
+    -16.557
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.222,
+    -11.887,
+    -16.532
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    11.347,
+    -11.887,
+    -21.125
+   ],
+   "yaw": 45.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.691,
+    -11.887,
+    -22.433
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.202,
+    -11.887,
+    -22.425
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.021,
+    -11.887,
+    -22.407
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    13.192,
+    -11.887,
+    -22.288
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_cake",
    "at": [
     0.572,
     -10.82,
     25.493
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -13.596,
+    -11.887,
+    3.597
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -40.88,
+    -11.887,
+    -6.577
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    12.601,
+    -11.887,
+    -16.569
    ],
    "yaw": 90.0
   },
@@ -65587,7 +68711,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -13.186,
     -10.821,
@@ -65596,7 +68720,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -8.772,
     -10.821,
@@ -65605,16 +68729,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
-   "at": [
-    0.369,
-    -10.821,
-    20.637
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.955,
     -11.887,
@@ -65623,7 +68738,7 @@
    "yaw": 90.0
   },
   {
-   "id": "survival_bottle",
+   "id": "furniture_cabinet_bed",
    "at": [
     -20.117,
     -11.887,
@@ -65632,16 +68747,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
-   "at": [
-    9.83,
-    -11.887,
-    4.885
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -19.812,
     -11.887,
@@ -65650,7 +68756,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_carton_small",
+   "id": "furniture_cabinet_bed",
    "at": [
     -17.602,
     -11.887,
@@ -65659,7 +68765,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -17.544,
     -11.887,
@@ -65668,7 +68774,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -16.764,
     -11.887,
@@ -65677,7 +68783,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -20.612,
     -11.887,
@@ -65704,16 +68810,7 @@
    "yaw": 105.0
   },
   {
-   "id": "food_carton",
-   "at": [
-    -6.023,
-    -10.821,
-    20.295
-   ],
-   "yaw": 105.0
-  },
-  {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -16.9,
     -10.821,
@@ -65722,7 +68819,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -12.623,
     -10.821,
@@ -65731,7 +68828,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     0.342,
     -10.821,
@@ -65740,7 +68837,7 @@
    "yaw": 150.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_coat_rack_standing",
    "at": [
     -15.507,
     -11.582,
@@ -65749,7 +68846,7 @@
    "yaw": 105.0
   },
   {
-   "id": "survival_bucket",
+   "id": "furniture_coat_rack_standing",
    "at": [
     -3.867,
     -11.582,
@@ -65758,30 +68855,21 @@
    "yaw": 225.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    -18.316,
-    -12.192,
-    39.072
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -0.534,
-    -11.887,
-    14.249
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_soda_can",
+   "id": "nature_campfire_logs",
    "at": [
     -64.672,
-    -12.192,
+    -11.166,
     -8.87
    ]
+  },
+  {
+   "id": "food_carton",
+   "at": [
+    -11.489,
+    -12.138,
+    38.351
+   ],
+   "yaw": 195.0
   },
   {
    "id": "food_carton",
@@ -65793,33 +68881,7 @@
    "yaw": 135.0
   },
   {
-   "id": "furniture_trashcan",
-   "at": [
-    -19.05,
-    -11.887,
-    -19.66
-   ]
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -20.422,
-    -11.887,
-    -34.29
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    -16.993,
-    -11.887,
-    -34.29
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "food_bowl",
+   "id": "food_plate",
    "at": [
     -9.692,
     -10.668,
@@ -65882,7 +68944,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -10.563,
     -10.668,
@@ -65891,7 +68953,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -9.271,
     -10.668,
@@ -65900,7 +68962,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_plate",
+   "id": "food_cake",
    "at": [
     -11.555,
     -10.668,
@@ -65909,7 +68971,7 @@
    "yaw": 90.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -7.99,
     -10.668,
@@ -65918,7 +68980,7 @@
    "yaw": 150.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_carton_small",
    "at": [
     -12.226,
     -10.668,
@@ -65936,7 +68998,7 @@
    "yaw": 180.0
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_frying_pan",
    "at": [
     -19.916,
     -11.887,
@@ -66017,6 +69079,15 @@
    "yaw": 135.0
   },
   {
+   "id": "nature_mushroom_red_tall",
+   "at": [
+    -0.61,
+    -11.887,
+    14.478
+   ],
+   "yaw": 90.0
+  },
+  {
    "id": "food_carton",
    "at": [
     -16.908,
@@ -66071,6 +69142,42 @@
    "yaw": 90.0
   },
   {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.424,
+    -11.887,
+    -20.688
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.31,
+    -11.887,
+    -20.744
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    3.083,
+    -11.887,
+    28.651
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -20.458,
+    -11.887,
+    -20.57
+   ],
+   "yaw": 180.0
+  },
+  {
    "id": "food_carton",
    "at": [
     -1.41,
@@ -66087,33 +69194,6 @@
     15.011
    ],
    "yaw": 105.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    -5.163,
-    -11.887,
-    15.164
-   ],
-   "yaw": 60.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    -9.03,
-    -11.887,
-    15.811
-   ],
-   "yaw": 45.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    -13.783,
-    -11.887,
-    15.24
-   ],
-   "yaw": 90.0
   },
   {
    "id": "furniture_cardboard_box_closed",
@@ -66134,87 +69214,87 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "furniture_washer_dryer_stacked",
    "at": [
-    7.45,
-    -11.887,
-    21.007
-   ],
-   "yaw": 15.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    7.62,
-    -11.887,
-    28.956
-   ],
-   "yaw": 300.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    6.772,
-    -11.887,
-    16.268
+    -14.821,
+    -11.582,
+    20.574
    ],
    "yaw": 90.0
   },
   {
-   "id": "furniture_books",
+   "id": "furniture_kitchen_fridge_large",
    "at": [
-    11.811,
-    -11.887,
-    14.859
-   ]
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    12.039,
-    -11.887,
-    26.518
+    -3.505,
+    -11.582,
+    24.536
    ],
-   "yaw": 345.0
+   "yaw": 270.0
   },
   {
-   "id": "furniture_books",
+   "id": "furniture_washer_dryer_stacked",
    "at": [
-    -35.225,
-    -11.887,
-    -22.297
+    -2.134,
+    -11.582,
+    24.488
    ],
-   "yaw": 225.0
+   "yaw": 270.0
   },
   {
-   "id": "furniture_books",
+   "id": "furniture_kitchen_fridge_large",
    "at": [
-    -39.092,
-    -11.887,
-    -21.649
-   ],
-   "yaw": 240.0
-  },
-  {
-   "id": "furniture_books",
-   "at": [
-    -35.782,
-    -11.887,
-    -0.54
+    -9.018,
+    -11.582,
+    26.975
    ],
    "yaw": 180.0
   },
   {
-   "id": "furniture_books",
+   "id": "furniture_washer_dryer_stacked",
    "at": [
-    -38.975,
-    -11.887,
-    -2.817
-   ],
-   "yaw": 195.0
+    1.389,
+    -11.582,
+    28.199
+   ]
   },
   {
-   "id": "food_pizza_box",
+   "id": "food_bottle_oil",
+   "at": [
+    -12.643,
+    -10.668,
+    24.462
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "furniture_kitchen_cabinet",
+   "at": [
+    -18.593,
+    -11.887,
+    -3.568
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -11.503,
+    -10.668,
+    23.675
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.21,
+    -10.668,
+    25.5
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_frying_pan",
    "at": [
     0.152,
     -11.887,
@@ -66223,13 +69303,22 @@
    "yaw": 90.0
   },
   {
-   "id": "food_soda_can",
+   "id": "furniture_kitchen_cabinet",
    "at": [
-    2.286,
-    -11.887,
-    -30.937
+    -32.768,
+    -10.852,
+    -13.754
    ],
-   "yaw": 270.0
+   "yaw": 90.0
+  },
+  {
+   "id": "food_carton",
+   "at": [
+    -19.929,
+    -11.887,
+    -19.923
+   ],
+   "yaw": 45.0
   },
   {
    "id": "food_bottle_oil",
@@ -66246,6 +69335,51 @@
     0.632,
     -10.363,
     -16.378
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    0.16,
+    -10.363,
+    -16.323
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    0.1,
+    -10.363,
+    -16.441
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    0.373,
+    -10.363,
+    -16.279
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    1.211,
+    -10.363,
+    -16.441
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    1.271,
+    -10.363,
+    -16.323
    ],
    "yaw": 90.0
   },
@@ -66286,39 +69420,103 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_television_modern",
+   "id": "food_bottle_oil",
+   "at": [
+    -12.305,
+    -10.173,
+    25.678
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -12.123,
+    -10.173,
+    25.66
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.768,
+    -10.173,
+    25.66
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.889,
+    -10.173,
+    25.797
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.472,
+    -10.173,
+    25.66
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -11.316,
+    -10.173,
+    25.641
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.96,
+    -10.173,
+    25.641
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -10.57,
+    -10.173,
+    25.641
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -8.665,
+    -10.173,
+    25.641
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "food_bottle_oil",
+   "at": [
+    -9.274,
+    -10.173,
+    25.641
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_pot_large",
    "at": [
     -16.536,
     -11.582,
     25.565
    ],
    "yaw": 90.0
-  },
-  {
-   "id": "furniture_lamp_round_floor",
-   "at": [
-    -13.107,
-    -11.887,
-    6.396
-   ]
-  },
-  {
-   "id": "furniture_lamp_round_floor",
-   "at": [
-    0.381,
-    -11.887,
-    -5.712
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_lamp_round_floor",
-   "at": [
-    10.21,
-    -11.887,
-    -21.954
-   ],
-   "yaw": 270.0
   },
   {
    "id": "food_bottle_oil",
@@ -66348,36 +69546,38 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_lamp_round_floor",
+   "id": "food_bottle_oil",
    "at": [
-    9.677,
-    -11.887,
-    -14.554
+    0.982,
+    -9.753,
+    -16.279
    ],
-   "yaw": 270.0
+   "yaw": 90.0
   },
   {
-   "id": "furniture_lamp_round_floor",
+   "id": "food_bottle_oil",
    "at": [
-    -5.296,
-    -11.887,
-    -30.9
-   ]
+    1.881,
+    -9.753,
+    -16.323
+   ],
+   "yaw": 90.0
   },
   {
-   "id": "furniture_lamp_round_floor",
+   "id": "food_bottle_oil",
    "at": [
-    1.143,
-    -11.887,
-    -30.9
-   ]
+    -0.481,
+    -9.753,
+    -16.459
+   ],
+   "yaw": 90.0
   },
   {
-   "id": "food_cup_coffee",
+   "id": "food_bottle_oil",
    "at": [
-    -18.669,
-    -7.772,
-    19.298
+    -0.389,
+    -9.753,
+    -16.279
    ],
    "yaw": 90.0
   }
@@ -68184,7 +71384,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 47.916
+    "yaw": 59.223
    },
    {
     "at": [
@@ -68192,7 +71392,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 64.889
+    "yaw": 77.97
    },
    {
     "at": [
@@ -68200,7 +71400,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 69.232
+    "yaw": 79.993
    },
    {
     "at": [
@@ -68208,7 +71408,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 65.208
+    "yaw": 74.257
    },
    {
     "at": [
@@ -68216,7 +71416,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 58.466
+    "yaw": 67.178
    },
    {
     "at": [
@@ -68224,7 +71424,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 74.544
+    "yaw": 82.469
    },
    {
     "at": [
@@ -68232,7 +71432,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 70.605
+    "yaw": 77.633
    },
    {
     "at": [
@@ -68240,7 +71440,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 64.934
+    "yaw": 71.876
    },
    {
     "at": [
@@ -68248,7 +71448,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 77.795
+    "yaw": 83.999
    },
    {
     "at": [
@@ -68256,7 +71456,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 78.647
+    "yaw": 84.404
    },
    {
     "at": [
@@ -68264,7 +71464,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 68.85
+    "yaw": 74.685
    },
    {
     "at": [
@@ -68272,7 +71472,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 74.977
+    "yaw": 80.363
    },
    {
     "at": [
@@ -68280,7 +71480,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 80.339
+    "yaw": 85.211
    },
    {
     "at": [
@@ -68288,7 +71488,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 71.839
+    "yaw": 76.821
    },
    {
     "at": [
@@ -68296,7 +71496,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 77.097
+    "yaw": 81.692
    },
    {
     "at": [
@@ -68304,7 +71504,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 81.691
+    "yaw": 85.862
    },
    {
     "at": [
@@ -68312,7 +71512,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 74.284
+    "yaw": 78.568
    }
   ],
   "hunters": [
@@ -68322,7 +71522,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 55.794
+    "yaw": 68.25
    },
    {
     "at": [
@@ -68330,7 +71530,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 61.188
+    "yaw": 71.718
    },
    {
     "at": [
@@ -68338,7 +71538,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 53.844
+    "yaw": 63.749
    },
    {
     "at": [
@@ -68346,7 +71546,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 72.336
+    "yaw": 81.437
    },
    {
     "at": [
@@ -68354,7 +71554,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 68.147
+    "yaw": 76.098
    },
    {
     "at": [
@@ -68362,7 +71562,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 61.952
+    "yaw": 69.722
    },
    {
     "at": [
@@ -68370,7 +71570,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 76.357
+    "yaw": 83.32
    },
    {
     "at": [
@@ -68378,7 +71578,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 72.582
+    "yaw": 78.866
    },
    {
     "at": [
@@ -68386,7 +71586,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 67.374
+    "yaw": 73.628
    },
    {
     "at": [
@@ -68394,7 +71594,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 73.764
+    "yaw": 79.605
    },
    {
     "at": [
@@ -68402,7 +71602,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 79.517
+    "yaw": 84.818
    },
    {
     "at": [
@@ -68410,7 +71610,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 70.377
+    "yaw": 75.776
    },
    {
     "at": [
@@ -68418,7 +71618,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 76.13
+    "yaw": 81.085
    },
    {
     "at": [
@@ -68426,7 +71626,7 @@
      -11.837,
      8.153
     ],
-    "yaw": 81.024
+    "yaw": 85.54
    },
    {
     "at": [
@@ -68434,7 +71634,7 @@
      -11.837,
      10.82
     ],
-    "yaw": 73.073
+    "yaw": 77.702
    },
    {
     "at": [
@@ -68442,7 +71642,7 @@
      -11.837,
      9.449
     ],
-    "yaw": 78.041
+    "yaw": 82.286
    }
   ]
  },
@@ -68450,30 +71650,28 @@
   {
    "toy": "football",
    "at": [
-    -44.988,
+    -19.842,
     -11.887,
-    -11.644
+    9.002
    ]
   },
   {
    "toy": "barrel",
    "at": [
-    -33.342,
+    -18.342,
     -11.887,
-    -11.998
+    -52.498
    ]
   },
   {
    "toy": "beach_ball",
    "at": [
-    -19.842,
+    -18.342,
     -11.887,
-    9.002
+    -49.498
    ]
   }
  ],
- "players_per_hunter": 4.0,
- "hide_seconds": 15.0,
  "ambience": "amb_night",
  "ambience_indoor": "amb_city"
 }

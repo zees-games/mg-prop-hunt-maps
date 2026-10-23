@@ -53,6 +53,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import bsp_read  # noqa: E402  (a shim over dot-map's shared reader; it puts dotbsp on sys.path)
 from dotbsp import docboxes  # noqa: E402  (the shared passes over a document's boxes)
+from dotbsp import models as bsp_models  # noqa: E402  (the models a map packs in its pakfile)
+from dotbsp import standins  # noqa: E402
 import build_maps  # noqa: E402
 
 S = 0.01905
@@ -797,6 +799,9 @@ PROP_MAP = {
 
 # Every entity class an author uses for a loose prop; the _dynamic ones are placed furniture
 # that does not move in the original, which a catalogue prop is not either (it is a disguise).
+MAX_PACKED_SIDE = 3.0   # a packed model longer than this is scenery (a sign, a car, a vent run), not a hiding prop
+GUESS_LIMIT = 1.5       # bsp_models.shape_distance a name guess may be from the measured size and stand
+SHAPE_LIMIT = 0.7       # and a catalogue prop picked by shape alone (a stricter bar: nothing else says what it is)
 PROP_CLASSES = ("prop_physics", "prop_physics_multiplayer", "prop_physics_override",
                 "prop_dynamic", "prop_dynamic_override")
 START_CLASSES = ("info_player_start", "info_player_terrorist", "info_player_counterterrorist",
@@ -1460,16 +1465,33 @@ def main(argv):
 
     dropped = {}
     placed = []
+    packed = bsp_models.measure(bsp)
+    catalogue = {k: v["size"] for k, v in build_maps.SIZES.items() if v.get("disguise", True) and v.get("size")}
+    by_shape = {}
     for e in bsp.entities:
         cls = e.get("classname")
         if cls in PROP_CLASSES:
             # Keys are matched lower-cased: authors spell one model Chair_office and chair_office.
             key = os.path.splitext(os.path.basename(e.get("model", "")))[0].lower()
             pid = PROP_MAP.get(key)
+            rec = packed.get(e.get("model", ""))
+            if rec is not None:
+                # The map packs this model, so its real size is known. A name guess (PROP_MAP, by
+                # file stem) stands only if it is about that size; otherwise the catalogue prop of
+                # the model's own shape does, and the stand-in is put on the model's middle.
+                k = float(e.get("modelscale") or 1.0) if str(e.get("modelscale", "")).replace(".", "", 1).isdigit() else 1.0
+                size = rec["size"]
+                if pid is not None and not bsp_models.compatible(size, catalogue.get(pid, size), limit=GUESS_LIMIT, scale=k):
+                    by_shape["%s: %s -> " % (key, pid)] = by_shape.get("%s: %s -> " % (key, pid), 0) + 1
+                    pid = None
+                if pid is None and not standins.is_skybox(e.get("model")) and max(size) * k <= MAX_PACKED_SIDE:
+                    pid = bsp_models.match_size(size, catalogue, limit=SHAPE_LIMIT, scale=k)
+                    if pid is not None:
+                        by_shape[key + " => " + pid] = by_shape.get(key + " => " + pid, 0) + 1
             if pid is None:
                 dropped[key] = dropped.get(key, 0) + 1
                 continue
-            placed.append((vec(e["origin"])[2], e, pid))
+            placed.append((vec(e["origin"])[2], e, pid, rec))
         elif cls in ("light", "light_spot"):
             o = vec(e["origin"])
             gx, gy, gz = gd(o)
@@ -1495,9 +1517,15 @@ def main(argv):
         return True
 
     # Lowest first, so a table is down before the lamp the author put on it.
-    for _, e, pid in sorted(placed, key=lambda t: t[0]):
+    for _, e, pid, rec in sorted(placed, key=lambda t: t[0]):
         ang = vec(e.get("angles", "0 0 0"))
         gx, gy, gz = gd(vec(e["origin"]))
+        if rec is not None:
+            # A model's origin is where its author put it, not its middle: the footprint is centred.
+            cx, cz = rec["centre"][0], -rec["centre"][2]
+            a = math.radians(ang[1])
+            gx += cx * math.cos(a) - cz * math.sin(a)
+            gz += -(cx * math.sin(a) + cz * math.cos(a))
         yaw = (ang[1] + 90.0) % 360.0
         y = support(gx, gz, pid, yaw, gy + 0.35)
         if y is None:
@@ -1567,6 +1595,8 @@ def main(argv):
         n = len(m.lights)
         m.lights = [m.lights[i * n // 128] for i in range(128)]
     print("props %d  lights %d  spawns %d  dropped models %s" % (len(m.props), len(m.lights), len(starts), dropped))
+    if by_shape:
+        print("from the packed models' sizes: %s" % by_shape)
     doc = m.build()
     # Move the map so its origin stands on open ground. The collision audit tests a drawn
     # MultiMesh by its bounds, which a headless renderer reports as a point at the origin; a
