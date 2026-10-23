@@ -1223,6 +1223,21 @@ def prune_pockets(doc, rounds=4, levels=False, margin=0.0, floor_lo=-0.05):
     return total
 
 
+def start_entities(bsp):
+    return [e for e in bsp.entities if e.get("classname") in START_CLASSES]
+
+
+def starts_unfloored(bsp, boxes):
+    """How many of the author's starts have no solid box top within reach of their feet."""
+    n = 0
+    for e in start_entities(bsp):
+        gx, gy, gz = gd(vec(e["origin"]))
+        if not any(b.get("solid", True) and gy - 0.3 <= b["at"][1] + b["size"][1] / 2 <= gy + 0.6 and docboxes.within(b, gx, gz, 0.001)
+                   for b in boxes):
+            n += 1
+    return n
+
+
 def terrain_boxes(bsp, cell=80.0, quant=5.0, depth=52.0):
     """The map's displacement ground as a stepped field of boxes (--terrain).
 
@@ -1427,9 +1442,20 @@ def main(argv):
                     bx["tint"] = list(tint)
                 else:
                     bx.pop("tint", None)
+    if not terrain and starts_unfloored(bsp, m.boxes) * 2 > len(start_entities(bsp)) and any(f[6] >= 0 for f in bsp.model_faces(0)):
+        # The ground is sculpted (Bikini Bottom's sea bed), so the box pass found none under the starts.
+        terrain = True
+        print("starts stand on nothing and the map has displacements: --terrain")
     if terrain:
         n = 0
-        for (x0, x1), (y0, y1), (z0, z1), mat in terrain_boxes(bsp, **terrain_args):
+        field = terrain_boxes(bsp, **terrain_args)
+        # The document's box limit is 6000 (PhMapDoc.MAX_BOXES): coarsen the field until the walls and the ground fit.
+        for cell in (120.0, 160.0, 240.0):
+            if terrain_args or len(m.boxes) + len(field) <= 5600:
+                break
+            field = terrain_boxes(bsp, cell=cell)
+            print("terrain: cell %.0f for the box limit" % cell)
+        for (x0, x1), (y0, y1), (z0, z1), mat in field:
             m.span(x0 * S, x1 * S, y0 * S, y1 * S, -z1 * S, -z0 * S, mat, (0.85, 0.9, 0.78))
             n += 1
         print("terrain: %d ground boxes from the displacements" % n)
@@ -1544,6 +1570,8 @@ def main(argv):
         ang = vec(e.get("angles", "0 0 0"))
         # Stands on whatever floor is under the start (a sunken room is below zero), not on zero.
         floor = support(gx, gz, None, 0.0, gy + 0.6)
+        if os.environ.get("PH_DEBUG"):
+            print("start %d at %.2f %.2f %.2f floor %s floored %s" % (i, gx, gy, gz, floor, m._floored(gx, (max(gy, 0.0) if floor is None else floor), gz)))
         sy = (max(gy, 0.0) if floor is None else floor) + 0.05
         # A start the author put in a prop or a wall with nothing clear and floored within four
         # metres (a bin on a rooftop, a hole in the terrain) is dropped: the builder would stop
@@ -1609,6 +1637,8 @@ def main(argv):
         # the world's zero, with the building's footing under it. Lower the whole map so the floor
         # the spawns stand on is y = 0, which is where the game, the audit and the bots expect it.
         ys = sorted(sp["at"][1] for sp in doc["spawns"]["hunters"])
+        if not ys:
+            sys.exit("no start stands on a floor in this map: the ground may be terrain (--terrain) or a prop")
         oy = round(ys[len(ys) // 2] - 0.05, 3)
         ground = [b for b in doc["boxes"] if b.get("solid", True) and abs(b["at"][1] + b["size"][1] / 2 - oy) < 0.05
                   and b["size"][0] > 4.0 and b["size"][2] > 4.0]

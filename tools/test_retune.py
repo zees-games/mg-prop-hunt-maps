@@ -76,5 +76,14 @@ with tempfile.TemporaryDirectory() as t:
     run(odd)
     check("no-op leaves bytes and mtime", open(odd, "rb").read() == before and os.stat(odd).st_mtime_ns == mt)
 
+# reimport.py: the trace line the settle step reads, and the environment line it re-applies
+import reimport  # noqa: E402
+m = reimport.CUT.findall("    cut off: (-13.0, 0.1, 6.5) beside furniture_bookcase_open_low\n    cut off: (1.7, 0.0, -13.8) beside survival_bucket")
+check("settle parses cut-off lines", m == [("-13.0", "0.1", "6.5", "furniture_bookcase_open_low"), ("1.7", "0.0", "-13.8", "survival_bucket")])
+rel, extra = reimport.environment_args("ph_westerncity")
+check("environment line found", rel.endswith("ph_westerncity.bsp") and extra == ["--ambience=amb_wind"])
+check("unknown map has no environment line", reimport.environment_args("ph_nope") == (None, []))
+check("ports.txt has no stray text in the extra column", all(len(l.split("\t")) <= 5 and "FAIL" not in l for l in open(os.path.join(HERE, "ports.txt"))))
+
 print("%d failed" % fails)
 sys.exit(1 if fails else 0)
