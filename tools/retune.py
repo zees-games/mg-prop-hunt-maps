@@ -3,8 +3,7 @@
 
     tools/retune.py <id> [--widen-doors] [--widen-thick-doors] [--prune-pockets|--pocket-margin=0.07|--prune-levels]
                          [--terrain] [--clear=x0,z0,x1,z1] [--drop-beside=x,z,kind] [--field=name=number]
-                         [--drop-cutoff=DUMP.json] [--carve=x0,z0,x1,z1] [--in=FILE]
-                         [--out=FILE]
+                         [--carve=x0,z0,x1,z1] [--in=FILE] [--out=FILE]
 
 tools/reimport.py does not reproduce the committed documents (the importer has moved on since they
 were tuned, and a re-import throws the balance away), so a fix to a ported map is made on the
@@ -60,7 +59,6 @@ def main(argv):
     widen = thick = pockets = levels = terrain = False
     margin = 0.0
     clears, drops, fields = [], [], {}
-    cutoff = ""
     carves = []
     for a in argv[1:]:
         if a.startswith("--out="):
@@ -86,12 +84,11 @@ def main(argv):
             carves.append(tuple(float(t) for t in a[8:].split(",")))
         elif a.startswith("--in="):
             path = a[5:]
-        elif a.startswith("--drop-cutoff="):
-            cutoff = a[14:]
         elif a.startswith("--field="):
             k, _, v = a[8:].partition("=")
             fields[k] = float(v)
     doc = json.load(open(path))
+    before = json.dumps(doc, sort_keys=True)
     if widen:
         n = ib.widen_doors(doc["boxes"])
         if thick:
@@ -113,23 +110,12 @@ def main(argv):
             print("dropped %s at %s" % (near[0]["id"], near[0]["at"]))
     for rect in carves:
         print("carved %d boxes out of %s" % (carve(doc["boxes"], *rect), rect))
-    if cutoff:
-        # DUMP.json is `nav_islands.tscn -- --map <id> --dump=DUMP.json` of THIS document: a hiding
-        # place off the props' start island is lost with the prop it stands beside, when no cheap
-        # link (a wider door) joins it.
-        dump = json.load(open(cutoff))
-        gone = 0
-        for sx, _sy, sz, isl in dump["spots"]:
-            if isl == dump["home"]:
-                continue
-            near = sorted(doc["props"], key=lambda q: (q["at"][0] - sx) ** 2 + (q["at"][2] - sz) ** 2)
-            if near and (near[0]["at"][0] - sx) ** 2 + (near[0]["at"][2] - sz) ** 2 <= 1.8 ** 2:
-                doc["props"].remove(near[0])
-                gone += 1
-        print("dropped %d props beside places cut off from the props' start" % gone)
     doc.update(fields)
     doc["boxes"] = [b for b in doc["boxes"] if min(b["size"]) > 0.005]
     print("audit: dropped %d props sunk in a wall or standing on nothing" % ib.audit_props(doc))
+    if out == path and json.dumps(doc, sort_keys=True) == before:
+        print("unchanged", out)
+        return
     with open(out, "w") as f:
         f.write(json.dumps(doc, indent=1) + "\n")
     print("wrote", out, "props", len(doc["props"]), "boxes", len(doc["boxes"]))
