@@ -37,7 +37,7 @@
   ]
  },
  "kill_y": -20.0,
- "players_per_hunter": 3.0,
+ "players_per_hunter": 2.25,
  "hide_seconds": 15.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752",
  "boxes": [
@@ -71673,5 +71673,6 @@
   }
  ],
  "ambience": "amb_night",
- "ambience_indoor": "amb_city"
+ "ambience_indoor": "amb_city",
+ "round_seconds": 120.0
 }
