@@ -1,0 +1,180 @@
+{
+    "schema": 1,
+    "title": "Prop Hunt maps",
+    "kinds": [
+        "map"
+    ],
+    "games": [
+        "gamemann/mg-prop-hunt"
+    ],
+    "entries": [
+        {
+            "kind": "map",
+            "id": "ph_abandoned_church",
+            "name": "Abandoned Church",
+            "scene": "maps/ph_abandoned_church.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_abandoned_hotel",
+            "name": "Abandoned Hotel",
+            "scene": "maps/ph_abandoned_hotel.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_apartment",
+            "name": "Apartment",
+            "scene": "maps/ph_apartment.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_autumngetaway",
+            "name": "Autumn Getaway",
+            "scene": "maps/ph_autumngetaway.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_bank",
+            "name": "Bank",
+            "scene": "maps/ph_bank.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_bikinibottom",
+            "name": "Bikini Bottom",
+            "scene": "maps/ph_bikinibottom.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_cyber_dinner",
+            "name": "Cyber Diner",
+            "scene": "maps/ph_cyber_dinner.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_elementary_school",
+            "name": "Elementary School",
+            "scene": "maps/ph_elementary_school.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_frontyard",
+            "name": "Front Yard",
+            "scene": "maps/ph_frontyard.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_gas_station",
+            "name": "Gas Station",
+            "scene": "maps/ph_gas_station.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_hotel",
+            "name": "Hotel",
+            "scene": "maps/ph_hotel.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_house",
+            "name": "Willow Lane",
+            "scene": "maps/ph_house.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_islandhouse",
+            "name": "Island House",
+            "scene": "maps/ph_islandhouse.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_midwestapartment",
+            "name": "Midwest Apartment",
+            "scene": "maps/ph_midwestapartment.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_oceanwaves",
+            "name": "Ocean Waves",
+            "scene": "maps/ph_oceanwaves.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_office",
+            "name": "Brightline Offices",
+            "scene": "maps/ph_office.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_office221",
+            "name": "Presentation Office",
+            "scene": "maps/ph_office221.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_restaurant_os",
+            "name": "Restaurant",
+            "scene": "maps/ph_restaurant_os.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_school",
+            "name": "Maple Grove School",
+            "scene": "maps/ph_school.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_swimmingpool",
+            "name": "Swimming Pool",
+            "scene": "maps/ph_swimmingpool.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_volcano",
+            "name": "Volcano",
+            "scene": "maps/ph_volcano.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_westerncity",
+            "name": "Western City",
+            "scene": "maps/ph_westerncity.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_wolfsmanor",
+            "name": "Wolf's Manor",
+            "scene": "maps/ph_wolfsmanor.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_woods",
+            "name": "Pinecrest Woods",
+            "scene": "maps/ph_woods.json",
+            "map_kind": "prophunt"
+        }
+    ]
+}
