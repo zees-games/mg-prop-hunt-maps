@@ -1304,6 +1304,40 @@ def terrain_boxes(bsp, cell=80.0, quant=5.0, depth=52.0):
     return out
 
 
+def drop_buried(boxes, field, cell=80.0):
+    """The boxes whose top lies at or under the terrain field over their whole footprint are dropped (--terrain).
+
+    Sliced wedge brushes below a sea bed were thousands of thin slabs that crowded the box limit and forced a
+    coarse field. `field` is terrain_boxes' output in source units, made at `cell`."""
+    if not field:
+        return boxes
+    c = cell * S
+    top = {}
+    fx = min(b[0][0] for b in field) * S
+    fz = min(-b[2][1] for b in field) * S
+    for (x0, x1), (_lo, hi), (y0, y1), _m in field:
+        for i in range(int(round((x1 - x0) / cell))):
+            for j in range(int(round((y1 - y0) / cell))):
+                top[(int(round((x0 * S - fx) / c)) + i, int(round((-y1 * S - fz) / c)) + j)] = hi * S
+    keep = []
+    for b in boxes:
+        x, y, z = b["at"]
+        w, h, d = b["size"]
+        t = y + h / 2
+        buried = True
+        for i in range(int(math.floor((x - w / 2 - fx) / c)), int(math.floor((x + w / 2 - 1e-6 - fx) / c)) + 1):
+            for j in range(int(math.floor((z - d / 2 - fz) / c)), int(math.floor((z + d / 2 - 1e-6 - fz) / c)) + 1):
+                if top.get((i, j), -1e9) < t:
+                    buried = False
+                    break
+            if not buried:
+                break
+        if not buried:
+            keep.append(b)
+    print("terrain: %d boxes under the ground dropped" % (len(boxes) - len(keep)))
+    return keep
+
+
 def audit_props(doc):
     """Drops what mg-prop-hunt's headless_maps would refuse, in the document's own coordinates: a prop
     whose middle is inside a solid box (an author's prop in a pit or a wall) and one with nothing
@@ -1450,6 +1484,9 @@ def main(argv):
         n = 0
         field = terrain_boxes(bsp, **terrain_args)
         # The document's box limit is 6000 (PhMapDoc.MAX_BOXES): coarsen the field until the walls and the ground fit.
+        # Boxes the ground covers are dropped first: a coarse field steps more than a body can climb.
+        if not terrain_args and len(m.boxes) + len(field) > 5600:
+            m.boxes[:] = drop_buried(m.boxes, field)
         for cell in (120.0, 160.0, 240.0):
             if terrain_args or len(m.boxes) + len(field) <= 5600:
                 break
