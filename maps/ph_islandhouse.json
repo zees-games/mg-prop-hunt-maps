@@ -9522,5 +9522,9 @@
    ]
   }
  ],
- "round_seconds": 120.0
+ "round_seconds": 120.0,
+ "ambient": {
+  "level": 1.3,
+  "lively": true
+ }
 }

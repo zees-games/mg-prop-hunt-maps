@@ -32906,5 +32906,8 @@
   }
  ],
  "ambience": "amb_night",
- "round_seconds": 200.0
+ "round_seconds": 200.0,
+ "ambient": {
+  "level": 0.7
+ }
 }

@@ -14461,5 +14461,9 @@
    ]
   }
  ],
- "ambience": "amb_wind"
+ "ambience": "amb_wind",
+ "ambient": {
+  "level": 1.3,
+  "lively": true
+ }
 }

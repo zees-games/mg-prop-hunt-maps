@@ -58389,5 +58389,8 @@
    ]
   }
  ],
- "ambience": "amb_eerie"
+ "ambience": "amb_eerie",
+ "ambient": {
+  "level": 0.7
+ }
 }

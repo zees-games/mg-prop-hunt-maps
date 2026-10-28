@@ -71674,5 +71674,8 @@
  ],
  "ambience": "amb_night",
  "ambience_indoor": "amb_city",
- "round_seconds": 120.0
+ "round_seconds": 120.0,
+ "ambient": {
+  "level": 0.7
+ }
 }

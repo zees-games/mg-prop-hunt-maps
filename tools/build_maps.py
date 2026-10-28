@@ -1652,11 +1652,62 @@ MAPS = {
     "ph_woods": woods,
 }
 
+# Each map's `ambient` block for DotAmbienceDirector: bed level (1.0 is the stock 0.35 bed) and whether
+# the birdsong bed may play. Interiors sit under 1, open ground over; only parks, woods and gardens
+# are lively. Maps that arrive from tools/import_bsp.py are patched by `--ambient`.
+AMBIENT = {
+    "ph_abandoned_church": (0.7, False),
+    "ph_abandoned_hotel": (0.7, False),
+    "ph_apartment": (0.7, False),
+    "ph_autumngetaway": (1.5, True),
+    "ph_bank": (0.6, False),
+    "ph_bikinibottom": (1.0, False),
+    "ph_cyber_dinner": (0.7, False),
+    "ph_elementary_school": (0.8, False),
+    "ph_frontyard": (1.3, True),
+    "ph_gas_station": (1.0, False),
+    "ph_hotel": (0.7, False),
+    "ph_house": (0.7, False),
+    "ph_islandhouse": (1.3, True),
+    "ph_midwestapartment": (0.7, False),
+    "ph_oceanwaves": (1.3, True),
+    "ph_office": (0.6, False),
+    "ph_office221": (0.6, False),
+    "ph_restaurant_os": (0.7, False),
+    "ph_school": (0.8, False),
+    "ph_swimmingpool": (0.8, False),
+    "ph_volcano": (1.0, False),
+    "ph_westerncity": (1.2, False),
+    "ph_wolfsmanor": (0.8, False),
+    "ph_woods": (1.5, True),
+}
+
+
+def ambient_block(mid):
+    level, lively = AMBIENT[mid]
+    block = {"level": level}
+    if lively:
+        block["lively"] = True
+    return block
+
+
+def patch_ambient():
+    """Adds the block to every document in maps/, imported ones included, without touching its layout."""
+    for mid in AMBIENT:
+        path = os.path.join(ROOT, "maps", mid + ".json")
+        with open(path) as f:
+            doc = json.load(f)
+        doc["ambient"] = ambient_block(mid)
+        with open(path, "w") as f:
+            f.write(json.dumps(doc, indent=1) + "\n")
+
+
 
 def write_all(check):
     stale = []
     for mid, make in MAPS.items():
         doc = make()
+        doc["ambient"] = ambient_block(mid)
         text = json.dumps(doc, indent=1, sort_keys=False) + "\n"
         path = os.path.join(ROOT, "maps", mid + ".json")
         if check:
@@ -1693,6 +1744,9 @@ def sync_sizes():
 
 
 if __name__ == "__main__":
+    if "--ambient" in sys.argv:
+        patch_ambient()
+        sys.exit(0)
     if "--sync-sizes" in sys.argv:
         sync_sizes()
         sys.exit(0)

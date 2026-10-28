@@ -44788,5 +44788,8 @@
    ]
   }
  ],
- "ambience": "amb_city"
+ "ambience": "amb_city",
+ "ambient": {
+  "level": 0.6
+ }
 }

@@ -37620,5 +37620,8 @@
   }
  ],
  "players_per_hunter": 1.6,
- "ambience": "amb_wind"
+ "ambience": "amb_wind",
+ "ambient": {
+  "level": 1.0
+ }
 }

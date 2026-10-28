@@ -43886,5 +43886,8 @@
    ]
   }
  ],
- "players_per_hunter": 4.0
+ "players_per_hunter": 4.0,
+ "ambient": {
+  "level": 0.8
+ }
 }

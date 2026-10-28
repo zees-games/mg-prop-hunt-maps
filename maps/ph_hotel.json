@@ -9389,5 +9389,8 @@
    ]
   }
  ],
- "round_seconds": 240.0
+ "round_seconds": 240.0,
+ "ambient": {
+  "level": 0.7
+ }
 }
