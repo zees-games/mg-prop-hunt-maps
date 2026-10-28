@@ -1,0 +1,231 @@
+[
+  {
+    "paths": [
+      ""
+    ],
+    "licence": "MIT",
+    "author": "TMC",
+    "url": "https://github.com/zees-games/mg-prop-hunt-maps",
+    "title": "mg-prop-hunt-maps (original content)"
+  },
+  {
+    "paths": [
+      "maps/ph_abandoned_church.json"
+    ],
+    "licence": "CC-BY-NC-ND-4.0",
+    "exception": "credited-community-map",
+    "title": "Abandoned Church",
+    "author": "Z(Rus)",
+    "source_url": "https://gamebanana.com/mods/61478",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_abandoned_hotel.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Abandoned Hotel",
+    "author": "Ethosaur",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=324656288",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_apartment.json"
+    ],
+    "licence": "CC-BY-NC-ND-4.0",
+    "exception": "credited-community-map",
+    "title": "Apartment",
+    "author": "Tib",
+    "source_url": "https://gamebanana.com/mods/61479",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_autumngetaway.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Autumn Getaway",
+    "author": "I am tired",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3439942760",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_bank.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Bank",
+    "author": "EHOT",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=667484197",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_bikinibottom.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Bikini Bottom",
+    "author": "iitzRayD",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1123262520",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_cyber_dinner.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Cyber Diner",
+    "author": "MiniYLITKA",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_elementary_school.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Elementary School",
+    "author": "Ethosaur",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=331545400",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_frontyard.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Front Yard",
+    "author": "axoh",
+    "source_url": "https://gamebanana.com/mods/398632",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_gas_station.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Gas Station",
+    "author": "Kung Fu Jesus",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=233540367",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_hotel.json"
+    ],
+    "licence": "CC-BY-NC-ND-4.0",
+    "exception": "credited-community-map",
+    "title": "Hotel",
+    "author": "1Vodker1",
+    "source_url": "https://gamebanana.com/mods/61495",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_islandhouse.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Island House",
+    "author": "wolvindra",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2942742596",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_midwestapartment.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Midwest Apartment",
+    "author": "Punkychaz",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_oceanwaves.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Ocean Waves",
+    "author": "Gvarados",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1654704542",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_office221.json"
+    ],
+    "licence": "CC-BY-NC-ND-4.0",
+    "exception": "credited-community-map",
+    "title": "Presentation Office",
+    "author": "Z(Rus) (zeromapping)",
+    "source_url": "https://gamebanana.com/mods/61503",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_restaurant_os.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Restaurant",
+    "author": "Wolvindra Vinzuerio",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3270930065",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_swimmingpool.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Swimming Pool",
+    "author": "Wolvindra Vinzuerio",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2927317814",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_volcano.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Volcano",
+    "author": "Patrick™",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_westerncity.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Western City",
+    "author": "Skate6788",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1738480835",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_wolfsmanor.json"
+    ],
+    "licence": "CC-BY-NC-ND-4.0",
+    "exception": "credited-community-map",
+    "title": "Wolf's Manor",
+    "author": "gruesomegit",
+    "source_url": "https://gamebanana.com/mods/61511",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  }
+]
