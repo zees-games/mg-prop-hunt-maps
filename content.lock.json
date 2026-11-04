@@ -1,0 +1,15 @@
+{
+	"format": 1,
+	"mirrors": [],
+	"origin": "https://dotgames.org/content",
+	"packs": [
+		{
+			"id": "gamemann/mg-prop-hunt-maps",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "9656285e4470f25ff870ead77e4d8fc563501812fbc875287a7fd300b40653ff",
+			"optional": false,
+			"version": "1.0.1"
+		}
+	]
+}
