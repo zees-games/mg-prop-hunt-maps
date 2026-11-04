@@ -57,3 +57,5 @@ Outdoor maps are lit by the sun and the ambient colour in the document's `enviro
 ## Ambience level
 
 Every document carries `"ambient": {"level": n, "lively": true}` for dot-audio's `DotAmbienceDirector` (`level` multiplies the stock bed, 1.0 unchanged; `lively` lets the birdsong bed play): interiors 0.6-0.8, shops and streets 1.0-1.2, outdoors 1.3-1.5, and `lively` only on the woods, the garden, the island and the beach. The table is `AMBIENT` in `tools/build_maps.py`, which writes it into built documents; `tools/build_maps.py --ambient` patches the imported ones, so a new map adds a row there.
+
+- Publish: `tools/publish.sh --version V` (or `--bump patch`) wraps dot-cloud's publish_pack.sh with this pack's id, exclusions and lock; pass `--site` and `--token-file`.
