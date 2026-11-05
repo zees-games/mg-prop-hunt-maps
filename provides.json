@@ -101,6 +101,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_library",
+            "name": "Library",
+            "scene": "maps/ph_library.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_midwestapartment",
             "name": "Midwest Apartment",
             "scene": "maps/ph_midwestapartment.json",

@@ -80,6 +80,9 @@ with tempfile.TemporaryDirectory() as t:
 import reimport  # noqa: E402
 m = reimport.CUT.findall("    cut off: (-13.0, 0.1, 6.5) beside furniture_bookcase_open_low\n    cut off: (1.7, 0.0, -13.8) beside survival_bucket")
 check("settle parses cut-off lines", m == [("-13.0", "0.1", "6.5", "furniture_bookcase_open_low"), ("1.7", "0.0", "-13.8", "survival_bucket")])
+LINE = "  %s  at most one place in fifty is cut off (a corner behind furniture)"
+check("a failed cut-off check gives its count", reimport.parse_cut_off((LINE % "FAIL") + " — 3 of 40 ph_x:3\n    cut off: (1.0, 0.0, 2.0) beside survival_bucket")[1] == 40)
+check("a passed cut-off check (no count printed) gives 0 places", reimport.parse_cut_off(LINE % "ok  ") == ([], 0))
 rel, extra = reimport.environment_args("ph_westerncity")
 check("environment line found", rel.endswith("ph_westerncity.bsp") and extra == ["--ambience=amb_wind"])
 check("unknown map has no environment line", reimport.environment_args("ph_nope") == (None, []))

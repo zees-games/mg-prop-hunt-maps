@@ -50,10 +50,16 @@ def cut_off(mid):
     r = subprocess.run(["godot", "--headless", "--path", GAME, "res://examples/headless_bots.tscn", "--", "--map", mid, "--rounds", "1"],
                        capture_output=True, text=True, env=env, timeout=900)
     out = r.stdout + r.stderr
-    places = re.search(r"\((\d+) of (\d+)", out.split("at most one place in fifty", 1)[-1]) if "at most one place in fifty" in out else None
-    if not places:
+    if "at most one place in fifty" not in out:
         sys.exit("no cut-off line in the bot run for %s:\n%s" % (mid, out[-1500:]))
-    return sorted({(float(a), float(c), k) for a, _b, c, k in CUT.findall(out)}), int(places.group(2))
+    return parse_cut_off(out)
+
+
+def parse_cut_off(out):
+    """`(spots, places)` from a traced bot run. DotGameCheckSuite prints the count only on a FAIL, so a passed
+    check (at most 1 in 50 cut off) gives places 0: not counted."""
+    places = re.match(r" — (\d+) of (\d+)", out.split("at most one place in fifty is cut off (a corner behind furniture)", 1)[-1])
+    return sorted({(float(a), float(c), k) for a, _b, c, k in CUT.findall(out)}), int(places.group(2)) if places else 0
 
 
 def retune(mid, *flags):
@@ -95,7 +101,7 @@ def drop_cut_off(mid, path, log):
     for i in range(SETTLE_ROUNDS):
         spots, places = cut_off(mid)
         log.append("settle %d: %d of %d places cut off" % (i, len(spots), places))
-        if i == 0 and len(spots) > 0.1 * places:
+        if i == 0 and places and len(spots) > 0.1 * places:
             # Mostly cut off is a wall, not a prop: open every doorway to 1.4 m first (idempotent, retune.py).
             log.append(retune(mid, "--widen-thick-doors").strip())
             spots, places = cut_off(mid)
