@@ -1676,6 +1676,7 @@ AMBIENT = {
     "ph_office221": (0.6, False),
     "ph_restaurant_os": (0.7, False),
     "ph_school": (0.8, False),
+    "ph_sunken_resort": (0.8, False),
     "ph_swimmingpool": (0.8, False),
     "ph_volcano": (1.0, False),
     "ph_westerncity": (1.2, False),
