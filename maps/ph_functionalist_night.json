@@ -45,7 +45,7 @@
   "fog_max": 0.7
  },
  "kill_y": -20.0,
- "players_per_hunter": 6.0,
+ "players_per_hunter": 8.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3382694345",
  "boxes": [
   {
@@ -48613,127 +48613,217 @@
  ],
  "props": [
   {
-   "id": "furniture_trashcan",
-   "at": [
-    -11.699,
-    0.762,
-    -0.657
-   ],
-   "yaw": 196.5
-  },
-  {
-   "id": "food_pizza_box",
-   "at": [
-    -11.748,
-    0.762,
-    -0.632
-   ],
-   "yaw": 196.5
-  },
-  {
    "id": "nature_campfire_logs",
    "at": [
-    -1.137,
+    -10.137,
     0.381,
-    7.051
+    -1.449
    ],
    "yaw": 336.818
   },
   {
+   "id": "nature_campfire_logs",
+   "at": [
+    -1.637,
+    0.381,
+    7.051
+   ],
+   "yaw": -5.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -1.637,
+    0.381,
+    4.551
+   ],
+   "yaw": 170.8
+  },
+  {
    "id": "furniture_computer_mouse",
    "at": [
-    -4.895,
-    0.343,
-    11.079
+    -13.395,
+    0.381,
+    4.079
    ],
    "yaw": 180.0
   },
   {
    "id": "furniture_computer_mouse",
    "at": [
-    -5.036,
-    0.343,
-    10.965
+    -13.395,
+    0.381,
+    4.079
    ]
+  },
+  {
+   "id": "furniture_computer_mouse",
+   "at": [
+    -13.395,
+    3.734,
+    4.079
+   ],
+   "yaw": 180.0
+  },
+  {
+   "id": "furniture_computer_mouse",
+   "at": [
+    -15.895,
+    0.304,
+    3.579
+   ],
+   "yaw": 93.9
+  },
+  {
+   "id": "furniture_computer_mouse",
+   "at": [
+    -15.895,
+    0.304,
+    3.579
+   ],
+   "yaw": 270.2
+  },
+  {
+   "id": "furniture_computer_mouse",
+   "at": [
+    -15.895,
+    3.658,
+    3.579
+   ],
+   "yaw": 270.2
   },
   {
    "id": "furniture_laptop",
    "at": [
-    -12.844,
+    -13.844,
     2.134,
-    12.67
+    11.67
    ],
    "yaw": 90.0
   },
   {
    "id": "furniture_bookcase_closed_wide",
    "at": [
-    -12.882,
+    -13.844,
     2.503,
-    12.574
+    11.67
    ],
    "yaw": 217.674
   },
   {
+   "id": "furniture_laptop",
+   "at": [
+    -13.344,
+    2.134,
+    11.67
+   ],
+   "yaw": 94.0
+  },
+  {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    -13.344,
+    2.503,
+    11.67
+   ],
+   "yaw": 188.5
+  },
+  {
+   "id": "furniture_laptop",
+   "at": [
+    -13.344,
+    1.981,
+    11.17
+   ],
+   "yaw": 96.8
+  },
+  {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    -13.344,
+    2.35,
+    11.17
+   ],
+   "yaw": 88.3
+  },
+  {
    "id": "food_pot",
    "at": [
-    -20.464,
-    3.734,
-    3.526
+    -18.964,
+    3.657,
+    4.526
    ],
    "yaw": 90.0
   },
   {
-   "id": "furniture_computer_mouse",
+   "id": "food_pot",
    "at": [
-    -4.952,
-    3.696,
-    11.174
+    -18.464,
+    3.657,
+    4.026
    ],
-   "yaw": 180.0
+   "yaw": 268.8
+  },
+  {
+   "id": "food_pot",
+   "at": [
+    -19.464,
+    3.734,
+    4.526
+   ],
+   "yaw": 3.4
   },
   {
    "id": "survival_barrel",
    "at": [
-    -13.538,
-    6.401,
-    1.12
+    -13.038,
+    6.553,
+    -5.38
    ],
    "yaw": 90.0
   },
   {
-   "id": "furniture_lounge_sofa",
+   "id": "survival_barrel",
    "at": [
-    16.326,
-    -1.33,
-    83.805
+    -8.538,
+    6.553,
+    -5.38
    ],
-   "yaw": 90.0
+   "yaw": 261.5
   },
   {
    "id": "furniture_plant_small2",
    "at": [
-    13.326,
-    -1.33,
-    -4.695
+    2.826,
+    -1.044,
+    6.305
    ]
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    2.826,
+    -1.044,
+    5.305
+   ],
+   "yaw": 99.4
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    2.826,
+    -1.044,
+    5.805
+   ],
+   "yaw": 94.9
   },
   {
    "id": "furniture_potted_plant",
    "at": [
-    14.826,
-    -1.33,
-    -22.695
+    2.826,
+    -1.139,
+    -20.195
    ]
-  },
-  {
-   "id": "furniture_coat_rack_standing",
-   "at": [
-    19.326,
-    -1.33,
-    82.305
-   ],
-   "yaw": 270.0
   },
   {
    "id": "furniture_plant_small2",
@@ -48747,11 +48837,29 @@
   {
    "id": "furniture_cardboard_box_closed",
    "at": [
-    14.826,
-    -1.33,
-    4.305
+    2.826,
+    -1.139,
+    10.805
    ],
    "yaw": 270.0
+  },
+  {
+   "id": "furniture_cardboard_box_closed",
+   "at": [
+    2.826,
+    -1.139,
+    11.305
+   ],
+   "yaw": 83.2
+  },
+  {
+   "id": "furniture_cardboard_box_closed",
+   "at": [
+    2.826,
+    -1.139,
+    11.805
+   ],
+   "yaw": 279.9
   },
   {
    "id": "furniture_trashcan",
@@ -48765,47 +48873,83 @@
   {
    "id": "furniture_cardboard_box_closed",
    "at": [
-    14.826,
-    -1.33,
-    1.305
+    2.826,
+    -1.139,
+    8.305
    ],
    "yaw": 90.0
   },
   {
-   "id": "furniture_potted_plant",
+   "id": "furniture_cardboard_box_closed",
    "at": [
-    13.326,
-    -1.33,
-    83.805
+    2.826,
+    -1.139,
+    8.805
+   ],
+   "yaw": 266.8
+  },
+  {
+   "id": "furniture_cardboard_box_closed",
+   "at": [
+    2.826,
+    -1.139,
+    9.305
+   ],
+   "yaw": 87.1
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    2.826,
+    -1.044,
+    2.805
    ],
    "yaw": 180.0
   },
   {
    "id": "survival_barrel",
    "at": [
-    14.826,
-    -1.33,
-    -1.695
+    2.826,
+    -1.044,
+    3.305
    ],
-   "yaw": 180.0
+   "yaw": 268.8
   },
   {
-   "id": "furniture_potted_plant",
+   "id": "survival_barrel",
    "at": [
-    16.326,
-    -1.33,
-    80.805
+    2.826,
+    -1.044,
+    3.805
    ],
-   "yaw": 90.0
+   "yaw": -2.3
   },
   {
    "id": "furniture_lounge_sofa",
    "at": [
-    13.326,
-    -1.33,
-    29.805
+    2.826,
+    -1.139,
+    21.805
    ],
    "yaw": 270.0
+  },
+  {
+   "id": "furniture_lounge_sofa",
+   "at": [
+    2.826,
+    -1.139,
+    21.305
+   ],
+   "yaw": 99.4
+  },
+  {
+   "id": "furniture_lounge_sofa",
+   "at": [
+    2.826,
+    -1.139,
+    20.805
+   ],
+   "yaw": -8.3
   },
   {
    "id": "survival_barrel",
@@ -48825,30 +48969,57 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_bookcase_closed_wide",
-   "at": [
-    17.826,
-    -1.33,
-    86.805
-   ],
-   "yaw": 270.0
-  },
-  {
    "id": "furniture_side_table",
    "at": [
-    14.826,
-    -1.33,
-    32.805
+    2.826,
+    -1.139,
+    25.305
    ]
   },
   {
    "id": "furniture_side_table",
    "at": [
-    14.826,
-    -1.33,
-    26.805
+    2.826,
+    -1.139,
+    24.805
+   ],
+   "yaw": 96.4
+  },
+  {
+   "id": "furniture_side_table",
+   "at": [
+    2.826,
+    -1.139,
+    22.805
+   ],
+   "yaw": 178.1
+  },
+  {
+   "id": "furniture_side_table",
+   "at": [
+    2.826,
+    -1.139,
+    19.805
    ],
    "yaw": 270.0
+  },
+  {
+   "id": "furniture_side_table",
+   "at": [
+    2.826,
+    -1.139,
+    19.305
+   ],
+   "yaw": 274.0
+  },
+  {
+   "id": "furniture_side_table",
+   "at": [
+    2.826,
+    -1.139,
+    18.805
+   ],
+   "yaw": -4.4
   },
   {
    "id": "furniture_trashcan",
@@ -48857,32 +49028,6 @@
     -1.33,
     -15.195
    ]
-  },
-  {
-   "id": "furniture_side_table",
-   "at": [
-    13.326,
-    -1.24,
-    82.305
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    44.826,
-    -1.24,
-    86.805
-   ]
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    19.326,
-    -1.24,
-    85.305
-   ],
-   "yaw": 90.0
   },
   {
    "id": "survival_barrel",
@@ -48905,20 +49050,29 @@
   {
    "id": "furniture_plant_small1",
    "at": [
-    14.826,
-    -1.24,
-    22.305
+    2.826,
+    -1.144,
+    16.305
    ],
    "yaw": 270.0
   },
   {
-   "id": "furniture_lounge_sofa",
+   "id": "furniture_plant_small1",
    "at": [
-    22.326,
-    -1.24,
-    86.805
+    2.826,
+    -1.144,
+    16.805
    ],
-   "yaw": 270.0
+   "yaw": 189.9
+  },
+  {
+   "id": "furniture_plant_small1",
+   "at": [
+    2.826,
+    -1.144,
+    17.305
+   ],
+   "yaw": 278.5
   },
   {
    "id": "survival_barrel",
@@ -48926,15 +49080,6 @@
     13.326,
     -1.24,
     -6.195
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    17.826,
-    -1.24,
-    82.305
    ],
    "yaw": 90.0
   },
@@ -48957,15 +49102,6 @@
    "yaw": 90.0
   },
   {
-   "id": "furniture_plant_small2",
-   "at": [
-    10.326,
-    -1.24,
-    82.305
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "furniture_lounge_sofa",
    "at": [
     13.326,
@@ -48977,11 +49113,29 @@
   {
    "id": "furniture_cabinet_television",
    "at": [
-    14.826,
-    -1.24,
-    35.805
+    2.826,
+    -1.144,
+    29.305
    ],
    "yaw": 270.0
+  },
+  {
+   "id": "furniture_cabinet_television",
+   "at": [
+    2.826,
+    -1.144,
+    27.805
+   ],
+   "yaw": 84.0
+  },
+  {
+   "id": "furniture_cabinet_television",
+   "at": [
+    2.826,
+    -1.144,
+    27.305
+   ],
+   "yaw": 182.6
   },
   {
    "id": "furniture_coat_rack_standing",
@@ -49011,11 +49165,29 @@
   {
    "id": "furniture_bookcase_closed_wide",
    "at": [
-    13.326,
-    -1.24,
-    5.805
+    2.826,
+    -1.049,
+    12.805
    ],
    "yaw": 270.0
+  },
+  {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    2.826,
+    -1.049,
+    13.305
+   ],
+   "yaw": 85.8
+  },
+  {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    2.826,
+    -1.049,
+    13.805
+   ],
+   "yaw": 85.4
   },
   {
    "id": "furniture_side_table",
@@ -49036,38 +49208,76 @@
    "yaw": 270.0
   },
   {
-   "id": "survival_barrel",
-   "at": [
-    8.826,
-    -1.14,
-    83.805
-   ]
-  },
-  {
    "id": "furniture_potted_plant",
    "at": [
-    8.826,
+    2.826,
     -1.14,
-    25.305
+    23.805
    ],
    "yaw": 270.0
   },
   {
+   "id": "furniture_potted_plant",
+   "at": [
+    2.826,
+    -1.14,
+    26.305
+   ],
+   "yaw": -9.7
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    2.826,
+    -1.14,
+    30.305
+   ],
+   "yaw": 90.3
+  },
+  {
    "id": "furniture_plant_small1",
    "at": [
-    10.326,
+    2.826,
     -1.14,
     34.305
    ],
    "yaw": 180.0
   },
   {
+   "id": "furniture_plant_small1",
+   "at": [
+    2.826,
+    -1.14,
+    33.805
+   ],
+   "yaw": 98.7
+  },
+  {
+   "id": "furniture_plant_small1",
+   "at": [
+    2.826,
+    -1.14,
+    34.805
+   ],
+   "yaw": 3.2
+  },
+  {
    "id": "furniture_potted_plant",
    "at": [
-    10.326,
-    -1.14,
-    -9.195
-   ]
+    2.826,
+    -0.855,
+    -10.695
+   ],
+   "yaw": 273.1
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    3.326,
+    -0.855,
+    -10.695
+   ],
+   "yaw": 279.4
   },
   {
    "id": "survival_barrel",
@@ -49080,19 +49290,46 @@
   {
    "id": "furniture_coat_rack_standing",
    "at": [
-    8.826,
+    2.826,
     -1.14,
-    8.805
+    14.805
    ]
+  },
+  {
+   "id": "furniture_coat_rack_standing",
+   "at": [
+    2.826,
+    -1.14,
+    15.305
+   ],
+   "yaw": 183.8
   },
   {
    "id": "furniture_plant_small2",
    "at": [
-    23.826,
+    27.826,
     -1.14,
-    80.805
+    88.305
    ],
    "yaw": 180.0
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    28.326,
+    -1.14,
+    88.305
+   ],
+   "yaw": 86.9
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    28.826,
+    -1.14,
+    88.305
+   ],
+   "yaw": 88.1
   },
   {
    "id": "furniture_plant_small1",
@@ -49106,19 +49343,46 @@
   {
    "id": "furniture_plant_small2",
    "at": [
-    10.326,
+    2.826,
     -1.14,
-    28.305
+    31.305
    ]
   },
   {
    "id": "furniture_plant_small2",
    "at": [
-    8.826,
+    2.826,
     -1.14,
-    -4.695
+    31.805
+   ],
+   "yaw": 189.6
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    2.826,
+    -1.14,
+    32.305
+   ],
+   "yaw": 80.3
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    0.326,
+    -0.855,
+    -16.695
    ],
    "yaw": 90.0
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    -0.174,
+    -0.855,
+    -16.695
+   ],
+   "yaw": 178.6
   },
   {
    "id": "furniture_plant_small1",
@@ -49130,24 +49394,6 @@
    "yaw": 180.0
   },
   {
-   "id": "furniture_trashcan",
-   "at": [
-    44.826,
-    -1.14,
-    85.305
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    4.326,
-    -1.14,
-    80.805
-   ],
-   "yaw": 270.0
-  },
-  {
    "id": "furniture_potted_plant",
    "at": [
     17.826,
@@ -49155,14 +49401,6 @@
     -24.195
    ],
    "yaw": 270.0
-  },
-  {
-   "id": "survival_barrel",
-   "at": [
-    23.826,
-    -1.14,
-    86.805
-   ]
   },
   {
    "id": "survival_barrel",
@@ -49184,35 +49422,54 @@
   {
    "id": "survival_barrel",
    "at": [
-    10.326,
+    2.826,
     -1.14,
-    37.305
-   ]
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    28.326,
-    -1.14,
-    86.805
-   ]
-  },
-  {
-   "id": "furniture_cabinet_television",
-   "at": [
-    13.326,
-    -1.14,
-    85.305
+    36.305
    ]
   },
   {
    "id": "survival_barrel",
    "at": [
-    -6.174,
-    0.0,
-    77.805
+    2.826,
+    -1.14,
+    35.805
    ],
-   "yaw": 90.0
+   "yaw": 83.2
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    2.826,
+    -1.14,
+    37.305
+   ],
+   "yaw": 260.1
+  },
+  {
+   "id": "furniture_trashcan",
+   "at": [
+    29.826,
+    -1.045,
+    88.305
+   ]
+  },
+  {
+   "id": "furniture_trashcan",
+   "at": [
+    30.326,
+    -1.045,
+    88.305
+   ],
+   "yaw": 189.2
+  },
+  {
+   "id": "furniture_trashcan",
+   "at": [
+    30.826,
+    -1.045,
+    88.305
+   ],
+   "yaw": 174.9
   },
   {
    "id": "furniture_cabinet_television",
@@ -49224,14 +49481,6 @@
    "yaw": 180.0
   },
   {
-   "id": "furniture_plant_small1",
-   "at": [
-    1.326,
-    0.0,
-    32.805
-   ]
-  },
-  {
    "id": "furniture_side_table",
    "at": [
     -9.174,
@@ -49239,24 +49488,6 @@
     71.805
    ],
    "yaw": 180.0
-  },
-  {
-   "id": "furniture_potted_plant",
-   "at": [
-    32.826,
-    0.0,
-    53.805
-   ],
-   "yaw": 270.0
-  },
-  {
-   "id": "furniture_trashcan",
-   "at": [
-    1.326,
-    0.0,
-    29.805
-   ],
-   "yaw": 90.0
   },
   {
    "id": "furniture_bookcase_closed_wide",
@@ -49267,14 +49498,6 @@
    ]
   },
   {
-   "id": "furniture_potted_plant",
-   "at": [
-    -4.674,
-    0.0,
-    26.805
-   ]
-  },
-  {
    "id": "furniture_coat_rack_standing",
    "at": [
     1.326,
@@ -49282,24 +49505,6 @@
     37.305
    ],
    "yaw": 270.0
-  },
-  {
-   "id": "furniture_lounge_sofa",
-   "at": [
-    -9.174,
-    0.0,
-    23.805
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_coat_rack_standing",
-   "at": [
-    -4.674,
-    0.0,
-    73.305
-   ],
-   "yaw": 90.0
   },
   {
    "id": "furniture_plant_small2",
@@ -49329,42 +49534,6 @@
    "yaw": 270.0
   },
   {
-   "id": "furniture_cardboard_box_closed",
-   "at": [
-    32.826,
-    0.0,
-    68.805
-   ],
-   "yaw": 90.0
-  },
-  {
-   "id": "furniture_potted_plant",
-   "at": [
-    -7.674,
-    0.0,
-    26.805
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "survival_barrel",
-   "at": [
-    1.326,
-    0.0,
-    -0.195
-   ],
-   "yaw": 180.0
-  },
-  {
-   "id": "furniture_potted_plant",
-   "at": [
-    -3.174,
-    0.0,
-    77.805
-   ],
-   "yaw": 90.0
-  },
-  {
    "id": "furniture_lounge_sofa",
    "at": [
     -10.674,
@@ -49389,6 +49558,132 @@
     74.805
    ],
    "yaw": 90.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -9.14,
+    0.304,
+    -1.378
+   ],
+   "yaw": 93.4
+  },
+  {
+   "id": "furniture_plant_small2",
+   "at": [
+    29.306,
+    -1.33,
+    -19.495
+   ],
+   "yaw": 299.4
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    14.323,
+    -1.24,
+    -24.124
+   ],
+   "yaw": 7.2
+  },
+  {
+   "id": "furniture_cabinet_television",
+   "at": [
+    3.507,
+    -1.069,
+    30.037
+   ],
+   "yaw": 290.6
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    3.49,
+    -1.065,
+    27.053
+   ],
+   "yaw": 296.5
+  },
+  {
+   "id": "furniture_cardboard_box_closed",
+   "at": [
+    14.287,
+    -1.14,
+    76.582
+   ],
+   "yaw": 238.4
+  },
+  {
+   "id": "furniture_cardboard_box_closed",
+   "at": [
+    1.919,
+    0.0,
+    27.61
+   ],
+   "yaw": 242.6
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -1.748,
+    0.381,
+    8.045
+   ],
+   "yaw": 93.4
+  },
+  {
+   "id": "furniture_trashcan",
+   "at": [
+    39.364,
+    -1.33,
+    71.532
+   ],
+   "yaw": 336.8
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    20.306,
+    -1.24,
+    -17.995
+   ],
+   "yaw": 299.4
+  },
+  {
+   "id": "furniture_coat_rack_standing",
+   "at": [
+    16.918,
+    -1.24,
+    -17.389
+   ],
+   "yaw": 146.9
+  },
+  {
+   "id": "survival_barrel",
+   "at": [
+    18.361,
+    -1.14,
+    -17.35
+   ],
+   "yaw": 213.4
+  },
+  {
+   "id": "furniture_cabinet_television",
+   "at": [
+    -9.674,
+    0.0,
+    74.836
+   ],
+   "yaw": 234.1
+  },
+  {
+   "id": "furniture_trashcan",
+   "at": [
+    -2.179,
+    -0.096,
+    32.909
+   ],
+   "yaw": 316.8
   }
  ],
  "lights": [
