@@ -3,7 +3,8 @@
 
     tools/retune.py <id> [--widen-doors] [--widen-thick-doors] [--prune-pockets|--pocket-margin=0.07|--prune-levels]
                          [--terrain] [--clear=x0,z0,x1,z1] [--drop-beside=x,z,kind] [--field=name=number]
-                         [--carve=x0,z0,x1,z1] [--in=FILE] [--out=FILE]
+                         [--carve=x0,z0,x1,z1] [--prune-exposed=MAX[,SPACING]] [--report-exposure]
+                         [--in=FILE] [--out=FILE]
 
 tools/reimport.py does not reproduce the committed documents (the importer has moved on since they
 were tuned, and a re-import throws the balance away), so a fix to a ported map is made on the
@@ -50,6 +51,115 @@ def carve(boxes, x0, z0, x1, z1):
     return n
 
 
+def _prop_boxes(doc, sizes):
+    """The props as axis-aligned boxes [(lo, hi)], the yaw rounded to the nearest quarter turn."""
+    out = []
+    for q in doc["props"]:
+        sx, sy, sz = sizes.get(q["id"], {}).get("size", [0.3, 0.3, 0.3])
+        if round(q.get("yaw", 0.0) / 90.0) % 2:
+            sx, sz = sz, sx
+        x, y, z = q["at"]
+        out.append(((x - sx / 2, y, z - sz / 2), (x + sx / 2, y + sy, z + sz / 2)))
+    return out
+
+
+def _standing(lo, hi, xs, zs, kill_y):
+    """Standing places on a grid: (ix, iz, floor_y) where the top of a solid box has headroom over it."""
+    import numpy as np
+    out = []
+    for ix, x in enumerate(xs):
+        for iz, z in enumerate(zs):
+            cover = np.nonzero((lo[:, 0] <= x) & (hi[:, 0] >= x) & (lo[:, 2] <= z) & (hi[:, 2] >= z))[0]
+            for top in sorted(set(np.round(hi[cover, 1], 2))):
+                if top >= kill_y and not ((lo[cover, 1] < top + 1.8) & (hi[cover, 1] > top + 0.1)).any():
+                    out.append((ix, iz, float(top)))
+    return out
+
+
+def _reachable(lo, hi, places, xs, zs, starts):
+    """The places a walker from `starts` (x, z, y) can get to: steps of at most 0.5 m up or down between neighbours with a clear waist-high line."""
+    import numpy as np
+    index = {}
+    for n, (ix, iz, y) in enumerate(places):
+        index.setdefault((ix, iz), []).append(n)
+    xy = np.array([(xs[ix], y, zs[iz]) for ix, iz, y in places])
+    todo = []
+    for sx, sy, sz in starts:
+        d = np.linalg.norm(xy - np.array([sx, sy, sz]), axis=1)
+        todo.append(int(d.argmin()))
+    seen = set(todo)
+    while todo:
+        n = todo.pop()
+        ix, iz, y = places[n]
+        cand = [m for dx in (-1, 0, 1) for dz in (-1, 0, 1) if dx or dz for m in index.get((ix + dx, iz + dz), []) if m not in seen and abs(places[m][2] - y) <= 0.5]
+        if not cand:
+            continue
+        a = xy[n] + [0, 0.7, 0]
+        end = xy[cand] + [0, 0.7, 0]
+        ok = ~_blocked(lo, hi, a[None], end)
+        for m, good in zip(cand, ok[0]):
+            if good:
+                seen.add(m)
+                todo.append(m)
+    return sorted(seen)
+
+
+def _blocked(lo, hi, eyes, target):
+    """eyes (n,3) to targets (m,3): an (n, m) array, true where a box in lo/hi lies on the segment."""
+    import numpy as np
+    out = np.zeros((len(eyes), len(target)), dtype=bool)
+    for j, t in enumerate(target):
+        d = t - eyes
+        with np.errstate(divide="ignore", invalid="ignore"):
+            inv = 1.0 / d
+            t1 = (lo[None] - eyes[:, None]) * inv[:, None]
+            t2 = (hi[None] - eyes[:, None]) * inv[:, None]
+        tmin = np.nan_to_num(np.minimum(t1, t2), nan=-np.inf).max(axis=2)
+        tmax = np.nan_to_num(np.maximum(t1, t2), nan=np.inf).min(axis=2)
+        out[:, j] = ((tmax >= np.maximum(tmin, 0.0)) & (tmin <= 1.0)).any(axis=1)
+    return out
+
+
+def exposure(doc, sizes, spacing=3.0, eye=1.6, reach=30.0):
+    """Per prop, the share of standing points within `reach` m that see it, the way the bots suite's `seen` is measured.
+
+    Standing points are the places a walker can reach from the spawns (a 1 m grid walked in steps of
+    at most half a metre, so roofs and shelves nobody can climb to do not count), thinned to every
+    `spacing` m. A point sees a prop when no solid box or other prop lies on the line from its eye
+    to the prop's middle (half a metre up); the prop's own box and any box holding the target do
+    not count. A rough copy of the suite's metric (which asks the physics space): good for ranking
+    places, not for predicting the suite's number to the point.
+    """
+    import numpy as np
+    solid = [b for b in doc["boxes"] if b.get("solid", True)]
+    lo = np.array([[b["at"][i] - b["size"][i] / 2 for i in range(3)] for b in solid])
+    hi = np.array([[b["at"][i] + b["size"][i] / 2 for i in range(3)] for b in solid])
+    plo, phi = (np.array(a) for a in zip(*_prop_boxes(doc, sizes))) if doc["props"] else (np.zeros((0, 3)),) * 2
+    xs = np.arange(lo[:, 0].min(), hi[:, 0].max(), 1.0)
+    zs = np.arange(lo[:, 2].min(), hi[:, 2].max(), 1.0)
+    places = _standing(lo, hi, xs, zs, doc.get("kill_y", -30.0))
+    sp = doc.get("spawns", {})
+    starts = [tuple(s["at"]) for side in ("props", "hunters") for s in (sp.get(side, []) if isinstance(sp, dict) else [])]
+    if starts:
+        places = [places[n] for n in _reachable(lo, hi, places, xs, zs, starts)]
+    step = max(int(round(spacing)), 1)
+    eyes = np.array([(xs[ix], y + eye, zs[iz]) for ix, iz, y in places if ix % step == 0 and iz % step == 0])
+    blo = np.vstack([lo, plo])
+    bhi = np.vstack([hi, phi])
+    out = []
+    for n, q in enumerate(doc["props"]):
+        target = np.array([q["at"][0], q["at"][1] + 0.5, q["at"][2]])
+        near = eyes[np.linalg.norm(eyes - target, axis=1) <= reach] if len(eyes) else eyes
+        if not len(near):
+            out.append(0.5)
+            continue
+        keep = ~((blo <= target).all(axis=1) & (bhi >= target).all(axis=1))
+        keep[len(lo) + n] = False
+        blocked = _blocked(blo[keep], bhi[keep], near, target[None])[:, 0]
+        out.append(float((~blocked).sum()) / len(near))
+    return out
+
+
 def main(argv):
     ids = [a for a in argv[1:] if not a.startswith("--")]
     if len(ids) != 1:
@@ -60,6 +170,7 @@ def main(argv):
     margin = 0.0
     clears, drops, fields = [], [], {}
     carves = []
+    exposed = report = None
     for a in argv[1:]:
         if a.startswith("--out="):
             out = a[6:]
@@ -82,6 +193,10 @@ def main(argv):
             drops.append((float(t[0]), float(t[1]), t[2] if len(t) > 2 else ""))
         elif a.startswith("--carve="):
             carves.append(tuple(float(t) for t in a[8:].split(",")))
+        elif a.startswith("--prune-exposed="):
+            exposed = tuple(float(t) for t in a[16:].split(","))
+        elif a == "--report-exposure":
+            report = True
         elif a.startswith("--in="):
             path = a[5:]
         elif a.startswith("--field="):
@@ -110,6 +225,14 @@ def main(argv):
             print("dropped %s at %s" % (near[0]["id"], near[0]["at"]))
     for rect in carves:
         print("carved %d boxes out of %s" % (carve(doc["boxes"], *rect), rect))
+    if exposed or report:
+        sizes = json.load(open(os.path.join(HERE, "prop_sizes.json")))["props"]
+        ex = exposure(doc, sizes, exposed[1] if exposed and len(exposed) > 1 else 3.0)
+        print("exposure of %d props: mean %.2f, median %.2f" % (len(ex), sum(ex) / max(len(ex), 1), sorted(ex)[len(ex) // 2] if ex else 0))
+        if exposed:
+            gone = [q for q, e in zip(doc["props"], ex) if e > exposed[0]]
+            doc["props"] = [q for q, e in zip(doc["props"], ex) if e <= exposed[0]]
+            print("pruned %d props seen from more than %.0f%% of standing points" % (len(gone), 100 * exposed[0]))
     doc.update(fields)
     doc["boxes"] = [b for b in doc["boxes"] if min(b["size"]) > 0.005]
     print("audit: dropped %d props sunk in a wall or standing on nothing" % ib.audit_props(doc))

@@ -45,7 +45,7 @@
   "fog_max": 0.7
  },
  "kill_y": -20.0,
- "players_per_hunter": 8.0,
+ "round_seconds": 180.0, "players_per_hunter": 4.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3382694345",
  "boxes": [
   {
