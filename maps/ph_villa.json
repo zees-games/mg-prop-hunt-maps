@@ -66376,6 +66376,231 @@
     23.717
    ],
    "yaw": 90.0
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    9.89,
+    0.001,
+    4.266
+   ],
+   "yaw": 180.5
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    7.78,
+    0.001,
+    4.266
+   ],
+   "yaw": 180.5
+  },
+  {
+   "id": "furniture_potted_plant",
+   "at": [
+    -4.725,
+    0.001,
+    4.043
+   ],
+   "yaw": 180.5
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    3.214,
+    0.001,
+    9.515
+   ],
+   "yaw": 86.5
+  },
+  {
+   "id": "furniture_kitchen_cabinet_corner_inner",
+   "at": [
+    0.098,
+    0.001,
+    9.515
+   ],
+   "yaw": 86.5
+  },
+  {
+   "id": "furniture_stool_bar",
+   "at": [
+    -11.671,
+    0.228,
+    -5.048
+   ],
+   "yaw": 179.5
+  },
+  {
+   "id": "furniture_stool_bar",
+   "at": [
+    -13.893,
+    0.228,
+    -5.048
+   ],
+   "yaw": 179.5
+  },
+  {
+   "id": "furniture_cabinet_bed",
+   "at": [
+    -8.456,
+    0.0,
+    25.333
+   ],
+   "yaw": 253.894
+  },
+  {
+   "id": "furniture_cabinet_bed",
+   "at": [
+    -9.662,
+    0.0,
+    20.139
+   ],
+   "yaw": 253.894
+  },
+  {
+   "id": "furniture_chair_desk",
+   "at": [
+    9.976,
+    0.381,
+    38.786
+   ],
+   "yaw": 159.0
+  },
+  {
+   "id": "furniture_chair_desk",
+   "at": [
+    7.436,
+    0.381,
+    38.786
+   ],
+   "yaw": 159.0
+  },
+  {
+   "id": "furniture_television_vintage",
+   "at": [
+    0.243,
+    0.001,
+    2.8
+   ],
+   "yaw": 182.282
+  },
+  {
+   "id": "furniture_television_vintage",
+   "at": [
+    -2.643,
+    0.001,
+    2.8
+   ],
+   "yaw": 182.282
+  },
+  {
+   "id": "furniture_table_cross",
+   "at": [
+    -8.845,
+    0.0,
+    26.7
+   ],
+   "yaw": 76.894
+  },
+  {
+   "id": "furniture_table_cross",
+   "at": [
+    -13.765,
+    0.0,
+    26.7
+   ],
+   "yaw": 76.894
+  },
+  {
+   "id": "furniture_table_cross",
+   "at": [
+    -5.469,
+    0.0,
+    26.854
+   ],
+   "yaw": 253.894
+  },
+  {
+   "id": "furniture_dryer",
+   "at": [
+    -9.247,
+    0.0,
+    21.207
+   ],
+   "yaw": 253.894
+  },
+  {
+   "id": "furniture_dryer",
+   "at": [
+    -7.85,
+    0.0,
+    22.604
+   ],
+   "yaw": 253.894
+  },
+  {
+   "id": "furniture_dryer",
+   "at": [
+    -9.987,
+    0.0,
+    20.864
+   ],
+   "yaw": 76.894
+  },
+  {
+   "id": "furniture_table",
+   "at": [
+    -12.662,
+    0.228,
+    23.416
+   ],
+   "yaw": 260.394
+  },
+  {
+   "id": "furniture_table",
+   "at": [
+    -17.532,
+    0.228,
+    23.416
+   ],
+   "yaw": 260.394
+  },
+  {
+   "id": "furniture_chair_desk",
+   "at": [
+    -16.249,
+    0.228,
+    24.968
+   ],
+   "yaw": 292.894
+  },
+  {
+   "id": "furniture_chair_desk",
+   "at": [
+    -16.249,
+    0.228,
+    22.428
+   ],
+   "yaw": 292.894
+  },
+  {
+   "id": "furniture_stool_bar_square",
+   "at": [
+    -13.925,
+    0.228,
+    22.565
+   ],
+   "yaw": 260.394
+  },
+  {
+   "id": "furniture_stool_bar_square",
+   "at": [
+    -15.631,
+    0.228,
+    22.565
+   ],
+   "yaw": 260.394
   }
  ],
  "lights": [
@@ -68294,4 +68519,3 @@
  ],
  "players_per_hunter": 2.0
 }
-
