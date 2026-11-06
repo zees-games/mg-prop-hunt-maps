@@ -21,3 +21,4 @@ run 545923884/x/maps/ph_abandoned_church.bsp ph_abandoned_church --ambience=amb_
 run gb398632/x/ph_frontyard.bsp ph_frontyard
 run gb61511/x/ph_WolfsManor.bsp ph_wolfsmanor
 run 230076815/x/maps/ph_library_final.bsp ph_library
+run gb2633639653/x/maps/gm_villa.bsp ph_villa
