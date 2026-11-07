@@ -129,6 +129,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_mountainresort",
+            "name": "Mountain Resort",
+            "scene": "maps/ph_mountainresort.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_oceanwaves",
             "name": "Ocean Waves",
             "scene": "maps/ph_oceanwaves.json",
@@ -174,6 +181,13 @@
             "id": "ph_swimmingpool",
             "name": "Swimming Pool",
             "scene": "maps/ph_swimmingpool.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_villa",
+            "name": "Villa",
+            "scene": "maps/ph_villa.json",
             "map_kind": "prophunt"
         },
         {
