@@ -24,3 +24,4 @@ run 230076815/x/maps/ph_library_final.bsp ph_library
 run 3698815153/x/maps/deco_mansion.bsp ph_deco_mansion
 run 3376822715/x/maps/gm_apresort.bsp ph_sunken_resort --ambience=amb_eerie
 run gb2633639653/x/maps/gm_villa.bsp ph_villa
+run 3382694345/x/maps/gm_funkis_night.bsp ph_functionalist_night --ambience=amb_night

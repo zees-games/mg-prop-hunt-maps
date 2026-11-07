@@ -18,3 +18,4 @@ ph_library	230076815	ph_library_final.bsp	--prune-pockets --widen-doors --field=
 ph_deco_mansion	3698815153	deco_mansion.bsp	--prune-pockets --widen-doors --merge-boxes --min-box-volume=0.05 --min-box-thickness=0.15 --field=players_per_hunter=4	
 ph_sunken_resort	3376822715	gm_apresort.bsp	--prune-pockets --widen-doors --merge-boxes	
 ph_villa	2633639653	gm_villa.bsp	--merge-boxes --min-box-volume=0.05 --min-box-thickness=0.15 --prune-pockets --widen-doors --widen-thick-doors --field=players_per_hunter=2	
+ph_functionalist_night	3382694345	gm_funkis_night.bsp	--prune-pockets --widen-doors --merge-boxes --min-box-volume=0.02 --start-island --dress=90 --field=players_per_hunter=6	

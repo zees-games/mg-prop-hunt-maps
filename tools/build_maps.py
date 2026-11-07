@@ -1671,6 +1671,7 @@ AMBIENT = {
     "ph_deco_mansion": (0.7, False),
     "ph_islandhouse": (1.3, True),
     "ph_library": (0.6, False),
+    "ph_functionalist_night": (0.7, False),
     "ph_midwestapartment": (0.7, False),
     "ph_oceanwaves": (1.3, True),
     "ph_villa": (1.3, True),

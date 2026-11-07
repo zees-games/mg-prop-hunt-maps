@@ -76,6 +76,18 @@ with tempfile.TemporaryDirectory() as t:
     run(odd)
     check("no-op leaves bytes and mtime", open(odd, "rb").read() == before and os.stat(odd).st_mtime_ns == mt)
 
+# exposure: a prop behind a wall is unseen, one in the open is seen, and --prune-exposed drops the latter
+ex_doc = doc()
+ex_doc["boxes"] = [{"at": [0, -0.15, 0], "size": [20, 0.3, 20], "mat": "grass"}, wall(0, 0, 0.2, 8.0)]
+ex_doc["props"] = [{"id": "food_cake", "at": [8.0, 0.0, 0.0], "yaw": 0.0}, {"id": "food_cake", "at": [1.0, 0.0, 0.0], "yaw": 0.0}]
+ex = retune.exposure(ex_doc, {"food_cake": {"size": [0.32, 0.137, 0.32]}}, spacing=2.0)
+check("exposure: the prop beside a wall is seen by fewer than the one in the open", ex[1] < ex[0])
+with tempfile.TemporaryDirectory() as t:
+    p = os.path.join(t, "e.json")
+    json.dump(ex_doc, open(p, "w"))
+    out = run(p, "--prune-exposed=%.3f,2" % ((ex[0] + ex[1]) / 2))
+    check("prune-exposed drops one prop", "pruned 1 props" in out and len(json.load(open(p))["props"]) == 1)
+
 # reimport.py: the trace line the settle step reads, and the environment line it re-applies
 import reimport  # noqa: E402
 m = reimport.CUT.findall("    cut off: (-13.0, 0.1, 6.5) beside furniture_bookcase_open_low\n    cut off: (1.7, 0.0, -13.8) beside survival_bucket")

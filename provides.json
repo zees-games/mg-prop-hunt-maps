@@ -80,6 +80,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_functionalist_night",
+            "name": "Functionalist Night",
+            "scene": "maps/ph_functionalist_night.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_gas_station",
             "name": "Gas Station",
             "scene": "maps/ph_gas_station.json",
