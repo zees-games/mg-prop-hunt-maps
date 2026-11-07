@@ -22,3 +22,4 @@ run gb398632/x/ph_frontyard.bsp ph_frontyard
 run gb61511/x/ph_WolfsManor.bsp ph_wolfsmanor
 run 230076815/x/maps/ph_library_final.bsp ph_library
 run 3698815153/x/maps/deco_mansion.bsp ph_deco_mansion
+run 3376822715/x/maps/gm_apresort.bsp ph_sunken_resort --ambience=amb_eerie

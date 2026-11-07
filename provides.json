@@ -157,6 +157,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_sunken_resort",
+            "name": "Sunken Resort",
+            "scene": "maps/ph_sunken_resort.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_swimmingpool",
             "name": "Swimming Pool",
             "scene": "maps/ph_swimmingpool.json",

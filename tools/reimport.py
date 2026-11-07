@@ -19,6 +19,9 @@ Settling needs the document in the game's maps/ (so --out must be that folder); 
 """
 import json, os, re, shlex, subprocess, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import add_spawns  # noqa: E402
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.environ.get("MAPSRC", os.path.expanduser("~/mapsrc/prophunt"))
@@ -169,6 +172,10 @@ def main(argv):
                 r = subprocess.run([sys.executable, "-I", os.path.join(HERE, "bsp_environment.py"), os.path.join(SRC, rel), target] + extra_env,
                                    capture_output=True, text=True)
                 notes.append(r.stdout + r.stderr)
+        if log.returncode == 0:
+            d = json.load(open(target))
+            if add_spawns.top_up(d):
+                json.dump(d, open(target, "w"), indent=1)
         if log.returncode == 0 and do_settle:
             lines = []
             dropped, places = settle(mid, target, lines)
