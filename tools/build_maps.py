@@ -1668,6 +1668,7 @@ AMBIENT = {
     "ph_gas_station": (1.0, False),
     "ph_hotel": (0.7, False),
     "ph_house": (0.7, False),
+    "ph_deco_mansion": (0.7, False),
     "ph_islandhouse": (1.3, True),
     "ph_library": (0.6, False),
     "ph_midwestapartment": (0.7, False),

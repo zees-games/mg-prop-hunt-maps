@@ -59,6 +59,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_deco_mansion",
+            "name": "Deco Mansion",
+            "scene": "maps/ph_deco_mansion.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_elementary_school",
             "name": "Elementary School",
             "scene": "maps/ph_elementary_school.json",
