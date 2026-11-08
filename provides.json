@@ -24,6 +24,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_airbus",
+            "name": "Airbus",
+            "scene": "maps/ph_airbus.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_apartment",
             "name": "Apartment",
             "scene": "maps/ph_apartment.json",
@@ -164,6 +171,13 @@
         },
         {
             "kind": "map",
+            "id": "ph_rooftops_2016",
+            "name": "Rooftops 2016",
+            "scene": "maps/ph_rooftops_2016.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
             "id": "ph_school",
             "name": "Maple Grove School",
             "scene": "maps/ph_school.json",
@@ -195,6 +209,13 @@
             "id": "ph_volcano",
             "name": "Volcano",
             "scene": "maps/ph_volcano.json",
+            "map_kind": "prophunt"
+        },
+        {
+            "kind": "map",
+            "id": "ph_warehouse",
+            "name": "Warehouse",
+            "scene": "maps/ph_warehouse.json",
             "map_kind": "prophunt"
         },
         {
