@@ -40,7 +40,7 @@
   "fog_max": 0.7
  },
  "kill_y": -20.0,
- "players_per_hunter": 1.4,
+ "players_per_hunter": 2.0,
  "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3376822715",
  "boxes": [
   {
