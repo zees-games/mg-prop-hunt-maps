@@ -66,7 +66,7 @@ def parse_cut_off(out):
 
 
 def retune(mid, *flags):
-    r = subprocess.run([sys.executable, "-I", os.path.join(HERE, "retune.py"), mid] + list(flags), capture_output=True, text=True)
+    r = subprocess.run([sys.executable, "-P", os.path.join(HERE, "retune.py"), mid] + list(flags), capture_output=True, text=True)
     if r.returncode:
         sys.exit(r.stdout + r.stderr)
     return r.stdout
@@ -162,14 +162,14 @@ def main(argv):
         if any(f.startswith("--field=players_per_hunter") for f in (flags + " " + extra).split()):
             fields = [f for f in fields if not f.startswith("--field=players_per_hunter")]
         target = os.path.join(out, mid + ".json")
-        cmd = [sys.executable, "-I", os.path.join(HERE, "import_bsp.py"), bsp_path(wid, bsp), mid, doc["name"], doc["author"], doc["source"],
+        cmd = [sys.executable, "-P", os.path.join(HERE, "import_bsp.py"), bsp_path(wid, bsp), mid, doc["name"], doc["author"], doc["source"],
                "--out=" + target] + flags.split() + shlex.split(extra) + fields
         log = subprocess.run(cmd, capture_output=True, text=True)
         notes = [log.stdout + log.stderr]
         if log.returncode == 0 and do_env:
             rel, extra_env = environment_args(mid)
             if rel:
-                r = subprocess.run([sys.executable, "-I", os.path.join(HERE, "bsp_environment.py"), os.path.join(SRC, rel), target] + extra_env,
+                r = subprocess.run([sys.executable, "-P", os.path.join(HERE, "bsp_environment.py"), os.path.join(SRC, rel), target] + extra_env,
                                    capture_output=True, text=True)
                 notes.append(r.stdout + r.stderr)
         if log.returncode == 0:
