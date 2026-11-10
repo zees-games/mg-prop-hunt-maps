@@ -5,7 +5,7 @@
                          [--terrain] [--clear=x0,z0,x1,z1] [--drop-beside=x,z,kind] [--field=name=number]
                          [--carve=x0,z0,x1,z1] [--prune-exposed=MAX[,SPACING]] [--report-exposure]
                          [--add-clusters=N[,PER[,MAXEXPOSURE[,LANE]]]]
-                         [--in=FILE] [--out=FILE]
+                         [--max-boxes=N] [--max-wire=BYTES] [--in=FILE] [--out=FILE]
 
 tools/reimport.py does not reproduce the committed documents (the importer has moved on since they
 were tuned, and a re-import throws the balance away), so a fix to a ported map is made on the
@@ -63,6 +63,7 @@ def main(argv):
     margin = 0.0
     clears, drops, fields = [], [], {}
     carves = []
+    budget = {}
     exposed = report = clusters = None
     for a in argv[1:]:
         if a.startswith("--out="):
@@ -92,6 +93,8 @@ def main(argv):
             clusters = tuple(float(t) for t in a[15:].split(","))
         elif a == "--report-exposure":
             report = True
+        elif ib.docboxes.budget_flag(a, budget):
+            pass
         elif a.startswith("--in="):
             path = a[5:]
         elif a.startswith("--field="):
@@ -134,6 +137,9 @@ def main(argv):
         n = add_wall_clusters(doc, sizes, **{k: int(v) if k in ("count", "per") else v for k, v in args.items()})
         print("added %d wall clusters" % n)
     doc.update(fields)
+    if budget:
+        # the shared cap and wire fit, then the props the cut boxes left hanging (the importer's last passes)
+        ib.docboxes.apply_cap(doc, budget, size_of=ib.build_maps.size_of, footprint=ib.build_maps.footprint)
     doc["boxes"] = [b for b in doc["boxes"] if min(b["size"]) > 0.005]
     print("audit: dropped %d props sunk in a wall or standing on nothing" % ib.audit_props(doc))
     if out == path and json.dumps(doc, sort_keys=True) == before:
