@@ -109,6 +109,17 @@
   },
   {
     "paths": [
+      "maps/ph_functionalist_night.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Functionalist Night",
+    "author": "VITAPLEX",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3382694345",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
       "maps/ph_gas_station.json"
     ],
     "licence": "none stated",
