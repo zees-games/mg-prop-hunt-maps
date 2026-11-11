@@ -32,6 +32,17 @@
   },
   {
     "paths": [
+      "maps/ph_airbus.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Airbus",
+    "author": "Officer_B (uploaded by Zaratusa)",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=253297309",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
       "maps/ph_apartment.json"
     ],
     "licence": "CC-BY-NC-ND-4.0",
@@ -83,6 +94,17 @@
     "title": "Cyber Diner",
     "author": "MiniYLITKA",
     "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_deco_mansion.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Deco Mansion",
+    "author": "Gastly_Furby_777",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3698815153",
     "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
   },
   {
@@ -153,6 +175,17 @@
   },
   {
     "paths": [
+      "maps/ph_library.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Library",
+    "author": "Mikey",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=230076815",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
       "maps/ph_midwestapartment.json"
     ],
     "licence": "none stated",
@@ -160,6 +193,17 @@
     "title": "Midwest Apartment",
     "author": "Punkychaz",
     "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_mountainresort.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Mountain Resort",
+    "author": "prvec",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2312309380",
     "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
   },
   {
@@ -197,6 +241,28 @@
   },
   {
     "paths": [
+      "maps/ph_rooftops_2016.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Rooftops 2016",
+    "author": "youmenow1",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=534491717",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_sunken_resort.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Sunken Resort",
+    "author": "Praisemantas",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3376822715",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
       "maps/ph_swimmingpool.json"
     ],
     "licence": "none stated",
@@ -208,6 +274,17 @@
   },
   {
     "paths": [
+      "maps/ph_villa.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Villa",
+    "author": "korka007",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2633639653",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
       "maps/ph_volcano.json"
     ],
     "licence": "none stated",
@@ -215,6 +292,17 @@
     "title": "Volcano",
     "author": "Patrick™",
     "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849",
+    "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
+  },
+  {
+    "paths": [
+      "maps/ph_warehouse.json"
+    ],
+    "licence": "none stated",
+    "exception": "credited-community-map",
+    "title": "Warehouse",
+    "author": "Max Power",
+    "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=177889282",
     "removal_contact": "https://github.com/zees-games/mg-prop-hunt-maps/issues"
   },
   {
