@@ -1,0 +1,271 @@
+{
+	"format": 1,
+	"mirrors": [],
+	"origin": "https://dev.dotgames.org/content",
+	"packs": [
+		{
+			"id": "gamemann/ph_abandoned_church",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "7bf6d6d65eea402d9cc47d2357846213a0fe914993fded79730a86446a974378",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_abandoned_hotel",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "d6ad269d1f050b74dde8ce8327b747a03b06f4e7ce9ebd081181c5cb414a9319",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_airbus",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "d9a24725bb82a02b3c29015b58d47f5c9c5d97c3ef9ea426de4334a0d14a2f7a",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_apartment",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "f7ee80a5818301933398d06fe5add8404ae6c35e1398efef10a01bc3bc686298",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_autumngetaway",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "dd6e396727f2807c92603d1f99c49ef9f4b0f7d3d9d8dd55f96f85dfc164f684",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_bank",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "a48104cc7d4d8c809e3bba980ce9f276d7d90cf4f3da54a20abaa10a077f0c0c",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_bikinibottom",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "976c9c88f7c4b16bd352099b3188d01d2600d9714bafeec8862c3374fd839e12",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_cyber_dinner",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "01dc2a13b8565910abbf56a0019b818d43df5bfc11f5bd063a33ad281e2f4453",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_deco_mansion",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "6997f4fc94d412e2a31900410529ceb26f8782b4942532fc1af2e565fd6b1b31",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_elementary_school",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "5a88283d6d1430dae9d992a3372f47e066f66601f5d3275c9763287e92d57d10",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_frontyard",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "02be9a9e9e487eba0d02540bd4f06a3e75cf5c4451fe5caf46e10981eabfc520",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_functionalist_night",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "8f1f819f011c3dc5bac7eaeb505ab6f47ca8e736f985057adebad3396b73a8ea",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_gas_station",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "960b3ab668c937fbec41fa0c27bc828c422f160fd2cf66d68c1c947e5c5e4d89",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_hotel",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "225cd10b3c2547faf2fdaebd9ff77da978bc627e4f0d9d194935812f7b47087f",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_house",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "36ae8122f0f35d7cc629a7b2208afdc1f0434c43d5a7a5e7a8abfbfcf73c1a4e",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_islandhouse",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "bb59f85b944f18643a68189930adfe4be0aea874fbec69b3a1253b1da9c2800e",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_library",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "ce1da057c84fd678fbf2c9a5fca39def8de3fa1338b4d68ee755b6230d468c62",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_midwestapartment",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "5864dd868ae8c558e230401aabe3ba3dce3a728f0bed4f272e5bc7bfbf13e8d2",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_mountainresort",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "83621ead24e953354aaddda5d3f514adb1bbadd26092f6b7e993c810d8e9d3ff",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_oceanwaves",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "fb5e8e639989ef92cf4ff3700090d61246ccd8044c8f6142605f7f037175b67b",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_office",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "f493680a63d24c9bae42a05f6882e01c2c5070adeaf9773c4dba176ddfa6350c",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_office221",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "eaf05c533d2a1e837b95e8d4d26b5f3e0f96ab85ee966aaeb2dbd70f84f919f5",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_restaurant_os",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "e3ccb6d2bee7024110bbbe8e05c7ade3a1eaab04f16149d3fdf7ac57051646f7",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_rooftops_2016",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "6b59eb310421c1d5d9383125fb6808c60c099b3d92e0bfbcd6459aefd3c362f3",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_school",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "17e91caef02a34c798b4d693800b9eeece34a31863a80f68e204bd8e079ad3d0",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_sunken_resort",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "2e023a69827561025dd80bbdc3fb2ed3c903c6dbed468e1581d51a60b3987713",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_swimmingpool",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "c821af1fe4ac7e5bf1bdd67009d5248aa73fd215e49e22dccf5f6f32ed786085",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_villa",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "38fef0e9abfd1365c2367b652068aeb381bd328b4e68d404e0b86da33106e5d2",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_volcano",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "ab461bc095eb93485d1387fccc9847e71e0ce882dfa0dccd72fbf66097c2bd74",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_warehouse",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "ebc278a0b82ad666da87b1b98830a1fe8957a774bb2b9becdc0124b2af455ece",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_westerncity",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "bddc1fc503c4cae02f69541358cf17aee080faf758d4a6de42e2cc627e1843ef",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_wolfsmanor",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "766bc5ac5646341ff627ed3f6765daf07b7830a54c271a6ddd530eb10eba0a40",
+			"optional": false,
+			"version": "1.0.0"
+		},
+		{
+			"id": "gamemann/ph_woods",
+			"into": "",
+			"kind": "pack",
+			"manifest_sha256": "14e060b226b1c01704cf6a6362717a238e587067770e7d6bc968b4d4d5ad0399",
+			"optional": false,
+			"version": "1.0.0"
+		}
+	]
+}
