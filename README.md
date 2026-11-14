@@ -1,5 +1,3 @@
-# mg-prop-hunt-maps
-
 The maps for [mg-prop-hunt](https://github.com/zees-games/mg-prop-hunt). Four maps of our own (a school, a family house, an office floor and a clearing in the woods) and 29 converted from community maps. The game also has a practice house built in.
 
 A map is a JSON document, not a scene. The server reads every `.json` file in its map directory and sends the current map to each client, so players need no map files. To add a map, drop one file in the directory. The format is in [maps/README.md](maps/README.md).
