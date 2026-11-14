@@ -1,95 +1,78 @@
-The maps for [**mg-prop-hunt**](https://github.com/zees-games/mg-prop-hunt): a whole primary school with its grounds, a family house with a garden and a pool, an office floor, and a clearing in the woods at golden hour. Several maps to start with, plus the practice house built into the game.
+# mg-prop-hunt-maps
 
-Every map is a **JSON document**, not a scene. A server reads the documents in its map directory and sends the one it is playing to every client when the map changes, so players need no map files at all and a new map is one file dropped into a directory. [`maps/README.md`](maps/README.md) is the format.
+The maps for [mg-prop-hunt](https://github.com/zees-games/mg-prop-hunt). Four maps of our own (a school, a family house, an office floor and a clearing in the woods) and 29 converted from community maps. The game also has a practice house built in.
+
+A map is a JSON document, not a scene. The server reads every `.json` file in its map directory and sends the current map to each client, so players need no map files. To add a map, drop one file in the directory. The format is in [maps/README.md](maps/README.md).
 
 ## Using it
 
-[dot-bootstrap](https://github.com/modcommunity/dot-bootstrap) clones this repository next to mg-prop-hunt and links it into the game as `maps/`, so `./game.sh` in mg-prop-hunt plays these maps with nothing else to do. On a server they are delivered as a pack of their own (`prophunt_maps`), which mg-prop-hunt's `./game.sh online` and `./game.sh server` build for you.
+[dot-bootstrap](https://github.com/modcommunity/dot-bootstrap) clones this repository next to mg-prop-hunt and links it in as `maps/`. Run `./game.sh` in mg-prop-hunt and you play these maps. On a server they are delivered as one pack (`prophunt_maps`), which `./game.sh online` and `./game.sh server` build for you.
 
-## The maps
+## Our maps
 
-| Map | What it is |
+| Map | What is in it |
 | --- | --- |
-| `ph_school` (Maple Grove School) | Four classrooms, a library, a cafeteria, a gym, bathrooms, the offices and a hallway of lockers, then the playground, the field, the car park and a ring of trees outside |
-| `ph_house` (Willow Lane) | A living room, kitchen, two bedrooms, a bathroom and a garage, with a garden, a deck and a pool behind it and the street in front |
-| `ph_office` (Brightline Offices) | Open-plan desks, glass meeting rooms, a break room and a store room full of boxes, on one floor with glass all round |
-| `ph_woods` (Pinecrest Woods) | A log cabin in a clearing, a woodpile, a pumpkin patch, a pond and a lot of trees and rocks to be |
-| `ph_frontyard` (Front Yard) | **Converted from a community map** (see Credits): a walled yard with a small house, a melon patch, an oil-drum yard and a lot of lamps, crates and furniture to be |
-| `ph_office221` (Presentation Office) | **Converted from a community map** (see Credits): a small corporate floor with a curved lobby, a presentation room, filing cabinets, binders, cardboard boxes and a lot of desk clutter to be |
-| `ph_apartment` (Apartment) | **Converted from a community map** (see Credits): a very small flat of a kitchen, a living room and a bedroom, with a shelf, beds, tables, plants and a great many bottles, mugs and cartons to be |
-| `ph_hotel` (Hotel) | **Converted from a community map** (see Credits): a small hotel of bedrooms, a lobby and corridors, with sofas, drawers, shelves, bottles and cartons to be |
-| `ph_abandoned_church` (Abandoned Church) | **Converted from a community map** (see Credits): a large ruined stone church and its grounds, with wine barrels, clay pots, pumpkins, gravestones and rocks to be |
-| `ph_abandoned_hotel` (Abandoned Hotel) | **Converted from a community map** (see Credits): a small run-down block of cells, corridors and a kitchen, with benches, barrels, buckets, bunks, desks and monitors to be |
+| `ph_school` (Maple Grove School) | Classrooms, library, cafeteria, gym, offices, lockers, then the playground, field, car park and trees |
+| `ph_house` (Willow Lane) | Living room, kitchen, bedrooms, garage, a garden with a deck and pool, the street in front |
+| `ph_office` (Brightline Offices) | Open-plan desks, glass meeting rooms, a break room, a store room full of boxes |
+| `ph_woods` (Pinecrest Woods) | A log cabin in a clearing, a woodpile, a pumpkin patch, a pond, trees and rocks |
 
-| `ph_elementary_school` (Elementary School) | **Converted from a community map** (see Credits): a primary school of classrooms, hallways, a cafeteria and a playground yard, with desks, chairs, bottles, boxes and vending machines to be |
-| `ph_autumngetaway` (Autumn Getaway) | **Converted from a community map** (see Credits): a glass-fronted villa on a grassy headland with pottery, patio chairs, food and chess pieces to be |
-| `ph_bank` (Bank) | **Converted from a community map** (see Credits): A bank with vault, offices and a street; the basement is left out |
-| `ph_volcano` (Volcano) | **Converted from a community map** (see Credits): A hillside office and house complex |
-| `ph_westerncity` (Western City) | **Converted from a community map** (see Credits): A frontier town of saloon, stores and houses on open ground |
-| `ph_gas_station` (Gas Station) | **Converted from a community map** (see Credits): A gas station, shop and surrounding street |
-| `ph_bikinibottom` (Bikini Bottom) | **Converted from a community map** (see Credits): A cartoon seaside town: a fast-food restaurant, yards and fences |
-| `ph_swimmingpool` (Swimming Pool) | **Converted from a community map** (see Credits): A resort with a pool deck, hotel wings and a restaurant yard |
-| `ph_restaurant_os` (Restaurant) | **Converted from a community map** (see Credits): A multi-level restaurant and its terraces |
-| `ph_oceanwaves` (Ocean Waves) | **Converted from a community map** (see Credits): A beachfront house and workshop on a pier |
-| `ph_midwestapartment` (Midwest Apartment) | **Converted from a community map** (see Credits): A block of flats with yards, pools and streets |
-| `ph_cyber_dinner` (Cyber Diner) | **Converted from a community map** (see Credits): A neon street and diner with a raised walkway |
-| `ph_islandhouse` (Island House) | **Converted from a community map** (see Credits): A small beach house on an island: bedrooms, a dining room, stairwells and a pool deck, with chairs, tables, plants and cartons to be |
-| `ph_wolfsmanor` (Wolf's Manor) | **Converted from a community map** (see Credits): a manor house with a garden and grounds, with beds, a kitchen, bathrooms, desks, sofas and a lot of clutter to be |
-| `ph_library` (Library) | **Converted from a community map** (see Credits): one tall reading hall: rows of reading tables and chairs on a tiled floor, a stair up to a balcony round the walls with sofas, chairs and computers, and crates and books to be |
-| `ph_deco_mansion` (Deco Mansion) | **Converted from a community map** (see Credits): a three-storey art deco mansion with many small rooms off corridors, lawns and hedges, with chairs, shelves, radiators and lamps to be |
-| `ph_sunken_resort` (Sunken Resort) | **Converted from a community map** (see Credits): an underwater holiday complex on several levels: lounges, offices, corridors and plant rooms with chairs, screens, crates and drums to be |
-| `ph_villa` (Villa) | **Converted from a community map** (see Credits): a large villa with several floors, many rooms, a garden and grounds, with furniture, kitchenware, pictures and clutter to be |
-| `ph_functionalist_night` (Functionalist Night) | **Converted from a community map** (see Credits): a night-time modern house with a pool and terrace, a shed, a stair to a pergola and an underground level, lit by cold moonlight |
+## Converted community maps
 
-## Credits: community maps
+Each map keeps the author's layout. Every texture, model and sound is replaced with the game's own CC0 stand-ins. Each document carries the author and source in its own fields, and the full licence entry is in [licence.json](licence.json).
 
-These are other people's work, converted with their layout kept and every texture and model replaced by the game's own CC0 stand-ins. Each is credited here, and **any author can ask for removal at any time and it is removed**: open an issue or write to the maintainers.
-
-| Map | Author | Source | Original licence text |
+| Map | Author | Source | Licence |
 | --- | --- | --- | --- |
-| `ph_frontyard` | axoh | https://gamebanana.com/mods/398632 (`ph_frontyard.rar`, 2022-08-28) | "do whatever idc just dont say this terrible map is urs"; GameBanana's checklist leaves redistribution and modification as "ask". Credit and removal on request is the arrangement. |
-| `ph_office221` | Z(Rus) (zeromapping) | https://gamebanana.com/mods/61503 (`ph_office221_2.7z`, 2014-01-01 release) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0; GameBanana's checklist leaves redistribution and modification as "ask". Credit and removal on request is the arrangement: **this map is removed on request**. |
-| `ph_apartment` | Tib | https://gamebanana.com/mods/61479 (`ph_apartment.zip`) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0; credit and removal on request is the arrangement: **this map is removed on request by the author**. |
-| `ph_hotel` | 1Vodker1 | https://gamebanana.com/mods/61495 (`ph_hotel.rar`) | GameBanana's licence field is Creative Commons Attribution-NonCommercial-NoDerivs 4.0 by default; credit and removal on request is the arrangement: **this map is removed on request by the author**. |
-| `ph_abandoned_church` | Z(Rus) | https://gamebanana.com/mods/61478 (`ph_abandoned_church_3.7z`) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0 by default; credit and removal on request is the arrangement: **this map is removed on request by the author**. |
-| `ph_abandoned_hotel` | Ethosaur | https://steamcommunity.com/sharedfiles/filedetails/?id=324656288 (workshop item, `ph_abandoned_hotel.bsp`) | No licence stated on the Workshop page (no restriction on porting or sharing). Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 387 of 518 physics props placed (75%), the rest dropped as unmapped, over holes or cut off from the bots |
-| `ph_elementary_school` | Ethosaur | https://steamcommunity.com/sharedfiles/filedetails/?id=331545400 (workshop item, `ph_elementary_school.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 314 of 390 physics props placed (81%); bots: props won 9 of 24 rounds, one place cut off |
-| `ph_autumngetaway` | I am tired | https://steamcommunity.com/sharedfiles/filedetails/?id=3439942760 (workshop item, `ph_autumngetaway.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 508 of 790 props placed (64%), terrain as stepped ground; bots: props won 23 of 24 rounds (lopsided, props slide on the terrain steps), three places cut off |
-| `ph_bank` | EHOT | https://steamcommunity.com/sharedfiles/filedetails/?id=667484197 (workshop item, `ph_bank.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 296 of 457 props placed (65%), lights thinned to 128 |
-| `ph_volcano` | Patrick™ | https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849 (workshop item, `ph_volcano_v1.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 672 of 733 props placed (92%); one prop dropped by hand. Bots: props won 20 of 24, so hiding is easy here |
-| `ph_westerncity` | Skate6788 | https://steamcommunity.com/sharedfiles/filedetails/?id=1738480835 (workshop item, `ph_westerncity.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: about 530 of 668 props placed (79%), terrain as stepped ground; a few props dropped by hand. Bots: props won 3 of 24, one back area cut off (96 samples) |
-| `ph_gas_station` | Kung Fu Jesus | https://steamcommunity.com/sharedfiles/filedetails/?id=233540367 (workshop item, `ph_gas_station.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 354 of 727 props placed (49%); many of the originals are lights, signs and clutter with no match. Bots: props won 8 of 24, one place cut off |
-| `ph_bikinibottom` | iitzRayD | https://steamcommunity.com/sharedfiles/filedetails/?id=1123262520 (workshop item, `ph_bikinibottom.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 112 of 343 props placed (33%); about half the originals were seaweed and character models with no match. Bots: props won 1 of 24, an open map with little cover; one spawn removed by hand |
-| `ph_swimmingpool` | Wolvindra Vinzuerio | https://steamcommunity.com/sharedfiles/filedetails/?id=2927317814 (workshop item, `ph_swimmingpool.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 301 of 456 props placed (66%). Bots: props won 5 of 24, one place cut off |
-| `ph_restaurant_os` | Wolvindra Vinzuerio | https://steamcommunity.com/sharedfiles/filedetails/?id=3270930065 (workshop item, `ph_restaurant_os.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 75 of 405 props placed (19%); the mesh does not link the three levels, so --prune-pockets dropped every prop on the levels cut off from the first spawn (329 placed without it, but 42% of places were then unreachable for the bots). Bots: props won 24 of 24, so it is a weak map until the levels are linked |
-| `ph_oceanwaves` | Gvarados | https://steamcommunity.com/sharedfiles/filedetails/?id=1654704542 (workshop item, `ph_oceanwaves.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 129 of 200 props placed (65%). Bots: props won 21 of 24, one place cut off; the big flat slab in the overview is the map's water plane |
-| `ph_midwestapartment` | Punkychaz | https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073 (workshop item, `ph_midwestapartment.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 173 of 220 props placed (79%). Bots: props won 2 of 24 (hiding places are thin: only 51% of hides sit among two or more of their size) |
-| `ph_cyber_dinner` | MiniYLITKA | https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752 (workshop item, `ph_cyber_dinner.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: Prop coverage: 732 of 1338 props placed (55%); the original's custom models carry no readable names, so only the trash, food, bottle and cup families were mapped by guess. The 1.8 GB source imports fine. Bots: props won 2 of 24 |
-| `ph_islandhouse` | wolvindra | https://steamcommunity.com/sharedfiles/filedetails/?id=2942742596 (workshop item, `ph_islandhouse_2014.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 139 props placed (257 of 298 of the author's props had a catalogue stand-in; pockets pruned); 53 starts; players_per_hunter 2.2 from 24-round bot runs (props won 11 of 24) |
-| `ph_wolfsmanor` | gruesomegit | https://gamebanana.com/mods/61511 (`ph_wolfsmanor.rar`, `ph_WolfsManor.bsp`; checked 2026-10-20) | Creative Commons Attribution-NonCommercial-NoDerivs 4.0 (GameBanana's default licence field); the page does not forbid porting or sharing and its checklist leaves redistribution and modification as "ask". Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 232 of 262 props placed (89%; reeds, a kennel, tic-tac-toe blocks, picture frames, a server rack and two cliff trees were mapped on 2026-10-20, cars, bicycles, containers and the climbing frames stay out); the author set no fog, so the map has none. Bots: props won 29 of 48 (60%, band 25-65%; `players_per_hunter` 4.0, 270 s rounds; terrain as stepped ground) |
-| `ph_library` | Mikey | https://steamcommunity.com/sharedfiles/filedetails/?id=230076815 (workshop item, `ph_library_final.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Prop coverage: 159 of 185 props placed (86%) [26 dropped models]. Bots: props won 11 of 24 at 4 per hunter, 150 s rounds |
-| `ph_mountainresort` | prvec | https://steamcommunity.com/sharedfiles/filedetails/?id=2312309380 (workshop item, `gm_mountainresort.bsp`; converted with `--terrain --floor=1.2 --min-size=0.5`) | Workshop terms: "Do not reupload any content. Also it cannot be used in paid work you do without my consent"; no licence permitting redistribution is stated. **Flagged: the owner decided to convert it anyway; credit, link and removal on request is the arrangement, and this map is removed on request by the author.** Only the layout is used; textures and models are free replacements. |
-| `ph_deco_mansion` | Gastly_Furby_777 | https://steamcommunity.com/sharedfiles/filedetails/?id=3698815153 (workshop item) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Every texture, model and sound is replaced by the game's own CC0 stand-ins; the author's packed textures and music are not carried. 4353 boxes (box budget: `--merge-boxes --min-box-volume=0.05 --min-box-thickness=0.15`, trim detail dropped), 811 props placed. Bots: props won 8 of 24 at 4 per hunter |
-| `ph_sunken_resort` | Praisemantas | https://steamcommunity.com/sharedfiles/filedetails/?id=3376822715 (workshop item, `gm_apresort.bsp`) | No licence stated on the Workshop page. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. The layout is kept; every texture, model, sound and sign is replaced with the game's own free stand-ins, and none of the author's art ships. Prop coverage: 189 props placed; 8 prop and 4 hunter starts (the author gave six, `tools/add_spawns.py` adds the rest on the levels they use) |
-| `ph_villa` | korka007 | https://steamcommunity.com/sharedfiles/filedetails/?id=2633639653 (workshop item) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Textures, models and sounds are free stand-ins. Prop coverage: 72 props placed. Bots: props won 13 of 24 at 2 per hunter |
-| `ph_functionalist_night` | VITAPLEX | https://steamcommunity.com/sharedfiles/filedetails/?id=3382694345 (workshop item, `gm_funkis_night.bsp`) | No licence stated on the Workshop page; nothing forbids porting or sharing. Credit, link and removal on request is the arrangement: **this map is removed on request by the author**. Every texture, model and sound is replaced by the game's own CC0 stand-ins; the author's packed models and radio tracks are not carried |
+| `ph_abandoned_church` (Abandoned Church) | Z(Rus) | [GameBanana](https://gamebanana.com/mods/61478) | CC BY-NC-ND 4.0 |
+| `ph_abandoned_hotel` (Abandoned Hotel) | Ethosaur | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=324656288) | none stated |
+| `ph_airbus` (Airbus) | Officer_B (uploaded by Zaratusa) | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=253297309) | none stated |
+| `ph_apartment` (Apartment) | Tib | [GameBanana](https://gamebanana.com/mods/61479) | CC BY-NC-ND 4.0 |
+| `ph_autumngetaway` (Autumn Getaway) | I am tired | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3439942760) | none stated |
+| `ph_bank` (Bank) | EHOT | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=667484197) | none stated |
+| `ph_bikinibottom` (Bikini Bottom) | iitzRayD | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1123262520) | none stated |
+| `ph_cyber_dinner` (Cyber Diner) | MiniYLITKA | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3594394752) | none stated |
+| `ph_deco_mansion` (Deco Mansion) | Gastly_Furby_777 | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3698815153) | none stated |
+| `ph_elementary_school` (Elementary School) | Ethosaur | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=331545400) | none stated |
+| `ph_frontyard` (Front Yard) | axoh | [GameBanana](https://gamebanana.com/mods/398632) | none stated |
+| `ph_functionalist_night` (Functionalist Night) | VITAPLEX | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3382694345) | none stated |
+| `ph_gas_station` (Gas Station) | Kung Fu Jesus | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=233540367) | none stated |
+| `ph_hotel` (Hotel) | 1Vodker1 | [GameBanana](https://gamebanana.com/mods/61495) | CC BY-NC-ND 4.0 |
+| `ph_islandhouse` (Island House) | wolvindra | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2942742596) | none stated |
+| `ph_library` (Library) | Mikey | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=230076815) | none stated |
+| `ph_midwestapartment` (Midwest Apartment) | Punkychaz | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3037478073) | none stated |
+| `ph_mountainresort` (Mountain Resort) | prvec | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2312309380) | none stated |
+| `ph_oceanwaves` (Ocean Waves) | Gvarados | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1654704542) | none stated |
+| `ph_office221` (Presentation Office) | Z(Rus) (zeromapping) | [GameBanana](https://gamebanana.com/mods/61503) | CC BY-NC-ND 4.0 |
+| `ph_restaurant_os` (Restaurant) | Wolvindra Vinzuerio | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3270930065) | none stated |
+| `ph_rooftops_2016` (Rooftops 2016) | youmenow1 | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=534491717) | none stated |
+| `ph_sunken_resort` (Sunken Resort) | Praisemantas | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3376822715) | none stated |
+| `ph_swimmingpool` (Swimming Pool) | Wolvindra Vinzuerio | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2927317814) | none stated |
+| `ph_villa` (Villa) | korka007 | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2633639653) | none stated |
+| `ph_volcano` (Volcano) | Patrick™ | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1073300849) | none stated |
+| `ph_warehouse` (Warehouse) | Max Power | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=177889282) | none stated |
+| `ph_westerncity` (Western City) | Skate6788 | [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1738480835) | none stated |
+| `ph_wolfsmanor` (Wolf's Manor) | gruesomegit | [GameBanana](https://gamebanana.com/mods/61511) | CC BY-NC-ND 4.0 |
 
-`tools/import_bsp.py` does the conversion (`tools/bsp_read.py` is copied from game-airdrift's importer): brushes become boxes (a brush turned off the grid becomes a box with a yaw, and a wedge of a curved wall the smallest turned box round it), the author's `prop_physics*` and `prop_dynamic*` become catalogue props, the start entities of either team are shared between the teams. Door leaves the author left standing ajar are dropped (they close a doorway to the bots' nav), scenery out of reach of the starts is pruned, `--field=name=value` keeps a balance number (`players_per_hunter`, `hide_seconds`) across reruns, and `--drop-beside` and `--clear` take away the props that wall a place off, as named by the `PH_BOTS_TRACE=1` "cut off" lines of headless_bots (ph_office221 uses both: a row of cabinets a hand's width off the lobby wall, and a sunken cubby of counters too tall to step over). A map the author left as a developer grid is given suburban surfaces by shape with `--style=yard` (ph_frontyard); a skinned map keeps the surfaces its material names say. Unlike the generated maps above, an imported map's JSON is **not** rewritten by `build_maps.py`; rerun the importer with the original `.bsp`.
+"None stated" means the source page gives no licence. A few Workshop pages carry extra terms, for example `ph_mountainresort` forbids re-uploading; it is converted by the owner's decision and removed on request.
 
-## How they are made
+If you made one of these maps and want it removed, open an issue at <https://github.com/zees-games/mg-prop-hunt-maps/issues> and it goes.
 
-`tools/build_maps.py` writes every document in `maps/`. A wall with its doors and windows, a room with its floor, ceiling and lights, and a furnished classroom are one call each, and every prop is placed by where it stands.
+## Building the maps
+
+`tools/build_maps.py` writes the four own maps. Walls with doors and windows, rooms with floor, ceiling and lights, and furnished classrooms are one call each.
 
 ```bash
 python3 tools/build_maps.py                # rewrite maps/*.json
-python3 tools/build_maps.py --check        # exit 1 if a file differs from what the builder writes
-python3 tools/build_maps.py --sync-sizes   # copy prop sizes from ../mg-prop-hunt after it measures new models
+python3 tools/build_maps.py --check        # exit 1 if a file differs from the builder's output
+python3 tools/build_maps.py --sync-sizes   # copy prop sizes from ../mg-prop-hunt
 ```
 
-The JSON is still what the game reads and is committed; CI runs `--check`, so a hand edit to a built document is caught instead of being lost on the next build. Hand-written documents the builder does not produce are fine too: anything in `maps/` with a `.json` extension is loaded.
+The JSON is committed and CI runs `--check`. The builder moves a spawn that sits under a prop or wall to the nearest clear spot, and refuses to write a map with furniture in a doorway. Hand-written documents are fine too: any `.json` file in `maps/` loads.
 
-The builder moves any spawn that a prop or a wall was put on top of to the nearest clear spot and says so. It refuses to write a map with furniture in a doorway or out in the middle of a hallway, and names the piece. Every map is then checked by mg-prop-hunt's `examples/headless_maps.tscn`: it fits on the wire, every prop is one the game knows, every spawn has a floor and room for a person, no prop is sunk into a wall, and every prop stands on something.
+Converted maps come from `tools/import_bsp.py`. It turns brushes into boxes, the author's physics and dynamic props into catalogue props, and shares start points between the teams. Useful flags: `--field=name=value` keeps a balance number such as `players_per_hunter` across reruns, `--drop-beside` and `--clear` remove props that wall a place off, `--style=yard` dresses a grid-textured map, `--terrain` converts ground heightfields. Rerun the importer with the original `.bsp`; `build_maps.py` does not touch imported maps.
 
-## License
+mg-prop-hunt's `examples/headless_maps.tscn` checks every map: size on the wire, known props, spawns with floor and headroom, no prop sunk in a wall, every prop standing on something.
 
-MIT. See [LICENSE](LICENSE). The furniture and nature models the maps name are Kenney's (CC0) and live in mg-prop-hunt.
+## Licence
+
+MIT, see [LICENSE](LICENSE). The furniture and nature models are Kenney's (CC0) and live in mg-prop-hunt. The converted maps keep the licences listed above.
