@@ -4,7 +4,7 @@ A map is a JSON document, not a scene. The server reads every `.json` file in it
 
 ## Using it
 
-[dot-bootstrap](https://github.com/modcommunity/dot-bootstrap) clones this repository next to mg-prop-hunt and links it in as `maps/`. Run `./game.sh` in mg-prop-hunt and you play these maps. On a server they are delivered as one pack (`prophunt_maps`), which `./game.sh online` and `./game.sh server` build for you.
+[dot-bootstrap](https://github.com/gamespice-platform/bootstrap) clones this repository next to mg-prop-hunt and links it in as `maps/`. Run `./game.sh` in mg-prop-hunt and you play these maps. On a server they are delivered as one pack (`prophunt_maps`), which `./game.sh online` and `./game.sh server` build for you.
 
 ## Our maps
 
