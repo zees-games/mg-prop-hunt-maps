@@ -48703,6 +48703,15 @@
    "yaw": 90.0
   },
   {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    -13.844,
+    2.369,
+    11.67
+   ],
+   "yaw": 217.674
+  },
+  {
    "id": "furniture_laptop",
    "at": [
     -13.344,
@@ -48712,6 +48721,15 @@
    "yaw": 94.0
   },
   {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    -13.344,
+    2.369,
+    11.67
+   ],
+   "yaw": 188.5
+  },
+  {
    "id": "furniture_laptop",
    "at": [
     -13.344,
@@ -48719,6 +48737,15 @@
     11.17
    ],
    "yaw": 96.8
+  },
+  {
+   "id": "furniture_bookcase_closed_wide",
+   "at": [
+    -13.344,
+    2.216,
+    11.17
+   ],
+   "yaw": 88.3
   },
   {
    "id": "food_pot",

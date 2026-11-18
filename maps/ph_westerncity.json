@@ -86130,6 +86130,15 @@
    "yaw": 90.0
   },
   {
+   "id": "furniture_laptop",
+   "at": [
+    7.976,
+    3.188,
+    0.894
+   ],
+   "yaw": 90.0
+  },
+  {
    "id": "survival_bottle",
    "at": [
     14.097,

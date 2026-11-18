@@ -5,6 +5,7 @@
                          [--terrain] [--clear=x0,z0,x1,z1] [--drop-beside=x,z,kind] [--field=name=number]
                          [--carve=x0,z0,x1,z1] [--prune-exposed=MAX[,SPACING]] [--report-exposure]
                          [--add-clusters=N[,PER[,MAXEXPOSURE[,LANE]]]]
+                         [--max-drop=METRES] [--restack-strict]
                          [--max-boxes=N] [--max-wire=BYTES] [--in=FILE] [--out=FILE]
 
 tools/reimport.py does not reproduce the committed documents (the importer has moved on since they
@@ -65,8 +66,13 @@ def main(argv):
     carves = []
     budget = {}
     exposed = report = clusters = None
+    max_drop, strict = 0.0, False
     for a in argv[1:]:
-        if a.startswith("--out="):
+        if a.startswith("--max-drop="):
+            max_drop = float(a[11:])
+        elif a == "--restack-strict":
+            strict = True
+        elif a.startswith("--out="):
             out = a[6:]
         elif a == "--widen-doors":
             widen = True
@@ -141,7 +147,7 @@ def main(argv):
         # the shared cap and wire fit, then the props the cut boxes left hanging (the importer's last passes)
         ib.docboxes.apply_cap(doc, budget, size_of=ib.build_maps.size_of, footprint=ib.build_maps.footprint)
     doc["boxes"] = [b for b in doc["boxes"] if min(b["size"]) > 0.005]
-    print("audit: dropped %d props sunk in a wall or standing on nothing" % ib.audit_props(doc))
+    print("audit: dropped %d props sunk in a wall or with no support to land on" % ib.audit_props(doc, max_drop, strict))
     if out == path and json.dumps(doc, sort_keys=True) == before:
         print("unchanged", out)
         return

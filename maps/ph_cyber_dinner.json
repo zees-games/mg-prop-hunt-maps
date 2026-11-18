@@ -66419,6 +66419,32 @@
   {
    "id": "nature_campfire_logs",
    "at": [
+    -0.422,
+    -11.537,
+    39.595
+   ],
+   "yaw": 90.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -64.672,
+    -11.537,
+    -8.87
+   ]
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -59.763,
+    -11.537,
+    3.395
+   ],
+   "yaw": 15.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
     -0.282,
     -11.887,
     14.173
@@ -67226,6 +67252,40 @@
     0.969
    ],
    "yaw": 105.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    8.2,
+    -11.232,
+    0.263
+   ]
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    7.313,
+    -11.232,
+    -25.747
+   ]
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -46.253,
+    -11.232,
+    -16.081
+   ],
+   "yaw": 270.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    13.798,
+    -11.232,
+    -33.824
+   ],
+   "yaw": 270.0
   },
   {
    "id": "food_bottle_oil",
@@ -68793,6 +68853,14 @@
     20.688
    ],
    "yaw": 225.0
+  },
+  {
+   "id": "nature_campfire_logs",
+   "at": [
+    -64.672,
+    -11.381,
+    -8.87
+   ]
   },
   {
    "id": "food_carton",
