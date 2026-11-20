@@ -71,6 +71,10 @@ Converted maps come from `tools/import_bsp.py`. It turns brushes into boxes, the
 
 mg-prop-hunt's `examples/headless_maps.tscn` checks every map: size on the wire, known props, spawns with floor and headroom, no prop sunk in a wall, every prop standing on something.
 
+## Quality and ongoing improvement
+
+The maps, models, textures and sounds in this pack are being improved over time, and some of them are low quality today. Improvement is driven by the Nightly queue, a work queue where agents pick up items, and by a visual judge loop that views rendered frames and files defects until each asset passes repeated clean reviews. Known defects are filed there and fixed in later releases, and the screenshots here are regenerated as the assets improve.
+
 ## Licence
 
 MIT, see [LICENSE](LICENSE). The furniture and nature models are Kenney's (CC0) and live in mg-prop-hunt. The converted maps keep the licences listed above.
